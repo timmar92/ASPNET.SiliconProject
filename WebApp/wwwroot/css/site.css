@@ -1048,3 +1048,60 @@ footer .container .social-media {
   display: flex;
   gap: 20px;
 }
+
+.manageboard .container {
+  height: 100%;
+  display: grid;
+}
+@media (min-width: 992px) {
+  .manageboard .container {
+    grid-template-columns: 1fr 45%;
+    margin-top: 40px;
+  }
+}
+.manageboard .container .imagebox img {
+  margin-top: 40px;
+  width: 100%;
+}
+@media (min-width: 992px) {
+  .manageboard .container .imagebox img {
+    margin-top: 0px;
+  }
+}
+.manageboard .container .point-list {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: #565973;
+  line-height: 160%;
+  font-weight: 400;
+  color: #565973;
+  font-family: "Manrope", sans-serif;
+  font-size: 16px !important;
+}
+.manageboard .container .point-list .checkbox-icon {
+  margin-right: 5px;
+}
+.manageboard .container .point-list .manageboard-button {
+  margin-top: 25px;
+}
+@media (min-width: 992px) {
+  .manageboard .container .point-list .manageboard-button {
+    width: 160px;
+  }
+}
+.manageboard .container .point-list h2 {
+  color: #0B0F19;
+  margin-bottom: 25px;
+}
+@media (min-width: 992px) {
+  .manageboard .container .point-list h2 {
+    margin-top: 80px;
+  }
+}
+@media (min-width: 992px) {
+  .manageboard .container .point-list {
+    text-align: left;
+    margin-left: 16%;
+  }
+}

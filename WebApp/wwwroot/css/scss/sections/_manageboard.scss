@@ -1,0 +1,58 @@
+.manageboard {
+
+    .container {
+        height: 100%;
+        display: grid;
+
+        @include lg {
+            grid-template-columns: 1fr 45%;
+            margin-top: 40px;
+        }
+
+        .imagebox {
+            img {
+                margin-top: 40px;
+                width: 100%;
+
+                @include lg {
+                    margin-top: 0px;
+                }
+            }
+        }
+
+        .point-list {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            color: $gray-700;
+            @include text-m;
+
+            .checkbox-icon {
+                margin-right: 5px;
+            }
+
+            .manageboard-button {
+                margin-top: 25px;
+
+                @include lg {
+                    width: 160px;
+                }
+            }
+
+
+            h2 {
+                color: $gray-900;
+                margin-bottom: 25px;
+
+                @include lg {
+                    margin-top: 80px;
+                }
+            }
+
+            @include lg {
+                text-align: left;
+                margin-left: 16%;
+            }
+        }
+    }
+}
