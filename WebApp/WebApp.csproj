@@ -11,10 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="compilerconfig.json" />
     <None Include="wwwroot\css\scss\components\_buttons.scss" />
     <None Include="wwwroot\css\scss\components\_forms.scss" />
@@ -52,6 +48,17 @@
     <None Include="wwwroot\images\silicon-solid-logo-dark-theme.svg" />
     <None Include="wwwroot\images\silicon-solid-logo-light-theme.svg" />
     <None Include="wwwroot\images\Slider.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="microsoft.entityframeworkcore.design" Version="8.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
