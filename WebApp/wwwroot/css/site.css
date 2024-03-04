@@ -873,6 +873,7 @@ footer .container .social-media {
 }
 #signin .container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;
@@ -887,6 +888,16 @@ footer .container .social-media {
     width: 30%;
   }
 }
+#signin .container .error-message {
+  padding: 10px 40px;
+  color: #33354D;
+  background-color: #F5D7DA;
+  border: 1px solid #EF4444 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
 #signin .container form {
   padding: 1rem;
 }
@@ -896,18 +907,18 @@ footer .container .social-media {
   grid-template-columns: 1fr;
   grid-template-areas: "email" "password" "remember" "button" "forgot";
   /*                hr {
-                      grid-area: hr;
-                  }
+      grid-area: hr;
+  }
 
-                  #external-signin {
-                      grid-area: external;
-                      display: flex;
-                      gap: 1rem;
+  #external-signin {
+      grid-area: external;
+      display: flex;
+      gap: 1rem;
 
-                      a {
-                          flex: 1;
-                      }
-                  }*/
+      a {
+          flex: 1;
+      }
+  }*/
 }
 #signin .container form .content #form-email {
   grid-area: email;

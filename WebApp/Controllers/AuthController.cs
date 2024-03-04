@@ -67,12 +67,19 @@ public class AuthController : Controller
     }
 
 
-    //[HttpPost]
-    //[Route("/signin")]
-    //public async Task<IActionResult> SignIn()
-    //{
-    //    return View();
-    //}
+    [HttpPost]
+    [Route("/signin")]
+    public async Task<IActionResult> SignIn(SignInViewModel viewModel)
+    {
+        if (ModelState.IsValid) 
+        {
+
+        }
+        
+        ModelState.AddModelError("IncorrectValues", "Incorrect email or password");
+        ViewData["ErrorMessage"] = "Incorrect email or password";
+        return View(viewModel);
+    }
 
 
 }
