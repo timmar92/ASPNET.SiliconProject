@@ -1,4 +1,7 @@
-﻿<header>
+﻿
+@inject SignInManager<UserEntity> _signInManager
+
+<header>
     <div class="container">
         <a id="logo" asp-controller="Home" asp-action="Index" alt="logo"><img src="~/images/silicon-solid-logo-light-theme.svg" alt=""></a>
 
@@ -6,6 +9,10 @@
             <nav>
                 <a class="menu-link" href="#overview">Overview</a>
                 <a class="menu-link" href="#features">Features</a>
+                @if (_signInManager.IsSignedIn(User))
+                {
+                    <a class="menu-link" asp-controller="Courses" asp-action="Index">Courses</a>
+                }
                 <a class="menu-link" asp-controller="Contact" asp-action="Index">Contact</a>
             </nav>
         </div>
@@ -20,8 +27,16 @@
         </div>
 
         <div class="account-buttons">
-            <a class="btn-gray" asp-controller="Auth" asp-action="SignIn"><i class="fa-regular fa-right-to-bracket"></i><span>Sign In</span></a>
-            <a class="btn-theme" asp-controller="Auth" asp-action="SignUp"><i class="fa-regular fa-user"></i><span>Sign Up</span></a>
+            @if (_signInManager.IsSignedIn(User))
+            {
+                <a class="btn-gray" asp-controller="Auth" asp-action="SignOut"><i class="fa-solid fa-person-to-door"></i><span>Sign Out</span></a>
+                <a class="btn-theme" asp-controller="Account" asp-action="Details"><i class="fa-regular fa-user"></i><span>My Account</span></a>
+            }
+            else
+            {
+                <a class="btn-gray" asp-controller="Auth" asp-action="SignIn"><i class="fa-regular fa-right-to-bracket"></i><span>Sign In</span></a>
+                <a class="btn-theme" asp-controller="Auth" asp-action="SignUp"><i class="fa-regular fa-user"></i><span>Sign Up</span></a>
+            }
         </div>
 
         <button class="btn-mobilemenu">
