@@ -6,19 +6,19 @@ using WebApp.ViewModels;
 
 namespace WebApp.Controllers;
 
-public class AuthController : Controller
+public class AuthController(UserManager<UserEntity> userManager, SignInManager<UserEntity> signInManager) : Controller
 {
-    private readonly UserManager<UserEntity> _userManager;
-
-    public AuthController(UserManager<UserEntity> userManager)
-    {
-        _userManager = userManager;
-    }
+    private readonly UserManager<UserEntity> _userManager = userManager;
+    private readonly SignInManager<UserEntity> _signInManager = signInManager;
 
     [HttpGet]
     [Route("/signup")]
     public IActionResult SignUp()
     {
+        if (User != null)
+        {
+            return RedirectToAction("Details", "Account");
+        }
         return View();
     }
 
@@ -63,6 +63,10 @@ public class AuthController : Controller
     [Route("/signin")]
     public IActionResult SignIn()
     {
+        if (User != null)
+        {
+            return RedirectToAction("Details", "Account");
+        }
         return View();
     }
 
@@ -73,7 +77,11 @@ public class AuthController : Controller
     {
         if (ModelState.IsValid) 
         {
-
+            var result = await _signInManager.PasswordSignInAsync(viewModel.Email, viewModel.Password, viewModel.RememberMe, false);
+            if (result.Succeeded)
+            {
+                return RedirectToAction("Details", "Account");
+            }
         }
         
         ModelState.AddModelError("IncorrectValues", "Incorrect email or password");
