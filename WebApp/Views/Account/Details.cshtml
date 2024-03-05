@@ -1,5 +1,105 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model AccountDetailsViewModel
+
 @{
+    ViewData["Title"] = $"{Model.User.FirstName} {Model.User.LastName}";
 }
+
+<div class="container">
+    <section id="account-details">
+        <aside>
+            <div class="profile-info">
+                <img src="/images/profile-placeholder.svg" alt="@($"{Model.User.FirstName} {Model.User.LastName}'s profile image")" />
+                <h5>@($"{Model.User.FirstName} {Model.User.LastName}")</h5>
+                <p>@Model.User.Email</p>
+            </div>
+
+            <nav>
+                <a class="btn-theme-s" asp-controller="Account" asp-action="Details">Account Details</a>
+                <a class="btn-transparent" asp-controller="Auth" asp-action="SignOut">Sign out</a>
+            </nav>
+        </aside>
+
+        <div class="details">
+            <section class="basic-info">
+                <form method="post" asp-controller="Account" asp-action="BasicInfo">
+                    <h2>Account Details</h2>
+                    <h5>Basic Info</h5>
+
+                    <div class="content">
+                        <div id="form-firstname" class="input-group">
+                            <label asp-for="User.FirstName"></label>
+                            <span asp-validation-for="User.FirstName"></span>
+                            <input asp-for="User.FirstName" />
+                        </div>
+
+                        <div id="form-lastname" class="input-group">
+                            <label asp-for="User.LastName"></label>
+                            <span asp-validation-for="User.LastName"></span>
+                            <input asp-for="User.LastName" />
+                        </div>
+
+                        <div id="form-email" class="input-group">
+                            <label asp-for="User.Email"></label>
+                            <span asp-validation-for="User.Email"></span>
+                            <input asp-for="User.Email" />
+                        </div>
+
+                        <div id="form-phone" class="input-group">
+                            <label asp-for="User.PhoneNumber"></label>
+                            <span asp-validation-for="User.PhoneNumber"></span>
+                            <input asp-for="User.PhoneNumber" />
+                        </div>
+
+                        <div id="form-bio" class="input-group">
+                            <label asp-for="User.Biography">Bio <span>(optional)</span></label>
+                            <textarea asp-for="User.Biography"></textarea>
+                        </div>
+
+                        <div class="form-buttons">
+                            <button class="btn-gray" type="reset">Cancel</button>
+                            <button class="btn-theme" type="submit">Save changes</button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+            <hr />
+            <section class="address-info">
+                <form method="post" asp-controller="Account" asp-action="AddressInfo">
+                    <h5>Address</h5>
+
+                    <div class="content">
+                        <div id="form-addressline-1" class="input-group">
+                            <label asp-for="Address.AddressLine_1"></label>
+                            <span asp-validation-for="Address.AddressLine_1"></span>
+                            <input asp-for="Address.AddressLine_1" />
+                        </div>
+
+                        <div id="form-addressline-2" class="input-group">
+                            <label asp-for="Address.AddressLine_2">Address line 2 <span>(optional)</span></label>
+                            <span asp-validation-for="Address.AddressLine_2"></span>
+                            <input asp-for="Address.AddressLine_2" />
+                        </div>
+
+                        <div id="form-postalcode" class="input-group">
+                            <label asp-for="Address.PostalCode"></label>
+                            <span asp-validation-for="Address.PostalCode"></span>
+                            <input asp-for="Address.PostalCode" />
+                        </div>
+
+                        <div id="form-city" class="input-group">
+                            <label asp-for="Address.City"></label>
+                            <span asp-validation-for="Address.City"></span>
+                            <input asp-for="Address.City" />
+                        </div>
+
+                        <div class="form-buttons">
+                            <button class="btn-gray" type="reset">Cancel</button>
+                            <button class="btn-theme" type="submit">Save changes</button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </div>
+
+    </section>
+</div>

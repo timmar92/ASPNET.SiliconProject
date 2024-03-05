@@ -11,6 +11,8 @@ public class AuthController(UserManager<UserEntity> userManager, SignInManager<U
     private readonly UserManager<UserEntity> _userManager = userManager;
     private readonly SignInManager<UserEntity> _signInManager = signInManager;
 
+
+    #region Sign Up
     [HttpGet]
     [Route("/signup")]
     public IActionResult SignUp()
@@ -21,7 +23,6 @@ public class AuthController(UserManager<UserEntity> userManager, SignInManager<U
         }
         return View();
     }
-
 
 
     [HttpPost]
@@ -55,10 +56,10 @@ public class AuthController(UserManager<UserEntity> userManager, SignInManager<U
 
         return View(viewModel);
     }
+    #endregion
 
 
-
-
+    #region Sign In
     [HttpGet]
     [Route("/signin")]
     public IActionResult SignIn()
@@ -88,8 +89,10 @@ public class AuthController(UserManager<UserEntity> userManager, SignInManager<U
         ViewData["ErrorMessage"] = "Incorrect email or password";
         return View(viewModel);
     }
+    #endregion
 
 
+    #region Sign Out
     [HttpGet]
     [Route("/signout")]
     public new async Task<IActionResult> SignOut()
@@ -97,5 +100,5 @@ public class AuthController(UserManager<UserEntity> userManager, SignInManager<U
         await _signInManager.SignOutAsync();
         return RedirectToAction("Index", "Home");
     }
-
+    #endregion
 }
