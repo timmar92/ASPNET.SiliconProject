@@ -1,11 +1,13 @@
 ﻿using Infrastructure.Entities;
 using Infrastructure.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using WebApp.ViewModels;
 
 namespace WebApp.Controllers;
 
+[Authorize]
 public class AccountController : Controller
 {
     private readonly SignInManager<UserEntity> _signInManager;
@@ -23,10 +25,6 @@ public class AccountController : Controller
     [Route("/account/details")]
     public async Task<IActionResult> Details()
     {
-        if (!_signInManager.IsSignedIn(User))
-        {
-            return RedirectToAction("SignIn", "Auth");
-        }
 
         var userEntity = await _userManager.GetUserAsync(User);
 
