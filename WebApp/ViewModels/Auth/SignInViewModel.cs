@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebApp.ViewModels;
+namespace WebApp.ViewModels.Auth;
 
 public class SignInViewModel
 {

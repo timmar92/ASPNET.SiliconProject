@@ -27,20 +27,32 @@ public class Repo<TEntity>(DataContext context) where TEntity : class
 
     }
 
-
-
-    public async Task<TEntity> UpdateEntityAsync(Expression<Func<TEntity, bool>> predicate, TEntity updatedEntity)
+    public async Task<TEntity> GetOneAsync(Expression<Func<TEntity, bool>> predicate)
     {
         try
         {
             var result = await _context.Set<TEntity>().FirstOrDefaultAsync(predicate);
             if (result != null)
             {
-                _context.Entry(result).CurrentValues.SetValues(updatedEntity);
-                await _context.SaveChangesAsync();
-                return updatedEntity;
+                return result;
             }
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine("ERROR :: " + ex.Message);
+        }
+        return null!;
+    }
 
+
+
+    public async Task<TEntity> UpdateOneAsync(TEntity entity)
+    {
+        try
+        {
+            _context.Set<TEntity>().Update(entity);
+            await _context.SaveChangesAsync();
+            return entity;
         }
         catch (Exception ex)
         {

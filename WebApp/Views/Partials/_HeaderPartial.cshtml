@@ -8,10 +8,14 @@
         <div id="menu">
             <nav>
                 <a class="menu-link" href="#overview">Overview</a>
-                <a class="menu-link" href="#features">Features</a>
+
                 @if (_signInManager.IsSignedIn(User))
                 {
                     <a class="menu-link" asp-controller="Courses" asp-action="Index">Courses</a>
+                }
+                else
+                {
+                    <a class="menu-link" href="#features">Features</a>
                 }
                 <a class="menu-link" asp-controller="Contact" asp-action="Index">Contact</a>
             </nav>
