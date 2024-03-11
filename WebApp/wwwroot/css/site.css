@@ -292,6 +292,26 @@ a:hover {
   color: #FFFFFF;
 }
 
+.btn-external-signin {
+  border-radius: 6px;
+  text-align: center;
+  font-size: 16px;
+  padding: 12px 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  background: #EFF2FC;
+  color: #33354D;
+  font-weight: 600;
+  border: none;
+}
+.btn-external-signin:hover {
+  text-decoration: none;
+  background: #565973;
+  color: #FFFFFF;
+}
+
 .btn-switch {
   display: flex;
   align-items: center;
@@ -940,8 +960,13 @@ footer .container .social-media {
 }
 #signin .container form .content .external-providers .providers {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 20px;
+}
+@media (min-width: 768px) {
+  #signin .container form .content .external-providers .providers {
+    flex-direction: row;
+  }
 }
 
 #account-details {

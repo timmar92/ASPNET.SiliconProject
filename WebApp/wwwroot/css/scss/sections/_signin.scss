@@ -78,9 +78,12 @@
 
                     .providers {
                         display: flex;
-                        flex-direction: row;
+                        flex-direction: column;
                         gap: 20px;
 
+                        @include md {
+                            flex-direction: row;
+                        }
                     }
                 }
             }

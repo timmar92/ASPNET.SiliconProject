@@ -2,6 +2,7 @@ using Infrastructure.Contexts;
 using Infrastructure.Entities;
 using Infrastructure.Repositories;
 using Infrastructure.Services;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.EntityFrameworkCore;
 using WebApp.Helpers.Middlewares;
 
@@ -42,6 +43,14 @@ builder.Services.AddAuthentication().AddFacebook(x =>
     x.AppSecret = "44eaac082161d3e1473ee46b1c1926fa";
     x.Fields.Add("first_name");
     x.Fields.Add("last_name");
+});
+
+builder.Services.AddAuthentication().AddGoogle(x =>
+{
+    x.ClientId = "54870833998-e35f7iksi8dftaf72crao0tbb49qjlj2.apps.googleusercontent.com";
+    x.ClientSecret = "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";
+    x.ClaimActions.MapJsonKey("given_name", "FirstName");
+    x.ClaimActions.MapJsonKey("family_name", "LastName");
 });
 
 
