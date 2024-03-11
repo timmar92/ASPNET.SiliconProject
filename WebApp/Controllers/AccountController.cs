@@ -55,9 +55,13 @@ public class AccountController : Controller
                     user.Biography = viewModel.BasicInfo.Biography;
 
                     var result = await _userManager.UpdateAsync(user);
-                    if (!result.Succeeded)
+                    if (result.Succeeded)
                     {
-                        ModelState.AddModelError("InccorectValues", "Something whent wrong, unable to save data");
+                        viewModel.BasicInfo = await PopulateBasicInfoAsync();
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("IncorrectValues", "Something whent wrong, unable to save data");
                         ViewData["ErrorMessage"] = "Something whent wrong, unable to save data";
                     }
                 }
@@ -82,7 +86,7 @@ public class AccountController : Controller
                         var result = await _addressManager.UpdateAddressAsync(address);
                         if (!result)
                         {
-                            ModelState.AddModelError("InccorectValues", "Something whent wrong, unable to save data");
+                            ModelState.AddModelError("IncorrectValues", "Something whent wrong, unable to save data");
                             ViewData["ErrorMessage"] = "Something whent wrong, unable to save data";
                         }
                     }
@@ -100,7 +104,7 @@ public class AccountController : Controller
                         var result = await _addressManager.CreateAddressAsync(address);
                         if (!result)
                         {
-                            ModelState.AddModelError("InccorectValues", "Something whent wrong, unable to save data");
+                            ModelState.AddModelError("IncorrectValues", "Something whent wrong, unable to save data");
                             ViewData["ErrorMessage"] = "Something whent wrong, unable to save data";
                         }
                     }
@@ -142,7 +146,8 @@ public class AccountController : Controller
             LastName = user.LastName,
             Email = user.Email!,
             PhoneNumber = user.PhoneNumber,
-            Biography = user.Biography
+            Biography = user.Biography,
+            IsExternalAccount = user.IsExternalAccount
         };
     }
 

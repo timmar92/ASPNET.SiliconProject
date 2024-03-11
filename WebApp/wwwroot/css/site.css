@@ -905,20 +905,7 @@ footer .container .social-media {
   display: grid;
   gap: 1rem 2rem;
   grid-template-columns: 1fr;
-  grid-template-areas: "email" "password" "remember" "button" "forgot";
-  /*                hr {
-      grid-area: hr;
-  }
-
-  #external-signin {
-      grid-area: external;
-      display: flex;
-      gap: 1rem;
-
-      a {
-          flex: 1;
-      }
-  }*/
+  grid-template-areas: "email" "password" "remember" "button" "forgot" "external";
 }
 #signin .container form .content #form-email {
   grid-area: email;
@@ -937,6 +924,24 @@ footer .container .social-media {
   grid-area: forgot;
   margin: 1rem 0 0 0;
   text-align: center;
+}
+#signin .container form .content .external-providers {
+  grid-area: external;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #E2E5F1;
+  gap: 1rem;
+  margin-top: 15px;
+}
+#signin .container form .content .external-providers h6 {
+  margin-top: 30px;
+}
+#signin .container form .content .external-providers .providers {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
 }
 
 #account-details {

@@ -36,7 +36,7 @@
                 display: grid;
                 gap: 1rem 2rem;
                 grid-template-columns: 1fr;
-                grid-template-areas: "email" "password" "remember" "button" "forgot";
+                grid-template-areas: "email" "password" "remember" "button" "forgot" "external";
 
 
                 #form-email {
@@ -61,19 +61,28 @@
                     margin: 1rem 0 0 0;
                     text-align: center;
                 }
-                /*                hr {
-                    grid-area: hr;
-                }
 
-                #external-signin {
+                .external-providers {
                     grid-area: external;
                     display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    border-top: 1px solid $gray-300;
                     gap: 1rem;
+                    margin-top: 15px;
 
-                    a {
-                        flex: 1;
+                    h6 {
+                        margin-top: 30px;
                     }
-                }*/
+
+                    .providers {
+                        display: flex;
+                        flex-direction: row;
+                        gap: 20px;
+
+                    }
+                }
             }
         }
     }

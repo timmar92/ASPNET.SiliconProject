@@ -44,6 +44,14 @@
                 <button id="form-button" class="btn-theme-s" type="submit">Sign In</button>
 
                 <a id="form-forgot-password" asp-controller="Account" asp-action="Forgot">Forgot your password?</a>
+
+                <div class="external-providers">
+                    <h6>Or sign in with your social account</h6>
+                    <div class="providers">
+                        <a class="btn-gray" asp-action="Google" asp-controller="Auth"><img src="~/images/icons/bxl-google.svg" alt="facebook login">Google</a>
+                        <a class="btn-gray" asp-action="Facebook" asp-controller="Auth"><img src="~/images/icons/bxl-facebook.svg" alt="google login">Facebook</a>
+                    </div>
+                </div>
             </div>
 
         </form>

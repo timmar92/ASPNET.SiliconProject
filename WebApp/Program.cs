@@ -16,10 +16,7 @@ builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer(builder.Configura
 builder.Services.AddScoped<UserRepository>();
 builder.Services.AddScoped<AddressRepository>();
 
-
 builder.Services.AddScoped<AddressManager>();
-
-
 
 builder.Services.AddDefaultIdentity<UserEntity>(x =>
 {
@@ -27,8 +24,6 @@ builder.Services.AddDefaultIdentity<UserEntity>(x =>
     x.SignIn.RequireConfirmedAccount = false;
     x.Password.RequiredLength = 8;
 }).AddEntityFrameworkStores<DataContext>();
-
-
 builder.Services.ConfigureApplicationCookie(x =>
 {
     x.LoginPath = "/signin";
@@ -41,7 +36,13 @@ builder.Services.ConfigureApplicationCookie(x =>
     x.SlidingExpiration = true;
 });
 
-
+builder.Services.AddAuthentication().AddFacebook(x =>
+{
+    x.AppId = "7167202596709807";
+    x.AppSecret = "44eaac082161d3e1473ee46b1c1926fa";
+    x.Fields.Add("first_name");
+    x.Fields.Add("last_name");
+});
 
 
 var app = builder.Build();

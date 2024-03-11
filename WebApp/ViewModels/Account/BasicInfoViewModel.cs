@@ -39,4 +39,6 @@ public class BasicInfoViewModel
     [Display(Name = "Bio (optional)", Prompt = "Add a short bio...")]
     public string? Biography { get; set; }
 
+    public bool IsExternalAccount { get; set; }
+
 }
