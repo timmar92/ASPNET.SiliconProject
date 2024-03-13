@@ -67,32 +67,48 @@ const checkBoxValidator = (element) => {
 }
 
 
-let forms = document.querySelectorAll('form');
-let inputs = forms[0].querySelectorAll('input');
 
-inputs.forEach(input => {
-    if (input.dataset.val === 'true') {
 
-        if (input.type === 'checkbox') {
-            input.addEventListener('change', (e) => {
-                checkBoxValidator(e.target);
-            });
+let forms = document.querySelectorAll('form')
+
+forms.forEach(form => {
+    let inputs = form.querySelectorAll('input');
+    let submitButton = form.querySelector('button[type="submit"]');
+
+    const checkFormValidity = () => {
+        if (form.checkValidity()) {
+            submitButton.disabled = false;
+        } else {
+            submitButton.disabled = true;
         }
-        else {
-            input.addEventListener('keyup', (e) => {
+    };
 
-                switch (e.target.type) {
-                    case 'text':
-                        textValidator(e.target);
-                        break;
-                    case 'email':
-                        emailValidator(e.target);
-                        break;
-                    case 'password':
-                        passwordValidator(e.target);
-                        break;
-                }
-            })
+    inputs.forEach(input => {
+        if (input.dataset.val === 'true') {
+
+            if (input.type === 'checkbox') {
+                input.addEventListener('change', (e) => {
+                    checkBoxValidator(e.target);
+                    checkFormValidity();
+                });
+            } else {
+                input.addEventListener('keyup', (e) => {
+                    switch (e.target.type) {
+                        case 'text':
+                            textValidator(e.target);
+                            break;
+                        case 'email':
+                            emailValidator(e.target);
+                            break;
+                        case 'password':
+                            passwordValidator(e.target);
+                            break;
+                    }
+                    checkFormValidity();
+                });
+            }
         }
-    }
-})
+    });
+
+    checkFormValidity();
+});

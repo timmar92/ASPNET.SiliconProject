@@ -87,6 +87,28 @@
     }
 }
 
+.btn-account-nav {
+    @include button;
+    border: none;
+    color: $gray-800;
+
+    &:hover {
+        text-decoration: none;
+        background: $gray-700;
+        color: $white;
+    }
+
+    &.active {
+        @include button;
+        @include theme-shadow;
+        background: $theme;
+        color: $white;
+        padding-top: 10px;
+        padding-bottom: 13px;
+        border: none;
+    }
+}
+
 .btn-switch {
     display: flex;
     align-items: center;

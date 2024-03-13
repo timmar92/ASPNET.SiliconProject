@@ -11,6 +11,7 @@ public class BasicInfoViewModel
     [Required(ErrorMessage = "A valid first name is required")]
     [DataType(DataType.Text)]
     [Display(Name = "First name", Prompt = "Enter your first name")]
+    [MinLength(2, ErrorMessage = "First name is too short")]
     public string FirstName { get; set; } = null!;
 
 
@@ -18,6 +19,7 @@ public class BasicInfoViewModel
     [Required(ErrorMessage = "A valid last name is required")]
     [DataType(DataType.Text)]
     [Display(Name = "Last name", Prompt = "Enter your last name")]
+    [MinLength(2, ErrorMessage = "Last name is too short")]
     public string LastName { get; set; } = null!;
 
 
@@ -25,6 +27,7 @@ public class BasicInfoViewModel
     [Required(ErrorMessage = "A valid email address is required")]
     [DataType(DataType.EmailAddress)]
     [Display(Name = "Email address", Prompt = "Enter your email address")]
+    [RegularExpression(@"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$", ErrorMessage = "Invalid email")]
     public string Email { get; set; } = null!;
 
 

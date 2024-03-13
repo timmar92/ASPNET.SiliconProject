@@ -1,0 +1,62 @@
+﻿@model AccountSecurityViewModel
+
+@{
+    ViewData["Title"] = $"{Model.ProfileInfo.FirstName} {Model.ProfileInfo.LastName}";
+}
+
+<div class="container">
+    <section id="account-details">
+        <aside>
+            <div class="profile-info">
+                <img src="/images/@Model.ProfileInfo.ProfileImageUrl" alt="@($"{Model.ProfileInfo.FirstName} {Model.ProfileInfo.LastName}'s profile image")" />
+                <h5>@($"{Model.ProfileInfo.FirstName} {Model.ProfileInfo.LastName}")</h5>
+                <p>@Model.ProfileInfo.Email</p>
+            </div>
+
+            <nav>
+                <a class="btn-account-nav @(ViewContext.RouteData.Values["Action"].ToString() == "Details" ? "active" : "")" asp-controller="Account" asp-action="Details">Account Details</a>
+                <a class="btn-account-nav @(ViewContext.RouteData.Values["Action"].ToString() == "Security" ? "active" : "")" asp-controller="Account" asp-action="Security">Security</a>
+                <a class="btn-account-nav @(ViewContext.RouteData.Values["Action"].ToString() == "SignOut" ? "active" : "")" asp-controller="Account" asp-action="SignOut">Saved Courses</a>
+                <a class="btn-account-nav" asp-controller="Auth" asp-action="SignOut">Sign out</a>
+
+            </nav>
+        </aside>
+
+        <div class="details">
+            <section class="basic-info">
+                <form method="post" asp-controller="Account" asp-action="Security" novalidate>
+                    <h2>Account Details</h2>
+                    <h5>Basic Info</h5>
+
+                    <div class="content">
+                        <div id="form-firstname" class="input-group">
+                            <label asp-for="ProfileInfo.FirstName"></label>
+                            <span asp-validation-for="ProfileInfo.FirstName"></span>
+                            <input asp-for="ProfileInfo.FirstName" />
+                        </div>
+
+                        <div id="form-lastname" class="input-group">
+                            <label asp-for="ProfileInfo.LastName"></label>
+                            <span asp-validation-for="ProfileInfo.LastName"></span>
+                            <input asp-for="ProfileInfo.LastName" />
+                        </div>
+
+                        <div id="form-email" class="input-group">
+                            <label asp-for="ProfileInfo.Email"></label>
+                            <span asp-validation-for="ProfileInfo.Email"></span>
+                            <input asp-for="ProfileInfo.Email" />
+                        </div>
+
+                        <div class="form-buttons">
+                            <button class="btn-gray" type="reset">Cancel</button>
+                            <button class="btn-theme" type="submit">Change password</button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+            <hr />
+            </section>
+        </div>
+
+    </section>
+</div>

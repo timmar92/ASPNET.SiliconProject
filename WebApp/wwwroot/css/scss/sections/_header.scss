@@ -53,6 +53,13 @@ header {
             @include lg {
                 display: flex;
             }
+
+            .account-shortcut {
+                img {
+                    width: 40px;
+                    height: 40px;
+                }
+            }
         }
 
         .btn-mobilemenu {

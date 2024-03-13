@@ -33,8 +33,8 @@
         <div class="account-buttons">
             @if (_signInManager.IsSignedIn(User))
             {
-                <a class="btn-gray" asp-controller="Auth" asp-action="SignOut"><i class="fa-solid fa-person-to-door"></i><span>Sign Out</span></a>
-                <a class="btn-theme" asp-controller="Account" asp-action="Details"><i class="fa-regular fa-user"></i><span>My Account</span></a>
+                <a class="account-shortcut" asp-controller="Account" asp-action="Details"><img src="/images/profile-placeholder.svg" alt="profile image" /></a>
+
             }
             else
             {

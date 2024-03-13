@@ -189,7 +189,7 @@ public class AuthController(UserManager<UserEntity> userManager, SignInManager<U
         {
             var userEntity = new UserEntity
             {
-                FirstName = info.Principal.FindFirstValue(ClaimTypes.Name)!,
+                FirstName = info.Principal.FindFirstValue(ClaimTypes.GivenName)!,
                 LastName = info.Principal.FindFirstValue(ClaimTypes.Surname)!,
                 Email = info.Principal.FindFirstValue(ClaimTypes.Email)!,
                 UserName = info.Principal.FindFirstValue(ClaimTypes.Email)!,

@@ -55,6 +55,7 @@ public class AccountController : Controller
                     user.Biography = viewModel.BasicInfo.Biography;
 
                     var result = await _userManager.UpdateAsync(user);
+
                     if (result.Succeeded)
                     {
                         viewModel.BasicInfo = await PopulateBasicInfoAsync();
@@ -131,6 +132,7 @@ public class AccountController : Controller
             FirstName = user!.FirstName,
             LastName = user.LastName,
             Email = user.Email!,
+            IsExternalAccount = user.IsExternalAccount
         };
     }
 
@@ -172,6 +174,24 @@ public class AccountController : Controller
 
         return new AddressInfoViewModel();
     }
+
+
+    #endregion
+
+
+    #region Security
+
+    [HttpGet]
+    [Route("/account/security")]
+    public async Task<IActionResult> Security()
+    {
+        var viewModel = new AccountSecurityViewModel
+        {
+            ProfileInfo = await PopulateProfileInfoAsync()
+        };
+        return View(viewModel);
+    }
+
     #endregion
 }
 

@@ -312,6 +312,40 @@ a:hover {
   color: #FFFFFF;
 }
 
+.btn-account-nav {
+  border-radius: 6px;
+  text-align: center;
+  font-size: 14px;
+  padding: 8px 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  border: none;
+  color: #33354D;
+}
+.btn-account-nav:hover {
+  text-decoration: none;
+  background: #565973;
+  color: #FFFFFF;
+}
+.btn-account-nav.active {
+  border-radius: 6px;
+  text-align: center;
+  font-size: 14px;
+  padding: 8px 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0px 8px 18px -8px rgba(99, 102, 241, 0.9);
+  background: #6366F1;
+  color: #FFFFFF;
+  padding-top: 10px;
+  padding-bottom: 13px;
+  border: none;
+}
+
 .btn-switch {
   display: flex;
   align-items: center;
@@ -597,6 +631,10 @@ header .container .account-buttons {
   header .container .account-buttons {
     display: flex;
   }
+}
+header .container .account-buttons .account-shortcut img {
+  width: 40px;
+  height: 40px;
 }
 header .container .btn-mobilemenu {
   grid-area: mobile;

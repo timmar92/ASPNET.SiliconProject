@@ -14,8 +14,10 @@
             </div>
 
             <nav>
-                <a class="btn-theme-s" asp-controller="Account" asp-action="Details">Account Details</a>
-                <a class="btn-transparent" asp-controller="Auth" asp-action="SignOut">Sign out</a>
+                <a class="btn-account-nav @(ViewContext.RouteData.Values["Action"].ToString() == "Details" ? "active" : "")" asp-controller="Account" asp-action="Details">Account Details</a>
+                <a class="btn-account-nav @(ViewContext.RouteData.Values["Action"].ToString() == "Security" ? "active" : "")" asp-controller="Account" asp-action="Security">Security</a>
+                <a class="btn-account-nav @(ViewContext.RouteData.Values["Action"].ToString() == "SignOut" ? "active" : "")" asp-controller="Account" asp-action="SignOut">Saved Courses</a>
+                <a class="btn-account-nav" asp-controller="Auth" asp-action="SignOut">Sign out</a>
             </nav>
         </aside>
 
@@ -131,3 +133,5 @@
 
     </section>
 </div>
+
+@await Html.PartialAsync("_ValidationScriptPartial")
