@@ -1,0 +1,160 @@
+#download-app {
+    background-color: $gray-100;
+    margin-top: 50px;
+
+    @include xl {
+        margin-top: 0;
+    }
+
+    .container {
+        padding: 50px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+
+        @include xl {
+            padding: 50px;
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            gap: 80px;
+            justify-content: start;
+            align-items: start;
+        }
+
+        @include xxl {
+            gap: 200px;
+        }
+
+        @include xxl {
+        }
+
+        .image {
+            display: none;
+
+            @include md {
+                display: block;
+            }
+        }
+
+        .content {
+
+
+            h1 {
+                text-align: center;
+                margin-top: 20px;
+                @include h2;
+
+                @include md {
+                    text-align: start;
+                }
+
+                @include lg {
+                    margin-top: 0;
+                    @include h1;
+                }
+
+                @include xl {
+                    @include h1;
+                }
+            }
+
+
+
+            .store-buttons {
+                margin-top: 50px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 50px;
+
+                @include md {
+                    margin-top: 50px;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    gap: 100px;
+                }
+
+
+                @include xl {
+                    margin-top: 50px;
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    gap: 40px;
+                }
+
+                .app-box {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    text-align: center;
+
+                    @include md {
+                        text-align: start;
+                    }
+
+
+                    @include xl {
+                        display: flex;
+                        gap: 40px;
+                        border-top: 1px solid $gray-300;
+                    }
+
+                    @include xxl {
+                        display: flex;
+                        gap: 40px;
+                        border: none;
+                    }
+
+                    p {
+                        color: $gray-600;
+                        margin-bottom: 0;
+                        margin-top: 15px;
+
+                        @include xxl {
+                            margin-top: 0;
+                        }
+                    }
+
+                    h2 {
+                        @include h3;
+
+                        @include xxl {
+                            color: $gray-900;
+                            margin-top: 10px;
+                            margin-bottom: -5px;
+                        }
+                    }
+
+                    span {
+                        color: $gray-700;
+                    }
+
+
+
+                    .title {
+                    }
+
+                    .store {
+                        margin-top: 20px;
+                        transition: all 0.3s ease-in-out;
+
+
+                        @include xl {
+                            margin-top: 75px;
+                        }
+
+
+
+                        &:hover {
+                            cursor: pointer;
+                            opacity: 0.6;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
