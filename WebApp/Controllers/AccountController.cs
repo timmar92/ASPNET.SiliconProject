@@ -36,88 +36,111 @@ public class AccountController : Controller
     #endregion
 
 
-    #region [HttpPost] Details
+    #region [HttpPost] Update Details
+
     [HttpPost]
-    [Route("/account/details")]
-    public async Task<IActionResult> Details(AccountDetailsViewModel viewModel)
+    public async Task<IActionResult> DetailsBasic([Bind(Prefix = "BasicInfo")] BasicInfoViewModel viewModel)
     {
-        if (viewModel.BasicInfo != null)
+        var user = await _userManager.GetUserAsync(User);
+
+        if (user != null)
         {
-            if (viewModel.BasicInfo.FirstName != null && viewModel.BasicInfo.LastName != null && viewModel.BasicInfo.Email != null)
+            viewModel.UserId = user.Id;
+
+            if (TryValidateModel(viewModel))
             {
-                var user = await _userManager.GetUserAsync(User);
-                if (user != null)
+                user.FirstName = viewModel.FirstName;
+                user.LastName = viewModel.LastName;
+                user.Email = viewModel.Email;
+                user.PhoneNumber = viewModel.PhoneNumber;
+                user.Biography = viewModel.Biography;
+
+                var result = await _userManager.UpdateAsync(user);
+
+                if (!result.Succeeded)
                 {
-                    user.FirstName = viewModel.BasicInfo.FirstName;
-                    user.LastName = viewModel.BasicInfo.LastName;
-                    user.Email = viewModel.BasicInfo.Email;
-                    user.PhoneNumber = viewModel.BasicInfo.PhoneNumber;
-                    user.Biography = viewModel.BasicInfo.Biography;
+                    ModelState.AddModelError("IncorrectValues", "Something went wrong, unable to save data");
+                }
+            }
+        }
 
-                    var result = await _userManager.UpdateAsync(user);
 
-                    if (result.Succeeded)
+
+        if (!ModelState.IsValid)
+        {
+            ModelState.AddModelError("IncorrectValues", "Something went wrong, unable to save data");
+            ViewData["ErrorMessage"] = "Something went wrong, unable to save data";
+            var accountDetailsViewModel = new AccountDetailsViewModel
+            {
+                BasicInfo = viewModel,
+                ProfileInfo = await PopulateProfileInfoAsync(),
+                AddressInfo = await PopulateAddressInfoAsync()
+            };
+            return View("Details", accountDetailsViewModel);
+        }
+
+        return RedirectToAction("Details");
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> DetailsAddress([Bind(Prefix = "AddressInfo")] AddressInfoViewModel viewModel)
+    {
+        var user = await _userManager.GetUserAsync(User);
+
+
+        if (TryValidateModel(viewModel))
+        {
+
+            if (user != null)
+            {
+                var address = await _addressManager.GetAddressAsync(user.Id);
+                if (address != null)
+                {
+                    address.AddressLine_1 = viewModel.AddressLine_1;
+                    address.AddressLine_2 = viewModel.AddressLine_2;
+                    address.PostalCode = viewModel.PostalCode;
+                    address.City = viewModel.City;
+
+                    var result = await _addressManager.UpdateAddressAsync(address);
+                    if (!result)
                     {
-                        viewModel.BasicInfo = await PopulateBasicInfoAsync();
+                        ModelState.AddModelError("IncorrectValues", "Something went wrong, unable to save data");
                     }
-                    else
+                }
+                else
+                {
+                    address = new AddressEntity
                     {
-                        ModelState.AddModelError("IncorrectValues", "Something whent wrong, unable to save data");
-                        ViewData["ErrorMessage"] = "Something whent wrong, unable to save data";
+                        UserId = user.Id,
+                        AddressLine_1 = viewModel.AddressLine_1,
+                        AddressLine_2 = viewModel.AddressLine_2,
+                        PostalCode = viewModel.PostalCode,
+                        City = viewModel.City
+                    };
+
+                    var result = await _addressManager.CreateAddressAsync(address);
+                    if (!result)
+                    {
+                        ModelState.AddModelError("IncorrectValues", "Something went wrong, unable to save data");
                     }
                 }
             }
         }
 
-        if (viewModel.AddressInfo != null)
+        if (!ModelState.IsValid)
         {
-            if (viewModel.AddressInfo.AddressLine_1 != null && viewModel.AddressInfo.PostalCode != null && viewModel.AddressInfo.City != null)
+            ModelState.AddModelError("IncorrectValues", "Something went wrong, unable to save data");
+            ViewData["ErrorMessage"] = "Something went wrong, unable to save data";
+            var accountDetailsViewModel = new AccountDetailsViewModel
             {
-                var user = await _userManager.GetUserAsync(User);
-                if (user != null)
-                {
-                    var address = await _addressManager.GetAddressAsync(user.Id);
-                    if (address != null)
-                    {
-                        address.AddressLine_1 = viewModel.AddressInfo.AddressLine_1;
-                        address.AddressLine_2 = viewModel.AddressInfo.AddressLine_2;
-                        address.PostalCode = viewModel.AddressInfo.PostalCode;
-                        address.City = viewModel.AddressInfo.City;
-
-                        var result = await _addressManager.UpdateAddressAsync(address);
-                        if (!result)
-                        {
-                            ModelState.AddModelError("IncorrectValues", "Something whent wrong, unable to save data");
-                            ViewData["ErrorMessage"] = "Something whent wrong, unable to save data";
-                        }
-                    }
-                    else
-                    {
-                        address = new AddressEntity
-                        {
-                            UserId = user.Id,
-                            AddressLine_1 = viewModel.AddressInfo.AddressLine_1,
-                            AddressLine_2 = viewModel.AddressInfo.AddressLine_2,
-                            PostalCode = viewModel.AddressInfo.PostalCode,
-                            City = viewModel.AddressInfo.City
-                        };
-
-                        var result = await _addressManager.CreateAddressAsync(address);
-                        if (!result)
-                        {
-                            ModelState.AddModelError("IncorrectValues", "Something whent wrong, unable to save data");
-                            ViewData["ErrorMessage"] = "Something whent wrong, unable to save data";
-                        }
-                    }
-                }
-            }
+                AddressInfo = viewModel,
+                ProfileInfo = await PopulateProfileInfoAsync(),
+                BasicInfo = await PopulateBasicInfoAsync()
+            };
+            return View("Details", accountDetailsViewModel);
         }
 
-        viewModel.ProfileInfo ??= await PopulateProfileInfoAsync();
-        viewModel.BasicInfo ??= await PopulateBasicInfoAsync();
-        viewModel.AddressInfo ??= await PopulateAddressInfoAsync();
-
-        return View(viewModel);
+        return RedirectToAction("Details");
     }
     #endregion
 
@@ -143,7 +166,7 @@ public class AccountController : Controller
 
         return new BasicInfoViewModel
         {
-            UserId = user!.Id,
+            //UserId = user!.Id,
             FirstName = user.FirstName,
             LastName = user.LastName,
             Email = user.Email!,

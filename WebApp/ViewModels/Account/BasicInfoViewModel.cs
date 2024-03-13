@@ -4,7 +4,7 @@ namespace WebApp.ViewModels.Account;
 
 public class BasicInfoViewModel
 {
-    public string UserId { get; set; } = null!;
+    public string? UserId { get; set; }
 
 
 

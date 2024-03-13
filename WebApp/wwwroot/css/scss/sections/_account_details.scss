@@ -1,8 +1,21 @@
+
+
 #account-details {
     display: grid;
     grid-template-columns: 2fr 5fr;
     gap: 150px;
     margin-bottom: 70px;
+
+    .error-message {
+        padding: 10px 40px;
+        color: $gray-800;
+        background-color: $weak-danger;
+        border: 1px solid $danger !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+    }
 
     aside {
         border-right: 1px solid $gray-300;

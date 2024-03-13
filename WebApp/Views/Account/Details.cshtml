@@ -5,7 +5,11 @@
 }
 
 <div class="container">
+
+
+
     <section id="account-details">
+
         <aside>
             <div class="profile-info">
                 <img src="/images/@Model.ProfileInfo.ProfileImageUrl" alt="@($"{Model.ProfileInfo.FirstName} {Model.ProfileInfo.LastName}'s profile image")" />
@@ -22,8 +26,20 @@
         </aside>
 
         <div class="details">
+
+
+
             <section class="basic-info">
-                <form method="post" asp-controller="Account" asp-action="Details" novalidate>
+
+                @if (!string.IsNullOrEmpty(ViewData["ErrorMessage"]?.ToString()))
+                {
+                    <div class="error-message">
+                        @ViewData["ErrorMessage"]
+                    </div>
+                }
+
+
+                <form method="post" asp-controller="Account" asp-action="DetailsBasic" novalidate>
                     <h2>Account Details</h2>
                     <h5>Basic Info</h5>
 
@@ -94,7 +110,7 @@
             </section>
             <hr />
             <section class="address-info">
-                <form method="post" asp-controller="Account" asp-action="Details" novalidate>
+                <form method="post" asp-controller="Account" asp-action="DetailsAddress" novalidate>
                     <h5>Address</h5>
 
                     <div class="content">

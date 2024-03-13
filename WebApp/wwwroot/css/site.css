@@ -1013,6 +1013,16 @@ footer .container .social-media {
   gap: 150px;
   margin-bottom: 70px;
 }
+#account-details .error-message {
+  padding: 10px 40px;
+  color: #33354D;
+  background-color: #F5D7DA;
+  border: 1px solid #EF4444 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
 #account-details aside {
   border-right: 1px solid #E2E5F1;
   padding-right: 20px;
