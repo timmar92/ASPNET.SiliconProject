@@ -1,0 +1,75 @@
+﻿@model NewsletterViewModel
+
+<section id="newsletter" class="newsletter">
+
+    <div class="container">
+
+        <div class="title">
+            <h1>Don't Want to Miss Anything?</h1>
+            <img src="/images/squigly-line.svg" alt="squiggly line" />
+        </div>
+
+        <form id="newsletter-form" method="post" asp-controller="Newsletter" asp-action="Subscribe">
+
+            <div class="input">
+                <p id="sign-up">Sign up for<br>Newsletters</p>
+
+                <div class="checkbox-group">
+
+                    <div id="checkbox_1" class="checkbox">
+                        <input asp-for="@Model.DailyNews" />
+                        <label asp-for="@Model.DailyNews">Daily Newsletter</label>
+                    </div>
+
+                    <div id="checkbox_2" class="checkbox">
+                        <input asp-for="@Model.Advertising" />
+                        <label asp-for="@Model.Advertising">Advertising Updates</label>
+                    </div>
+
+                    <div id="checkbox_3" class="checkbox">
+                        <input asp-for="@Model.WeekReview" />
+                        <label asp-for="@Model.WeekReview">Week in Review</label>
+                    </div>
+
+                    <div id="checkbox_4" class="checkbox">
+                        <input asp-for="@Model.Events" />
+                        <label asp-for="@Model.Events">Event Updates</label>
+                    </div>
+
+                    <div id="checkbox_5" class="checkbox">
+                        <input asp-for="@Model.Startups" />
+                        <label asp-for="@Model.Startups">Startups Weekly</label>
+                    </div>
+
+                    <div id="checkbox_6" class="checkbox">
+                        <input asp-for="@Model.Podcasts" />
+                        <label asp-for="@Model.Podcasts">Podcasts</label>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <span asp-validation-for="@Model.AtLeastOneCheckbox"></span>
+
+            <div class="email-group">
+
+                <label asp-for="@Model.Email"><img src="/images/newsletter-envelope.svg" /></label>
+                <span asp-validation-for="@Model.Email"></span>
+                <input asp-for="@Model.Email" />
+
+                <button id="form-button" class="btn-theme" type="submit">Subscribe<span>*</span></button>
+
+            </div>
+
+            <p> *Yes I agree to the <a asp-controller="About" asp-action="Terms">Terms</a> and <a asp-controller="About" asp-action="PrivacyPolicy">privacy policy</a>.</p>
+
+        </form>
+
+
+
+    </div>
+
+    
+
+</section>
