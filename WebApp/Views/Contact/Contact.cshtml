@@ -1,10 +1,90 @@
-﻿@{
+﻿@model ContactFormViewModel
+
+@{
     ViewData["Title"] = "Contact";
 }
 
 <section id="contact" class="contact">
+
     <div class="container">
-        <div></div>
-        <div></div>
+
+        <div class="content">
+
+            <div class="links">
+                <img src="/images/icons/home-link-icon.svg" alt="home icon" />
+                <a asp-controller="Home" asp-action="Index" >Home</a>
+                <img src="/images/icons/right-link-arrows.svg" />
+                <a asp-controller="Contact" asp-action="Contact">Contact</a>
+            </div>
+
+            <div class="title">
+                <h1>Contact Us</h1>
+            </div>
+
+            <div class="info-box">
+                <img class="icon" src="/images/icons/contact-email-icon.svg" alt="email icon" />
+                <div class="info">
+                    <h1>Email us</h1>
+                    <p>Please feel free to drop us a line. We will respond as soon as possible.</p>
+                    <a asp-controller="Contact" asp-action="Chat">Leave a message<img src="/images/icons/single-right-arrow.svg" /></a>
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="info-box">
+                <img class="icon" src="/images/icons/contat-career-icon.svg" alt="career icon" />
+                <div class="info">
+                    <h1>Careers</h1>
+                    <p>Sit ac ipsum leo lorem magna nunc mattis maecenas non vestibulum.</p>
+                    <a asp-controller="Career" asp-action="Index">Send an application<img src="/images/icons/single-right-arrow.svg" /></a>
+                </div>
+            </div>
+
+        </div>
+
+
+
     </div>
+
+    <div class="form-box">
+
+        <div class="title">
+            <h1>Get In Contact With Us</h1>
+        </div>
+        <form method="post" asp-controller="Contact" asp-action="ContactForm">
+            <div id="form-full-name">
+                <label asp-for="@Model.FullName"></label>
+                <span asp-validation-for="@Model.FullName"></span>
+                <input asp-for="@Model.FullName" />
+            </div>
+            <div id="form-email">
+                <label asp-for="@Model.Email"></label>
+                <span asp-validation-for="@Model.Email"></span>
+                <input asp-for="@Model.Email" />
+            </div>
+            <div id="form-service">
+                <label asp-for="@Model.SelectedOption"></label>
+                <select asp-for="@Model.SelectedOption">
+                    <option value="">Choose the service you are interested in</option>
+                    <option value="Courses">Courses</option>
+                    <option value="Payment">Payment</option>
+                    <option value="Technical Support">Technical Support</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div id="form-message">
+                <label asp-for="@Model.Message"></label>
+                <span asp-validation-for="@Model.Message"></span>
+                <textarea asp-for="@Model.Message"></textarea>
+            </div>
+
+            <button class="btn-theme-s" type="submit">Send Contact Request</button>
+        </form>
+    </div>
+
+    <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2209.7821305023153!2d-112.05361917547772!3d33.465886423592885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x872b120b83cce259%3A0x1b571a6f89e221ae!2s1346%20E%20McDowell%20Rd%2C%20Phoenix%2C%20AZ%2085006%2C%20USA!5e0!3m2!1ssv!2sse!4v1710500572952!5m2!1ssv!2sse" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
 </section>

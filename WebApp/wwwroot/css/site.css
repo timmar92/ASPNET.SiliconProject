@@ -539,6 +539,18 @@ form input.input-validation-error::placeholder {
 form input:focus {
   /*color: $danger;*/
 }
+form select {
+  padding: 1rem;
+  border-radius: 0.5rem !important;
+  border: 0.063rem solid #D4D7E5;
+  appearance: none;
+  background: url("/images/icons/dropdown-icon.svg") no-repeat 95% center;
+  background-size: 1.5rem;
+}
+form select.input-validation-error {
+  border: 0.063rem solid #EF4444 !important;
+  color: #EF4444;
+}
 form textarea {
   padding: 1rem;
   border-radius: 0.5rem !important;
@@ -1665,4 +1677,213 @@ footer .container .social-media {
 }
 .error-page .container a {
   padding: 15px 20px;
+}
+
+#contact {
+  background-color: #F3F6FF;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 1200px) {
+  #contact {
+    justify-content: start;
+    position: relative;
+  }
+}
+#contact .container {
+  padding-bottom: 40px;
+}
+@media (min-width: 1200px) {
+  #contact .container {
+    margin-bottom: 80px;
+  }
+}
+#contact .container .content .links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+}
+@media (min-width: 1200px) {
+  #contact .container .content .links {
+    justify-content: start;
+    margin-top: 40px;
+  }
+}
+#contact .container .content .title {
+  margin-top: 40px;
+  text-align: center;
+  border-bottom: 1px solid #E2E5F1;
+}
+@media (min-width: 1200px) {
+  #contact .container .content .title {
+    border: none;
+    text-align: start;
+  }
+}
+#contact .container .content .info-box {
+  margin-top: 40px;
+  display: grid;
+  text-align: center;
+}
+@media (min-width: 1200px) {
+  #contact .container .content .info-box {
+    display: flex;
+    text-align: start;
+    width: 400px;
+  }
+}
+#contact .container .content .info-box .icon {
+  display: none;
+}
+@media (min-width: 1200px) {
+  #contact .container .content .info-box .icon {
+    display: block;
+    margin-right: 20px;
+    margin-bottom: 40px;
+  }
+}
+#contact .container .content .info-box .info img {
+  display: block;
+}
+#contact .container .content .info-box .info a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+@media (min-width: 1200px) {
+  #contact .container .content .info-box .info a {
+    justify-content: start;
+  }
+}
+#contact .container .content .info-box h1 {
+  line-height: 160%;
+  font-weight: 400;
+  color: #565973;
+  font-family: "Manrope", sans-serif;
+  font-weight: 800;
+  color: #0B0F19;
+  font-size: 32px !important;
+}
+@media (min-width: 1200px) {
+  #contact .container .content .info-box h1 {
+    line-height: 160%;
+    font-weight: 400;
+    color: #565973;
+    font-family: "Manrope", sans-serif;
+    font-weight: 800;
+    color: #0B0F19;
+    font-size: 28px !important;
+  }
+}
+#contact .container .content hr {
+  margin-top: 30px;
+  color: #9397AD;
+}
+@media (min-width: 1200px) {
+  #contact .container .content hr {
+    display: none;
+  }
+}
+#contact .form-box {
+  padding: 40px 30px 40px 30px;
+  background-color: #FFFFFF;
+}
+@media (min-width: 1200px) {
+  #contact .form-box {
+    position: absolute;
+    left: 50vw;
+    top: 100px;
+    padding: 60px 50px 40px 50px;
+    width: 600px;
+    height: 850px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 9px -1px rgba(19, 16, 34, 0.03), 0px 4.4px 20px -1px rgba(19, 16, 34, 0.05);
+  }
+}
+#contact .form-box .title h1 {
+  text-align: center;
+  line-height: 160%;
+  font-weight: 400;
+  color: #565973;
+  font-family: "Manrope", sans-serif;
+  font-weight: 800;
+  color: #0B0F19;
+  font-size: 24px !important;
+  margin-bottom: 30px;
+}
+@media (min-width: 1200px) {
+  #contact .form-box .title h1 {
+    line-height: 160%;
+    font-weight: 400;
+    color: #565973;
+    font-family: "Manrope", sans-serif;
+    font-weight: 800;
+    color: #0B0F19;
+    font-size: 28px !important;
+    text-align: start;
+  }
+}
+#contact .form-box #form-full-name {
+  display: grid;
+  text-align: center;
+}
+@media (min-width: 1200px) {
+  #contact .form-box #form-full-name {
+    text-align: start;
+  }
+}
+#contact .form-box #form-email {
+  display: grid;
+  text-align: center;
+  margin-top: 20px;
+}
+@media (min-width: 1200px) {
+  #contact .form-box #form-email {
+    text-align: start;
+  }
+}
+#contact .form-box #form-service {
+  display: grid;
+  text-align: center;
+  margin-top: 20px;
+}
+@media (min-width: 1200px) {
+  #contact .form-box #form-service {
+    text-align: start;
+  }
+}
+#contact .form-box #form-message {
+  display: grid;
+  text-align: center;
+  margin-top: 20px;
+}
+@media (min-width: 1200px) {
+  #contact .form-box #form-message {
+    text-align: start;
+    resize: vertical;
+  }
+  #contact .form-box #form-message textarea {
+    height: 250px;
+  }
+}
+#contact .form-box button {
+  margin-top: 30px;
+}
+@media (min-width: 1200px) {
+  #contact .form-box button {
+    display: inline-block;
+    max-width: 230px;
+    padding: 10px 0 10px 0;
+  }
+}
+#contact .map iframe {
+  width: 100%;
+  margin: 0;
+}
+@media (min-width: 1200px) {
+  #contact .map iframe {
+    height: 800px;
+  }
 }

@@ -1,0 +1,200 @@
+#contact {
+    background-color: $gray-100;
+    display: grid;
+    grid-template-columns: 1fr;
+
+    @include xl {
+        justify-content: start;
+        position: relative;
+    }
+
+
+    .container {
+        padding-bottom: 40px;
+
+        @include xl {
+            margin-bottom: 80px;
+        }
+
+        .content {
+
+            .links {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 7px;
+
+                @include xl {
+                    justify-content: start;
+                    margin-top: 40px;
+                }
+            }
+
+            .title {
+                margin-top: 40px;
+                text-align: center;
+                border-bottom: 1px solid $gray-300;
+
+                @include xl {
+                    border: none;
+                    text-align: start;
+                }
+            }
+
+            .info-box {
+                margin-top: 40px;
+                display: grid;
+                text-align: center;
+
+                @include xl {
+                    display: flex;
+                    text-align: start;
+                    width: 400px;
+                }
+
+                .icon {
+                    display: none;
+
+                    @include xl {
+                        display: block;
+                        margin-right: 20px;
+                        margin-bottom: 40px;
+                    }
+                }
+
+
+                .info {
+
+
+                    img {
+                        display: block;
+                    }
+
+                    a {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 10px;
+
+                        @include xl {
+                            justify-content: start;
+                        }
+                    }
+                }
+
+                h1 {
+                    @include h2;
+
+                    @include xl {
+                        @include h3;
+                    }
+                }
+            }
+
+            hr {
+                margin-top: 30px;
+                color: $gray-600;
+
+                @include xl {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .form-box {
+        padding: 40px 30px 40px 30px;
+        background-color: $white;
+
+        @include xl {
+            position: absolute;
+            left: 50vw;
+            top: 100px;
+            padding: 60px 50px 40px 50px;
+            width: 600px;
+            height: 850px;
+            border-radius: 10px;
+            @include shadow-m;
+        }
+
+        .title {
+
+            h1 {
+                text-align: center;
+                @include h4;
+                margin-bottom: 30px;
+
+                @include xl {
+                    @include h3;
+                    text-align: start;
+                }
+            }
+        }
+
+
+        #form-full-name {
+            display: grid;
+            text-align: center;
+
+            @include xl {
+                text-align: start;
+            }
+        }
+
+        #form-email {
+            display: grid;
+            text-align: center;
+            margin-top: 20px;
+
+            @include xl {
+                text-align: start;
+            }
+        }
+
+        #form-service {
+            display: grid;
+            text-align: center;
+            margin-top: 20px;
+
+            @include xl {
+                text-align: start;
+            }
+        }
+
+        #form-message {
+            display: grid;
+            text-align: center;
+            margin-top: 20px;
+
+            @include xl {
+                text-align: start;
+                resize: vertical;
+
+                textarea {
+                    height: 250px;
+                }
+            }
+        }
+
+        button {
+            margin-top: 30px;
+
+            @include xl {
+                display: inline-block;
+                max-width: 230px;
+                padding: 10px 0 10px 0;
+            }
+        }
+    }
+
+    .map {
+        iframe {
+            width: 100%;
+            margin: 0;
+
+            @include xl {
+                height: 800px;
+            }
+        }
+    }
+}
