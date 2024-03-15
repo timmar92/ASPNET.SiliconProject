@@ -56,6 +56,7 @@ builder.Services.AddAuthentication().AddGoogle(x =>
 
 var app = builder.Build();
 app.UseHsts();
+app.UseStatusCodePagesWithReExecute("/errorpage", "?statusCode={0}");
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();

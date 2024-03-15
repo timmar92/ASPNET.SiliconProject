@@ -1623,3 +1623,42 @@ footer .container .social-media {
     margin-bottom: 0;
   }
 }
+
+.error-page .container {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  .error-page .container {
+    margin-top: 100px;
+  }
+}
+@media (min-width: 992px) {
+  .error-page .container {
+    margin-top: 150px;
+  }
+}
+@media (min-width: 1200px) {
+  .error-page .container {
+    margin-top: 200px;
+  }
+}
+.error-page .container .image img {
+  width: 100%;
+  height: auto;
+}
+.error-page .container .text p {
+  margin-bottom: 50px;
+  line-height: 160%;
+  font-weight: 400;
+  color: #565973;
+  font-family: "Manrope", sans-serif;
+  font-size: 18px !important;
+}
+.error-page .container a {
+  padding: 15px 20px;
+}

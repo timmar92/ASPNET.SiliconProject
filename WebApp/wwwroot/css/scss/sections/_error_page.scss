@@ -1,0 +1,46 @@
+.error-page {
+
+    .container {
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+
+        @include md {
+            margin-top: 100px;
+        }
+
+        @include lg {
+            margin-top: 150px;
+        }
+
+        @include xl {
+            margin-top: 200px;
+        }
+
+
+
+        .image {
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        .text {
+
+
+            p {
+                margin-bottom: 50px;
+                @include text-lg;
+            }
+        }
+
+        a {
+            padding: 15px 20px;
+        }
+    }
+}

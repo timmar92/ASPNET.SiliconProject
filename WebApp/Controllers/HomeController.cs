@@ -9,4 +9,11 @@ public class HomeController : Controller
         return View();
     }
 
+
+    [Route("/errorpage")]
+    public IActionResult ErrorPage()
+    {
+        return View();
+    }
+
 }
