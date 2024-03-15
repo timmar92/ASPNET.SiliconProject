@@ -576,6 +576,10 @@ form span.field-validation-error::after {
   content: "⮿";
 }
 
+.contact-header {
+  background-color: #F3F6FF;
+}
+
 header {
   padding: 15px 0;
 }

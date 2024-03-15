@@ -1,7 +1,7 @@
 ﻿
 @inject SignInManager<UserEntity> _signInManager
 
-<header>
+<header class="@(ViewData["Title"].ToString() == "Contact" ? "contact-header" : "")">
     <div class="container">
         <a id="logo" asp-controller="Home" asp-action="Index" alt="logo"><img src="~/images/silicon-solid-logo-light-theme.svg" alt=""></a>
 
@@ -17,7 +17,7 @@
                 {
                     <a class="menu-link" href="#features">Features</a>
                 }
-                <a class="menu-link" asp-controller="Contact" asp-action="Index">Contact</a>
+                <a class="menu-link" asp-controller="Contact" asp-action="Contact">Contact</a>
             </nav>
         </div>
 
