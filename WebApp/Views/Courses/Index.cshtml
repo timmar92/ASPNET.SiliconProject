@@ -1,0 +1,81 @@
+﻿@model CourseIndexViewModel
+
+@{
+    ViewData["Title"] = "Courses";
+}
+
+<section class="courses" id="courses">
+    <div class="container">
+
+        <div class="links">
+            <img src="/images/icons/home-link-icon.svg" alt="home icon" />
+            <a asp-controller="Home" asp-action="Index">Home</a>
+            <img src="/images/icons/right-link-arrows.svg" />
+            <a asp-controller="Courses" asp-action="Index">Courses</a>
+        </div>
+        <div class="header">
+            <div class="title"></div>
+            <div class="searchbar">
+                <select></select>
+                <input type="text" placeholder="Search courses" />
+            </div>
+        </div>
+
+        <div class="course-group">
+            @foreach (var course in Model.Courses)
+            {
+                <div class="course-box">
+                    <div class="image">
+                        <img src="@course.ImageUrl" alt="@course.Title" />
+                        @if (course.IsBestSeller == true)
+                        {
+                            <div class="best-seller">
+                                <p>Best Seller</p>
+                            </div>
+                        }
+                        <div class="bookmark">
+                            <img src="/images/icons/bookmark.svg" alt="bookmark icon" />
+                        </div>
+                    </div>
+                    <div class="course-info">
+                        <h1>@course.Title</h1>
+                        <p>By @course.Author!.Name</p>
+                        <div class="price">
+                            @if (course.DiscountPrice == null)
+                            {
+                                <p>@course.Price</p>
+                            }
+                            else {
+                                <p class="discount">@course.DiscountPrice</p>
+                                <p class="original">@course.Price</p>
+                            }
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="time-and-likes">
+                        <div class="hours">
+                            <img src="/images/icons/watch-icon.svg" alt="clock icon" />
+                            <p>@course.Hours hours</p>
+                        </div>
+                        <div class="likes">
+                            <img src="/images/icons/like-icon.svg" alt="thumbs up icon" />
+                            <p>@course.LikesInPercent % (@course.LikesInNumbers K)</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="pagination">
+            <div></div>
+        </div>
+
+        <div class="banner">
+            <div class="banner-image">
+                <img src="/images/courses-banner.svg" alt="lady sitting at a desk" />
+            </div>
+            <button class="btn-theme">Work with us</button>
+        </div>
+
+    </div>
+</section>
