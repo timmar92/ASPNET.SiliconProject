@@ -282,6 +282,42 @@ a:hover {
   color: #FFFFFF;
 }
 
+.btn-youtube {
+  border-radius: 6px;
+  text-align: center;
+  font-size: 14px;
+  padding: 8px 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  background: var(--color-danger);
+  color: var(--color-white);
+  border: none;
+}
+.btn-youtube:hover {
+  text-decoration: none;
+  opacity: 0.7;
+}
+
+.btn-facebook {
+  border-radius: 6px;
+  text-align: center;
+  font-size: 14px;
+  padding: 8px 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  background: var(--color-info);
+  color: var(--color-white);
+  border: none;
+}
+.btn-facebook:hover {
+  text-decoration: none;
+  opacity: 0.7;
+}
+
 .btn-theme {
   border-radius: 6px;
   text-align: center;
@@ -2198,4 +2234,217 @@ footer .container .social-media {
     bottom: 150px;
     left: 120px;
   }
+}
+
+#course-details {
+  position: relative;
+}
+#course-details .background-image {
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+  z-index: -1;
+}
+#course-details .background-image::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+#course-details #container-1 .header .links {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+}
+@media (min-width: 1200px) {
+  #course-details #container-1 .header .links {
+    display: flex;
+    justify-content: start;
+    margin-top: 40px;
+  }
+}
+#course-details #container-1 .header .digital {
+  display: none;
+  justify-content: center;
+  gap: 10px;
+}
+#course-details #container-1 .header .digital .best-seller {
+  display: flex;
+  color: floralwhite;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: limegreen;
+  padding: 17px 0px 0px 0px;
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+}
+#course-details #container-1 .header .digital .is-digital {
+  display: flex;
+  color: black;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: lightgray;
+  padding: 17px 10px 0px 10px;
+  width: fit-content;
+  height: 30px;
+  border-radius: 5px;
+}
+#course-details #container-1 .header .title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  padding-top: 20px;
+}
+#course-details #container-1 .header .title h1 {
+  line-height: 160%;
+  font-weight: 400;
+  color: #565973;
+  font-family: "Manrope", sans-serif;
+  font-weight: 800;
+  color: #0B0F19;
+  font-size: 20px !important;
+  color: var(--color-white);
+}
+#course-details #container-1 .header .title p {
+  line-height: 160%;
+  font-weight: 400;
+  color: #565973;
+  font-family: "Manrope", sans-serif;
+  font-size: 16px !important;
+  color: var(--color-gray-600);
+}
+#course-details #container-1 .header .reviews {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-gray-600);
+}
+#course-details #container-1 .header .reviews .likes {
+  display: none;
+}
+#course-details #container-1 .header .reviews .hours {
+  display: none;
+}
+#course-details #container-1 .header .author {
+  display: none;
+}
+#course-details #container-2 .description-and-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: "card" "description";
+  margin-top: 30px;
+}
+#course-details #container-2 .description-and-card .description {
+  grid-area: description;
+}
+#course-details #container-2 .description-and-card .description .course-description {
+  margin-top: 40px;
+  text-align: center;
+}
+#course-details #container-2 .description-and-card .description .point-list {
+  margin-bottom: 40px;
+}
+#course-details #container-2 .description-and-card .description .point-list ul {
+  list-style-type: none;
+}
+#course-details #container-2 .description-and-card .description .point-list ul li {
+  margin-bottom: 5px;
+  line-height: 160%;
+  font-weight: 400;
+  color: #565973;
+  font-family: "Manrope", sans-serif;
+  font-size: 18px !important;
+}
+#course-details #container-2 .description-and-card .description .point-list ul li .checkbox-icon {
+  margin-right: 8px;
+}
+#course-details #container-2 .description-and-card .description .point-list h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+#course-details #container-2 .description-and-card .info-card {
+  text-align: center;
+}
+#course-details #container-2 .description-and-card .info-card .price {
+  color: var(--color-theme);
+  display: flex;
+  justify-content: center;
+  gap: 13px;
+  font-weight: 600;
+}
+@media (min-width: 1200px) {
+  #course-details #container-2 .description-and-card .info-card .price {
+    justify-content: start;
+  }
+}
+#course-details #container-2 .description-and-card .info-card .price .original {
+  text-decoration: line-through;
+  color: var(--color-gray-500);
+}
+#course-details #container-2 .description-and-card .info-card .price .discount {
+  color: var(--color-danger);
+}
+#course-details #container-2 .program-details h2 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+#course-details #container-2 .program-details ul {
+  list-style-type: none;
+}
+#course-details #container-2 .program-details ul li .detail {
+  display: flex;
+  flex-direction: column;
+}
+#course-details #container-2 .program-details ul li .detail .detail-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  line-height: 160%;
+  font-weight: 400;
+  color: #565973;
+  font-family: "Manrope", sans-serif;
+  font-size: 18px !important;
+}
+#course-details #container-2 .program-details ul li .detail .detail-info .ring {
+  background: var(--color-gray-300);
+  border-radius: 50%;
+  height: 72px;
+  width: 72px;
+  position: relative;
+}
+#course-details #container-2 .program-details ul li .detail .detail-info .ring .count {
+  position: absolute;
+  background: var(--color-white);
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 900;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+#course-details #container-2 .program-details ul li .detail .vertical-line {
+  width: 2px;
+  height: 50px;
+  background: var(--color-gray-300);
+  margin-left: 35px;
+  top: -10px;
+}
+#course-details #container-2 .author-details {
+  display: none;
 }

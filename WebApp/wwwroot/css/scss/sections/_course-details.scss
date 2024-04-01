@@ -1,0 +1,247 @@
+#course-details {
+    position: relative;
+
+    .background-image {
+        width: 100%;
+        position: absolute;
+        overflow: hidden;
+        z-index: -1;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.7);
+        }
+    }
+
+    #container-1 {
+
+        .header {
+
+            .links {
+                display: none;
+                justify-content: center;
+                align-items: center;
+                gap: 7px;
+
+                @include xl {
+                    display: flex;
+                    justify-content: start;
+                    margin-top: 40px;
+                }
+            }
+
+            .digital {
+                display: none;
+                justify-content: center;
+                gap: 10px;
+
+                .best-seller {
+                    display: flex;
+                    color: floralwhite;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    background-color: limegreen;
+                    padding: 17px 0px 0px 0px;
+                    width: 100px;
+                    height: 30px;
+                    border-radius: 5px;
+                }
+
+                .is-digital {
+                    display: flex;
+                    color: black;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    background-color: lightgray;
+                    padding: 17px 10px 0px 10px;
+                    width: fit-content;
+                    height: 30px;
+                    border-radius: 5px;
+                }
+            }
+
+            .title {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+                align-items: center;
+                padding-top: 20px;
+
+                h1 {
+                    @include h5;
+                    color: var(--color-white);
+                }
+
+                p {
+                    @include text-m;
+                    color: var(--color-gray-600);
+                }
+            }
+
+            .reviews {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                color: var(--color-gray-600);
+
+                .likes {
+                    display: none;
+                }
+
+                .hours {
+                    display: none;
+                }
+            }
+
+            .author {
+                display: none;
+            }
+        }
+    }
+
+    #container-2 {
+
+
+
+        .description-and-card {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-areas: "card" "description";
+            margin-top: 30px;
+
+            .description {
+                grid-area: description;
+
+                .course-description {
+                    margin-top: 40px;
+                    text-align: center;
+                }
+
+                .point-list {
+                    margin-bottom: 40px;
+
+                    ul {
+                        list-style-type: none;
+
+                        li {
+                            margin-bottom: 5px;
+                            @include text-lg;
+
+                            .checkbox-icon {
+                                margin-right: 8px;
+                            }
+                        }
+                    }
+
+                    h2 {
+                        text-align: center;
+                        margin-bottom: 20px;
+                    }
+                }
+            }
+
+            .info-card {
+                text-align: center;
+
+                .price {
+                    color: var(--color-theme);
+                    display: flex;
+                    justify-content: center;
+                    gap: 13px;
+                    font-weight: 600;
+
+                    @include xl {
+                        justify-content: start;
+                    }
+
+                    .original {
+                        text-decoration: line-through;
+                        color: var(--color-gray-500);
+                    }
+
+                    .discount {
+                        color: var(--color-danger);
+                    }
+                }
+            }
+        }
+
+        .program-details {
+
+            h2 {
+                text-align: center;
+                margin-bottom: 40px;
+            }
+
+            ul {
+                list-style-type: none;
+
+                li {
+
+                    .detail {
+                        display: flex;
+                        flex-direction: column;
+
+                        .detail-info {
+                            display: flex;
+                            align-items: center;
+                            gap: 20px;
+
+                            @include text-lg;
+
+                            .ring {
+                                background: var(--color-gray-300);
+                                border-radius: 50%;
+                                height: 72px;
+                                width: 72px;
+                                position: relative;
+
+
+
+                                .count {
+                                    position: absolute;
+                                    background: var(--color-white);
+                                    border-radius: 50%;
+                                    height: 50px; // Adjust the size as needed
+                                    width: 50px; // Adjust the size as needed
+                                    top: 50%;
+                                    left: 50%;
+                                    transform: translate(-50%, -50%); // Centers the div
+                                    display: flex; // Makes the div a flex container
+                                    justify-content: center; // Centers the text horizontally
+                                    align-items: center; // Centers the text vertically
+                                    font-size: 20px; // Adjust the size as needed
+                                    font-weight: 900;
+                                    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3); // Adds a shadow
+                                }
+                            }
+                        }
+
+
+
+                        .vertical-line {
+                            width: 2px; // Adjust the width as needed
+                            height: 50px; // Adjust the height as needed
+                            background: var(--color-gray-300); // Adjust the color as needed
+                            margin-left: 35px; // Adjust the margin as needed
+                            top: -10px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .author-details {
+            display: none;
+        }
+    }
+}

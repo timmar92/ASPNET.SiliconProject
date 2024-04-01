@@ -21,6 +21,30 @@
     }
 }
 
+.btn-youtube {
+    @include button;
+    background: var(--color-danger);
+    color: var(--color-white);
+    border: none;
+
+    &:hover {
+        text-decoration: none;
+        opacity: 0.7;
+    }
+}
+
+.btn-facebook {
+    @include button;
+    background: var(--color-info);
+    color: var(--color-white);
+    border: none;
+
+    &:hover {
+        text-decoration: none;
+        opacity: 0.7;
+    }
+}
+
 .btn-theme { 
     @include button;
     background: $theme;

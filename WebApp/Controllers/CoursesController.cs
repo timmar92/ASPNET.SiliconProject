@@ -35,6 +35,12 @@ public class CoursesController : Controller
 
     public IActionResult Details(int id)
     {
-        return View();
+        var viewModel = new CourseModel();
+
+        var response = _http.GetAsync($"https://localhost:7189/api/courses/{id}?key=Co2QV2qViZLfdtCcx4A4FH4XrYtCJelpr94M92v4aIK6PunU4SWQHCsNEMyP623KkQRiGASAmsH0uXjdPDk2HyNtTC3SWkYAYLGKjWsdlQIBI9TQG9WHeTFw98bt7lCk").Result;
+
+        viewModel = JsonConvert.DeserializeObject<CourseModel>(response.Content.ReadAsStringAsync().Result)!;
+
+        return View(viewModel);
     }
 }
