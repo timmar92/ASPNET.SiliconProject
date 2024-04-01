@@ -14,19 +14,21 @@
             <a asp-controller="Courses" asp-action="Index">Courses</a>
         </div>
         <div class="header">
-            <div class="title"></div>
+            <div class="title">Courses</div>
             <div class="searchbar">
-                <select></select>
-                <input type="text" placeholder="Search courses" />
+                <select>
+                    <option value="">All Categories</option>
+                </select>
+                <input type="text" placeholder="Search courses"/>
             </div>
         </div>
 
         <div class="course-group">
             @foreach (var course in Model.Courses)
             {
-                <div class="course-box">
+                <a asp-action="Details" asp-controller="Courses" asp-route-id="@course.Id" class="course-box">
                     <div class="image">
-                        <img src="@course.ImageUrl" alt="@course.Title" />
+                        <img class="course-image" src="@course.ImageUrl" alt="@course.Title" />
                         @if (course.IsBestSeller == true)
                         {
                             <div class="best-seller">
@@ -34,7 +36,7 @@
                             </div>
                         }
                         <div class="bookmark">
-                            <img src="/images/icons/bookmark.svg" alt="bookmark icon" />
+                            <img class="bookmark-image" src="/images/icons/bookmark.svg" alt="bookmark icon" />
                         </div>
                     </div>
                     <div class="course-info">
@@ -43,26 +45,24 @@
                         <div class="price">
                             @if (course.DiscountPrice == null)
                             {
-                                <p>@course.Price</p>
+                                <p>$ @course.Price</p>
                             }
                             else {
-                                <p class="discount">@course.DiscountPrice</p>
-                                <p class="original">@course.Price</p>
+                                <p class="discount">$ @course.DiscountPrice</p>
+                                <p class="original">$ @course.Price</p>
                             }
                         </div>
                     </div>
-                    <hr />
+                    <hr class="middle-line" />
                     <div class="time-and-likes">
                         <div class="hours">
-                            <img src="/images/icons/watch-icon.svg" alt="clock icon" />
-                            <p>@course.Hours hours</p>
+                            <p><img src="/images/icons/watch-icon.svg" alt="clock icon" />@course.Hours hours</p>
                         </div>
                         <div class="likes">
-                            <img src="/images/icons/like-icon.svg" alt="thumbs up icon" />
-                            <p>@course.LikesInPercent % (@course.LikesInNumbers K)</p>
+                            <p><img src="/images/icons/like-icon.svg" alt="thumbs up icon" />@course.LikesInPercent % (@course.LikesInNumbers K)</p>
                         </div>
                     </div>
-                </div>
+                </a>
             }
         </div>
 
@@ -74,7 +74,11 @@
             <div class="banner-image">
                 <img src="/images/courses-banner.svg" alt="lady sitting at a desk" />
             </div>
-            <button class="btn-theme">Work with us</button>
+            <div class="banner-info">
+                <p>Ready to get started?</p>
+                <h2>Take your <span>Skills</span> to the next level</h2>
+            </div>
+            <a asp-action="Jobs" asp-controller="Work" class="btn-theme-s">Work with us</a>
         </div>
 
     </div>
