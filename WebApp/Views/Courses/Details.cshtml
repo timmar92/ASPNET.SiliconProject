@@ -49,7 +49,7 @@
                     <p>(@Model.Reviews!.ReviewNumbers K reviews)</p>
                 </div>
                 <div class="likes">
-                    <p><img src="/images/icons/like-icon.svg" alt="like icon" /> @Model.LikesInNumbers</p>
+                    <p><img src="/images/icons/like-icon.svg" alt="like icon" /> @Model.LikesInNumbers K likes</p>
                 </div>
                 <div class="hours">
                     <p><img src="/images/icons/watch-icon.svg" alt="clock icon" /> @Model.Hours hours</p>
@@ -138,16 +138,16 @@
         </div>
         <div class="author-details">
             <div class="author-image">
-                <img src="@Model.Author!.ImageUrl" alt="@Model.Author!.Name" />
+                <img id="author-big-image" src="@Model.Author!.ImageUrl" alt="@Model.Author!.Name" />
             </div>
             <div class="author-info-big">
-                <img src="/images/pattern.svg" />
+                <img id="pattern" src="/images/pattern.svg" />
                 <span>Learn from the best</span>
                 <h2>@Model.Author!.Name</h2>
                 <p>@Model.Author!.Description</p>
                 <div class="follow-buttons">
-                    <a href="@Model.Author!.YoutubeUrl" target="_blank"><img src="/images/icons/instagram-icon.svg" alt="youtube icon" />Subscribe</a>
-                    <a href="@Model.Author!.FacebookUrl" target="_blank"><img src="/images/icons/facebook-icon.svg" alt="facebook icon" />Follow this author</a>
+                    <a class="btn-youtube" href="@Model.Author!.YoutubeUrl" target="_blank"><img src="/images/icons/youtube-icon.svg" alt="youtube icon" />Subscribe</a>
+                    <a class="btn-facebook" href="@Model.Author!.FacebookUrl" target="_blank"><img src="/images/icons/facebook-icon.svg" alt="facebook icon" />Follow this author</a>
                 </div>
             </div>
         </div>
