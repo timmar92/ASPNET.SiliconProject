@@ -66,6 +66,15 @@ const checkBoxValidator = (element) => {
     }
 }
 
+const textareaValidator = (element, minLength = 2) => {
+    if (element.value.length >= minLength) {
+        formErrorHandler(element, true);
+    } else {
+        formErrorHandler(element, false);
+    }
+}
+
+
 
 
 
@@ -74,6 +83,7 @@ let forms = document.querySelectorAll('form')
 forms.forEach(form => {
     let inputs = form.querySelectorAll('input');
     let submitButton = form.querySelector('button[type="submit"]');
+    let textareas = form.querySelectorAll('textarea');
 
     const checkFormValidity = () => {
         if (form.checkValidity()) {
@@ -107,6 +117,15 @@ forms.forEach(form => {
                     checkFormValidity();
                 });
             }
+        }
+    });
+
+    textareas.forEach(textarea => {
+        if (textarea.dataset.val === 'true') {
+            textarea.addEventListener('keyup', (e) => {
+                textareaValidator(e.target, 20);
+                checkFormValidity();
+            });
         }
     });
 

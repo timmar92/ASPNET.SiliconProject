@@ -106,6 +106,8 @@
         padding: 40px 30px 40px 30px;
         background-color: $white;
 
+
+
         @include xl {
             position: absolute;
             left: 50vw;
@@ -139,6 +141,18 @@
             @include xl {
                 text-align: start;
             }
+
+            span.field-validation-error {
+                position: absolute;
+                top: 135px;
+                right: 60px;
+
+
+                &::after {
+                    right: 5px;
+                    top: 45px;
+                }
+            }
         }
 
         #form-email {
@@ -148,6 +162,18 @@
 
             @include xl {
                 text-align: start;
+            }
+
+            span.field-validation-error {
+                position: absolute;
+                top: 245px;
+                right: 60px;
+
+
+                &::after {
+                    right: 5px;
+                    top: 45px;
+                }
             }
         }
 
@@ -174,6 +200,18 @@
                     height: 250px;
                 }
             }
+
+            span.field-validation-error {
+                position: absolute;
+                top: 462px;
+                right: 60px;
+
+
+                &::after {
+                    right: 5px;
+                    top: 45px;
+                }
+            }
         }
 
         button {
@@ -184,6 +222,20 @@
                 max-width: 230px;
                 padding: 10px 0 10px 0;
             }
+        }
+
+        .error {
+            color: var(--color-danger);
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1rem
+        }
+
+        .success {
+            color: var(--color-success);
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1rem
         }
     }
 

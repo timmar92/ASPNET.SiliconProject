@@ -2,6 +2,8 @@
 
 @{
     ViewData["Title"] = "Contact";
+    var successMessage = TempData["Success"] as string;
+    var errorMessage = TempData["Error"] as string;
 }
 
 <section id="contact" class="contact">
@@ -55,13 +57,13 @@
         <form method="post" asp-controller="Contact" asp-action="ContactForm">
             <div id="form-full-name">
                 <label asp-for="@Model.FullName"></label>
-                <span asp-validation-for="@Model.FullName"></span>
                 <input asp-for="@Model.FullName" />
+                <span asp-validation-for="@Model.FullName"></span>
             </div>
             <div id="form-email">
                 <label asp-for="@Model.Email"></label>
-                <span asp-validation-for="@Model.Email"></span>
                 <input asp-for="@Model.Email" />
+                <span asp-validation-for="@Model.Email"></span>
             </div>
             <div id="form-service">
                 <label asp-for="@Model.SelectedOption"></label>
@@ -75,11 +77,23 @@
             </div>
             <div id="form-message">
                 <label asp-for="@Model.Message"></label>
-                <span asp-validation-for="@Model.Message"></span>
                 <textarea asp-for="@Model.Message"></textarea>
+                <span asp-validation-for="@Model.Message"></span>
             </div>
 
             <button class="btn-theme-s" type="submit">Send Contact Request</button>
+            @if(!string.IsNullOrEmpty(successMessage))
+            {
+                <div class="success">
+                    <p>@successMessage</p>
+                </div>
+            }
+            @if(!string.IsNullOrEmpty(errorMessage))
+            {
+                <div class="error">
+                    <p>@errorMessage</p>
+                </div>
+            }
         </form>
     </div>
 
@@ -88,3 +102,5 @@
     </div>
 
 </section>
+
+@await Html.PartialAsync("_ValidationScriptPartial")

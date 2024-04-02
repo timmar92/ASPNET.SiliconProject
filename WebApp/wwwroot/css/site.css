@@ -1931,6 +1931,15 @@ footer .container .social-media {
     text-align: start;
   }
 }
+#contact .form-box #form-full-name span.field-validation-error {
+  position: absolute;
+  top: 135px;
+  right: 60px;
+}
+#contact .form-box #form-full-name span.field-validation-error::after {
+  right: 5px;
+  top: 45px;
+}
 #contact .form-box #form-email {
   display: grid;
   text-align: center;
@@ -1940,6 +1949,15 @@ footer .container .social-media {
   #contact .form-box #form-email {
     text-align: start;
   }
+}
+#contact .form-box #form-email span.field-validation-error {
+  position: absolute;
+  top: 245px;
+  right: 60px;
+}
+#contact .form-box #form-email span.field-validation-error::after {
+  right: 5px;
+  top: 45px;
 }
 #contact .form-box #form-service {
   display: grid;
@@ -1965,6 +1983,15 @@ footer .container .social-media {
     height: 250px;
   }
 }
+#contact .form-box #form-message span.field-validation-error {
+  position: absolute;
+  top: 462px;
+  right: 60px;
+}
+#contact .form-box #form-message span.field-validation-error::after {
+  right: 5px;
+  top: 45px;
+}
 #contact .form-box button {
   margin-top: 30px;
 }
@@ -1974,6 +2001,18 @@ footer .container .social-media {
     max-width: 230px;
     padding: 10px 0 10px 0;
   }
+}
+#contact .form-box .error {
+  color: var(--color-danger);
+  margin-top: 20px;
+  text-align: center;
+  font-size: 1rem;
+}
+#contact .form-box .success {
+  color: var(--color-success);
+  margin-top: 20px;
+  text-align: center;
+  font-size: 1rem;
 }
 #contact .map iframe {
   width: 100%;
