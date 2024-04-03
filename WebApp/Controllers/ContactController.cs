@@ -29,7 +29,7 @@ namespace WebApp.Controllers
             {
                 try
                 {
-                    var response = await _http.PostAsJsonAsync("https://localhost:7189/api/contact", viewModel);
+                    var response = await _http.PostAsJsonAsync("https://localhost:7189/api/contact?key=Co2QV2qViZLfdtCcx4A4FH4XrYtCJelpr94M92v4aIK6PunU4SWQHCsNEMyP623KkQRiGASAmsH0uXjdPDk2HyNtTC3SWkYAYLGKjWsdlQIBI9TQG9WHeTFw98bt7lCk", viewModel);
                     if (response.IsSuccessStatusCode)
                     {
                         TempData["Success"] = "Message sent successfully!";

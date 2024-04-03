@@ -9,7 +9,7 @@
             <img src="/images/squigly-line.svg" alt="squiggly line" />
         </div>
 
-        <form id="newsletter-form" method="post" asp-controller="Newsletter" asp-action="Subscribe">
+        <form id="newsletter-form" method="post" asp-controller="Home" asp-action="Subscribe">
 
             <div class="input">
                 <p id="sign-up">Sign up for<br>Newsletters</p>
@@ -50,8 +50,6 @@
 
             </div>
 
-            <span asp-validation-for="@Model.AtLeastOneCheckbox"></span>
-
             <div class="email-group">
 
                 <label asp-for="@Model.Email"><img src="/images/newsletter-envelope.svg" /></label>
@@ -61,8 +59,19 @@
                 <button id="form-button" class="btn-theme" type="submit">Subscribe<span>*</span></button>
 
             </div>
-
-            <p> *Yes I agree to the <a asp-controller="About" asp-action="Terms">Terms</a> and <a asp-controller="About" asp-action="PrivacyPolicy">privacy policy</a>.</p>
+            @if (TempData["Error"] != null)
+            {
+                <p class="alert">@TempData["Error"]</p>
+            }
+            else if (TempData["Success"] != null)
+            {
+                <p class="success">@TempData["Success"]</p>
+            }
+            else
+            {
+                <p> *Yes I agree to the <a asp-controller="About" asp-action="Terms">Terms</a> and <a asp-controller="About" asp-action="PrivacyPolicy">privacy policy</a>.</p> 
+            }
+            
 
         </form>
 
@@ -73,3 +82,4 @@
     
 
 </section>
+
