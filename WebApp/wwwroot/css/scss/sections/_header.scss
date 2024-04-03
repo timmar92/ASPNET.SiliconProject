@@ -1,9 +1,10 @@
 .contact-header {
-    background-color: $gray-100;
+    background-color: var(--color-gray-100);
 }
 
 header {
     padding: 15px 0;
+    background-color: var(--color-gray-000);
 
     .container {
         display: grid;

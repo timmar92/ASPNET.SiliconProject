@@ -1,7 +1,9 @@
 .error-page {
+    background: var(--color-gray-000);
+    height: 100%;
 
     .container {
-        margin-top: 50px;
+        padding-top: 50px;
         display: flex;
         flex-direction: column;
         text-align: center;
@@ -9,15 +11,15 @@
         justify-content: center;
 
         @include md {
-            margin-top: 100px;
+            padding-top: 100px;
         }
 
         @include lg {
-            margin-top: 150px;
+            padding-top: 150px;
         }
 
         @include xl {
-            margin-top: 200px;
+            padding-top: 200px;
         }
 
 
@@ -34,7 +36,7 @@
 
 
             p {
-                margin-bottom: 50px;
+                padding-bottom: 50px;
                 @include text-lg;
             }
         }

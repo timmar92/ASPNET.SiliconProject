@@ -1,4 +1,27 @@
 ﻿@charset "UTF-8";
+/*$gray-000: #FFFFFF;
+$gray-100: #F3F6FF;
+$gray-200: #EFF2FC;
+$gray-300: #E2E5F1;
+$gray-400: #D4D7E5;
+$gray-500: #B4B7C9;
+$gray-600: #9397AD;
+$gray-700: #565973;
+$gray-800: #33354D;
+$gray-900: #0B0F19;
+$white: #FFFFFF;
+$black: #000000;
+$transparent: transparent;
+$danger: #EF4444;
+$weak-danger: #F5D7DA;
+$success: #22C55E;
+$warning: #FFBA08;
+$info: #4C82F7;
+$theme: #6366F1;
+$theme-secondary: #8B5CF6;
+$theme-opacity: #6365f114;
+$theme-gradient: linear-gradient(90deg, #6366F1 0%, #8B5CF6 50%, #D946EF 100%);
+$theme-gradient-background: linear-gradient(-1deg, rgba(99, 101, 241, 0.10) 0%, rgba(216, 70, 239, 0.05) 45%, rgba(241, 244, 253, 0.07) 75%);*/
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
 :root {
   --color-gray-000: #FFFFFF;
@@ -55,7 +78,7 @@
 html, body {
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-size: 16px;
 }
@@ -63,7 +86,7 @@ html, body {
 .text-xs {
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-size: 12px !important;
 }
@@ -71,7 +94,7 @@ html, body {
 .text-s {
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-size: 14px !important;
 }
@@ -79,7 +102,7 @@ html, body {
 .text-m {
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-size: 16px !important;
 }
@@ -87,7 +110,7 @@ html, body {
 .text-lg {
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-size: 18px !important;
 }
@@ -95,7 +118,7 @@ html, body {
 .text-xl {
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-size: 20px !important;
 }
@@ -103,7 +126,7 @@ html, body {
 .text-lead {
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-size: 24px !important;
 }
@@ -111,120 +134,120 @@ html, body {
 .d1 {
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-weight: 800;
-  color: #0B0F19;
+  color: var(--color-gray-900);
   font-size: 80px !important;
 }
 
 .d2 {
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-weight: 800;
-  color: #0B0F19;
+  color: var(--color-gray-900);
   font-size: 72px !important;
 }
 
 .d3 {
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-weight: 800;
-  color: #0B0F19;
+  color: var(--color-gray-900);
   font-size: 64px !important;
 }
 
 .d4 {
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-weight: 800;
-  color: #0B0F19;
+  color: var(--color-gray-900);
   font-size: 56px !important;
 }
 
 .d5 {
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-weight: 800;
-  color: #0B0F19;
+  color: var(--color-gray-900);
   font-size: 48px !important;
 }
 
 .d6 {
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-weight: 800;
-  color: #0B0F19;
+  color: var(--color-gray-900);
   font-size: 42px !important;
 }
 
 h1, .h1 {
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-weight: 800;
-  color: #0B0F19;
+  color: var(--color-gray-900);
   font-size: 40px !important;
 }
 
 h2, .h2 {
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-weight: 800;
-  color: #0B0F19;
+  color: var(--color-gray-900);
   font-size: 32px !important;
 }
 
 h3, .h3 {
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-weight: 800;
-  color: #0B0F19;
+  color: var(--color-gray-900);
   font-size: 28px !important;
 }
 
 h4, .h4 {
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-weight: 800;
-  color: #0B0F19;
+  color: var(--color-gray-900);
   font-size: 24px !important;
 }
 
 h5, .h5 {
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-weight: 800;
-  color: #0B0F19;
+  color: var(--color-gray-900);
   font-size: 20px !important;
 }
 
 h6, .h6 {
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-weight: 800;
-  color: #0B0F19;
+  color: var(--color-gray-900);
   font-size: 16px !important;
 }
 
@@ -237,9 +260,9 @@ h6, .h6 {
 a {
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
-  color: #6366F1;
+  color: var(--color-theme);
   text-decoration: none;
   transition: all 0.25s ease-in-out;
 }
@@ -250,17 +273,17 @@ a:hover {
 .menu-link {
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-size: 16px;
-  color: #33354D;
+  color: var(--color-gray-800);
   font-weight: 600 !important;
   text-decoration: none;
   transition: color 0.25s ease-in-out;
 }
 .menu-link:hover, .menu-link:active, .menu-link:focus,
 .menu-link .active {
-  color: #6366F1;
+  color: var(--color-theme);
   text-decoration: none;
 }
 
@@ -275,12 +298,12 @@ a:hover {
   gap: 12px;
   cursor: pointer;
   border: none;
-  color: #33354D;
+  color: var(--color-gray-800);
 }
 .btn-transparent:hover {
   text-decoration: none;
-  background: #565973;
-  color: #FFFFFF;
+  background: var(--color-gray-700);
+  color: var(--color-white);
 }
 
 .btn-youtube {
@@ -331,14 +354,14 @@ a:hover {
   align-items: center;
   gap: 12px;
   cursor: pointer;
-  background: #6366F1;
-  color: #FFFFFF;
+  background: var(--color-theme);
+  color: var(--color-white);
   border: none;
 }
 .btn-theme:hover {
   text-decoration: none;
-  background: #565973;
-  color: #FFFFFF;
+  background: var(--color-gray-700);
+  color: var(--color-white);
 }
 
 .btn-theme-s {
@@ -352,8 +375,8 @@ a:hover {
   gap: 12px;
   cursor: pointer;
   box-shadow: 0px 8px 18px -8px rgba(99, 102, 241, 0.9);
-  background: #6366F1;
-  color: #FFFFFF;
+  background: var(--color-theme);
+  color: var(--color-white);
   padding-top: 10px;
   padding-bottom: 13px;
   border: none;
@@ -362,8 +385,8 @@ a:hover {
 .btn-theme-s:hover {
   box-shadow: 0px 8px 18px -8px rgba(19, 16, 34, 0.15);
   text-decoration: none;
-  background: #565973;
-  color: #FFFFFF;
+  background: var(--color-gray-700);
+  color: var(--color-white);
 }
 
 .btn-gray {
@@ -376,14 +399,14 @@ a:hover {
   align-items: center;
   gap: 12px;
   cursor: pointer;
-  background: #EFF2FC;
-  color: #33354D;
+  background: var(--color-gray-200);
+  color: var(--color-gray-800);
   border: none;
 }
 .btn-gray:hover {
   text-decoration: none;
-  background: #565973;
-  color: #FFFFFF;
+  background: var(--color-gray-700);
+  color: var(--color-white);
 }
 
 .btn-external-signin {
@@ -395,15 +418,15 @@ a:hover {
   justify-content: center;
   align-items: center;
   gap: 12px;
-  background: #EFF2FC;
-  color: #33354D;
+  background: var(--color-gray-200);
+  color: var(--color-gray-800);
   font-weight: 600;
   border: none;
 }
 .btn-external-signin:hover {
   text-decoration: none;
-  background: #565973;
-  color: #FFFFFF;
+  background: var(--color-gray-700);
+  color: var(--color-white);
 }
 
 .btn-account-nav {
@@ -417,12 +440,12 @@ a:hover {
   gap: 12px;
   cursor: pointer;
   border: none;
-  color: #33354D;
+  color: var(--color-gray-800);
 }
 .btn-account-nav:hover {
   text-decoration: none;
-  background: #565973;
-  color: #FFFFFF;
+  background: var(--color-gray-700);
+  color: var(--color-white);
 }
 .btn-account-nav.active {
   border-radius: 6px;
@@ -435,8 +458,8 @@ a:hover {
   gap: 12px;
   cursor: pointer;
   box-shadow: 0px 8px 18px -8px rgba(99, 102, 241, 0.9);
-  background: #6366F1;
-  color: #FFFFFF;
+  background: var(--color-theme);
+  color: var(--color-white);
   padding-top: 10px;
   padding-bottom: 13px;
   border: none;
@@ -450,10 +473,10 @@ a:hover {
 .btn-switch label {
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-size: 16px;
-  color: #33354D;
+  color: var(--color-gray-800);
   font-weight: 600 !important;
 }
 .btn-switch .switch {
@@ -468,14 +491,14 @@ a:hover {
   height: 0;
 }
 .btn-switch .switch input:checked + .slider {
-  background-color: #6366F1;
+  background-color: var(--color-theme);
 }
 .btn-switch .switch input:focus + .slider {
-  box-shadow: 0 0 1px #6366F1;
+  box-shadow: 0 0 1px var(--color-theme);
 }
 .btn-switch .switch input:checked + .slider:before {
   transform: translateX(20px);
-  background-color: #FFFFFF;
+  background-color: var(--color-white);
 }
 .btn-switch .switch .slider {
   position: absolute;
@@ -484,7 +507,7 @@ a:hover {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #565973;
+  background-color: var(--color-gray-700);
   transition: 0.4s;
 }
 .btn-switch .switch .slider:before {
@@ -494,7 +517,7 @@ a:hover {
   width: 20px;
   left: 3px;
   bottom: 2.7px;
-  background-color: #FFFFFF;
+  background-color: var(--color-white);
   transition: 0.4s;
 }
 .btn-switch .switch .slider.round {
@@ -507,7 +530,7 @@ a:hover {
 .btn-social {
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-size: 20px !important;
   display: flex;
@@ -516,13 +539,13 @@ a:hover {
   border-radius: 8px;
   width: 44px;
   height: 44px;
-  background-color: #EFF2FC;
-  color: #33354D;
+  background-color: var(--color-gray-200);
+  color: var(--color-gray-800);
 }
 .btn-social:hover {
   text-decoration: none;
-  background: #565973;
-  color: #FFFFFF;
+  background: var(--color-gray-700);
+  color: var(--color-white);
 }
 
 .btn-mobilemenu {
@@ -535,15 +558,15 @@ a:hover {
   align-items: center;
   gap: 12px;
   cursor: pointer;
-  background: transparent;
-  color: #33354D;
+  background: var(--color-transparent);
+  color: var(--color-gray-800);
   border: none;
   font-size: 1.7rem;
 }
 .btn-mobilemenu:hover {
   text-decoration: none;
-  background: #565973;
-  color: #FFFFFF;
+  background: var(--color-gray-700);
+  color: var(--color-white);
 }
 
 form {
@@ -562,10 +585,10 @@ form .checkbox span.field-validation-error {
   right: 0;
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-size: 14px !important;
-  color: #EF4444;
+  color: var(--color-danger);
 }
 form .checkbox-group {
   position: relative;
@@ -583,11 +606,11 @@ form .checkbox-group .input-group input[type=checkbox] {
 }
 form .checkbox-group .input-group input[type=checkbox].input-validation-error {
   position: relative;
-  border: 0 0 0 0.063rem solid #EF4444 !important;
-  color: #EF4444;
+  border: 0 0 0 0.063rem solid var(--color-danger) !important;
+  color: var(--color-danger);
 }
 form .checkbox-group .input-group input[type=checkbox].input-validation-error::placeholder {
-  color: #EF4444;
+  color: var(--color-danger);
 }
 form .checkbox-group .input-group label {
   margin: 0;
@@ -599,10 +622,10 @@ form .checkbox-group span {
 form .checkbox-group span.field-validation-error {
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-size: 14px !important;
-  color: #EF4444;
+  color: var(--color-danger);
 }
 form .checkbox-group span.field-validation-error::after {
   position: absolute;
@@ -620,18 +643,18 @@ form label {
 form input {
   padding: 1rem;
   border-radius: 0.5rem !important;
-  border: 0.063rem solid #D4D7E5;
+  border: 0.063rem solid var(--color-gray-400);
 }
 form input::placeholder {
   opacity: 0.4;
 }
 form input.input-validation-error {
   position: relative;
-  border: 0.063rem solid #EF4444 !important;
-  color: #EF4444;
+  border: 0.063rem solid var(--color-danger) !important;
+  color: var(--color-danger);
 }
 form input.input-validation-error::placeholder {
-  color: #EF4444;
+  color: var(--color-danger);
 }
 form input:focus {
   /*color: $danger;*/
@@ -639,30 +662,30 @@ form input:focus {
 form select {
   padding: 1rem;
   border-radius: 0.5rem !important;
-  border: 0.063rem solid #D4D7E5;
+  border: 0.063rem solid var(--color-gray-400);
   appearance: none;
   background: url("/images/icons/dropdown-icon.svg") no-repeat 95% center;
   background-size: 1.5rem;
 }
 form select.input-validation-error {
-  border: 0.063rem solid #EF4444 !important;
-  color: #EF4444;
+  border: 0.063rem solid var(--color-danger) !important;
+  color: var(--color-danger);
 }
 form textarea {
   padding: 1rem;
   border-radius: 0.5rem !important;
-  border: 0.063rem solid #D4D7E5;
+  border: 0.063rem solid var(--color-gray-400);
   resize: none;
 }
 form textarea::placeholder {
   opacity: 0.4;
 }
 form textarea.input-validation-error {
-  border: 0.063rem solid #EF4444 !important;
-  color: #EF4444;
+  border: 0.063rem solid var(--color-danger) !important;
+  color: var(--color-danger);
 }
 form textarea.input-validation-error::placeholder {
-  color: #EF4444;
+  color: var(--color-danger);
 }
 form span.field-validation-error {
   position: absolute;
@@ -670,10 +693,10 @@ form span.field-validation-error {
   right: 0;
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-size: 14px !important;
-  color: #EF4444;
+  color: var(--color-danger);
 }
 form span.field-validation-error::after {
   position: absolute;
@@ -686,11 +709,12 @@ form span.field-validation-error::after {
 }
 
 .contact-header {
-  background-color: #F3F6FF;
+  background-color: var(--color-gray-100);
 }
 
 header {
   padding: 15px 0;
+  background-color: var(--color-gray-000);
 }
 header .container {
   display: grid;
@@ -761,19 +785,19 @@ header .container .btn-mobilemenu {
 
 .showcase {
   position: relative;
-  margin-bottom: 80px;
+  padding-bottom: 80px;
+  background: var(--color-gray-000);
 }
 @media (min-width: 992px) {
   .showcase {
     display: flex;
     justify-content: flex-end;
-    margin-bottom: 150px;
+    padding-bottom: 150px;
   }
 }
 .showcase .background-image {
   display: none;
   position: absolute;
-  z-index: -1;
   width: 100%;
 }
 @media (min-width: 992px) {
@@ -807,20 +831,20 @@ header .container .btn-mobilemenu {
 .showcase .container .content h1 {
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-weight: 800;
-  color: #0B0F19;
+  color: var(--color-gray-900);
   font-size: 32px !important;
 }
 @media (min-width: 992px) {
   .showcase .container .content h1 {
     line-height: 160%;
     font-weight: 400;
-    color: #565973;
+    color: var(--color-gray-700);
     font-family: "Manrope", sans-serif;
     font-weight: 800;
-    color: #0B0F19;
+    color: var(--color-gray-900);
     font-size: 56px !important;
   }
 }
@@ -828,10 +852,10 @@ header .container .btn-mobilemenu {
   .showcase .container .content h1 {
     line-height: 160%;
     font-weight: 400;
-    color: #565973;
+    color: var(--color-gray-700);
     font-family: "Manrope", sans-serif;
     font-weight: 800;
-    color: #0B0F19;
+    color: var(--color-gray-900);
     font-size: 48px !important;
   }
 }
@@ -839,7 +863,7 @@ header .container .btn-mobilemenu {
   margin: 20px 0 40px 0;
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-size: 16px !important;
 }
@@ -848,7 +872,7 @@ header .container .btn-mobilemenu {
     margin: 40px 0 50px 0;
     line-height: 160%;
     font-weight: 400;
-    color: #565973;
+    color: var(--color-gray-700);
     font-family: "Manrope", sans-serif;
     font-size: 18px !important;
   }
@@ -880,8 +904,9 @@ header .container .btn-mobilemenu {
 }
 
 .features {
-  background: #F3F6FF;
+  background: var(--color-gray-000);
   padding: 80px 0;
+  z-index: 1;
 }
 .features .container {
   display: grid;
@@ -899,70 +924,71 @@ header .container .btn-mobilemenu {
 }
 .features .container .tool-features .box {
   padding: 20px;
-  border: 1px solid #E2E5F1;
+  border: 1px solid var(--color-gray-300);
   transition: all 0.15s ease-in-out;
 }
 @media (min-width: 992px) {
   .features .container .tool-features .box:nth-child(1) {
-    border-top: 0px solid #E2E5F1;
-    border-left: 0px solid #E2E5F1;
+    border-top: 0px solid var(--color-gray-300);
+    border-left: 0px solid var(--color-gray-300);
   }
   .features .container .tool-features .box:nth-child(2) {
-    border-top: 0px solid #E2E5F1;
+    border-top: 0px solid var(--color-gray-300);
   }
   .features .container .tool-features .box:nth-child(3) {
-    border-top: 0px solid #E2E5F1;
-    border-right: 0px solid #E2E5F1;
+    border-top: 0px solid var(--color-gray-300);
+    border-right: 0px solid var(--color-gray-300);
   }
   .features .container .tool-features .box:nth-child(4) {
-    border-bottom: 0px solid #E2E5F1;
-    border-left: 0px solid #E2E5F1;
+    border-bottom: 0px solid var(--color-gray-300);
+    border-left: 0px solid var(--color-gray-300);
   }
   .features .container .tool-features .box:nth-child(5) {
-    border-bottom: 0px solid #E2E5F1;
+    border-bottom: 0px solid var(--color-gray-300);
   }
   .features .container .tool-features .box:nth-child(6) {
-    border-bottom: 0px solid #E2E5F1;
-    border-right: 0px solid #E2E5F1;
+    border-bottom: 0px solid var(--color-gray-300);
+    border-right: 0px solid var(--color-gray-300);
   }
 }
 .features .container .tool-features .box:hover {
   transition: all 0.15s ease-in-out;
   cursor: pointer;
-  background: #FFFFFF;
+  background: var(--color-gray-100);
   box-shadow: 0px 4px 9px -1px rgba(19, 16, 34, 0.03), 0px 4.4px 20px -1px rgba(19, 16, 34, 0.05);
 }
 .features .container .tool-features .box img {
   padding: 10px;
-  background-color: #F3F6FF;
+  background-color: var(--color-gray-100);
   margin: 20px;
   border-radius: 8px;
 }
 .features .container .tool-features .box h5 {
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-weight: 800;
-  color: #0B0F19;
+  color: var(--color-gray-900);
   font-size: 20px !important;
 }
 .features .container .tool-features .box p {
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-size: 16px !important;
 }
 
 footer {
+  background: var(--color-gray-000);
   padding: 50px 0 30px 0;
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-size: 16px !important;
-  color: #9397AD;
+  color: var(--color-gray-600);
 }
 footer .container {
   text-align: center;
@@ -1061,9 +1087,9 @@ footer .container .social-media {
 }
 #signin .container .error-message {
   padding: 10px 40px;
-  color: #33354D;
-  background-color: #F5D7DA;
-  border: 1px solid #EF4444 !important;
+  color: var(--color-gray-800);
+  background-color: var(--color-weak-danger);
+  border: 1px solid var(--color-danger) !important;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1102,7 +1128,7 @@ footer .container .social-media {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-top: 1px solid #E2E5F1;
+  border-top: 1px solid var(--color-gray-300);
   gap: 1rem;
   margin-top: 15px;
 }
@@ -1128,16 +1154,16 @@ footer .container .social-media {
 }
 #account-details .error-message {
   padding: 10px 40px;
-  color: #33354D;
-  background-color: #F5D7DA;
-  border: 1px solid #EF4444 !important;
+  color: var(--color-gray-800);
+  background-color: var(--color-weak-danger);
+  border: 1px solid var(--color-danger) !important;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 8px;
 }
 #account-details aside {
-  border-right: 1px solid #E2E5F1;
+  border-right: 1px solid var(--color-gray-300);
   padding-right: 20px;
 }
 #account-details aside .profile-info {
@@ -1155,7 +1181,7 @@ footer .container .social-media {
 #account-details aside .profile-info p {
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-size: 16px !important;
 }
@@ -1180,7 +1206,7 @@ footer .container .social-media {
   padding: 1rem;
 }
 #account-details .details .basic-info form h5 {
-  color: #6366F1;
+  color: var(--color-theme);
 }
 #account-details .details .basic-info form .content {
   display: grid;
@@ -1204,7 +1230,7 @@ footer .container .social-media {
   grid-area: bio;
 }
 #account-details .details .basic-info form .content #form-bio span {
-  color: #B4B7C9;
+  color: var(--color-gray-500);
   font-weight: 400;
 }
 #account-details .details .basic-info form .content .form-buttons {
@@ -1220,7 +1246,7 @@ footer .container .social-media {
   padding: 1rem;
 }
 #account-details .details .address-info form h5 {
-  color: #6366F1;
+  color: var(--color-theme);
 }
 #account-details .details .address-info form .content {
   display: grid;
@@ -1235,7 +1261,7 @@ footer .container .social-media {
   grid-area: addressline_2;
 }
 #account-details .details .address-info form .content #form-addressline-2 span {
-  color: #B4B7C9;
+  color: var(--color-gray-500);
   font-weight: 400;
 }
 #account-details .details .address-info form .content #form-postalcode {
@@ -1251,6 +1277,9 @@ footer .container .social-media {
   gap: 20px;
 }
 
+.manageboard {
+  background-color: var(--color-gray-000);
+}
 .manageboard .container {
   height: 100%;
   display: grid;
@@ -1258,7 +1287,7 @@ footer .container .social-media {
 @media (min-width: 992px) {
   .manageboard .container {
     grid-template-columns: 1fr 45%;
-    margin-top: 40px;
+    padding-top: 40px;
   }
 }
 .manageboard .container .imagebox img {
@@ -1274,10 +1303,10 @@ footer .container .social-media {
   display: flex;
   flex-direction: column;
   text-align: center;
-  color: #565973;
+  color: var(--color-gray-700);
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-size: 16px !important;
 }
@@ -1293,7 +1322,7 @@ footer .container .social-media {
   }
 }
 .manageboard .container .point-list h2 {
-  color: #0B0F19;
+  color: var(--color-gray-900);
   margin-bottom: 25px;
 }
 @media (min-width: 992px) {
@@ -1309,7 +1338,7 @@ footer .container .social-media {
 }
 
 #download-app {
-  background-color: #F3F6FF;
+  background-color: var(--color-gray-000);
   margin-top: 50px;
 }
 @media (min-width: 1200px) {
@@ -1354,10 +1383,10 @@ footer .container .social-media {
   margin-top: 20px;
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-weight: 800;
-  color: #0B0F19;
+  color: var(--color-gray-900);
   font-size: 32px !important;
 }
 @media (min-width: 768px) {
@@ -1370,10 +1399,10 @@ footer .container .social-media {
     margin-top: 0;
     line-height: 160%;
     font-weight: 400;
-    color: #565973;
+    color: var(--color-gray-700);
     font-family: "Manrope", sans-serif;
     font-weight: 800;
-    color: #0B0F19;
+    color: var(--color-gray-900);
     font-size: 40px !important;
   }
 }
@@ -1381,10 +1410,10 @@ footer .container .social-media {
   #download-app .container .content h1 {
     line-height: 160%;
     font-weight: 400;
-    color: #565973;
+    color: var(--color-gray-700);
     font-family: "Manrope", sans-serif;
     font-weight: 800;
-    color: #0B0F19;
+    color: var(--color-gray-900);
     font-size: 40px !important;
   }
 }
@@ -1426,7 +1455,7 @@ footer .container .social-media {
   #download-app .container .content .store-buttons .app-box {
     display: flex;
     gap: 40px;
-    border-top: 1px solid #E2E5F1;
+    border-top: 1px solid var(--color-gray-300);
   }
 }
 @media (min-width: 1400px) {
@@ -1437,7 +1466,7 @@ footer .container .social-media {
   }
 }
 #download-app .container .content .store-buttons .app-box p {
-  color: #9397AD;
+  color: var(--color-gray-600);
   margin-bottom: 0;
   margin-top: 15px;
 }
@@ -1449,21 +1478,21 @@ footer .container .social-media {
 #download-app .container .content .store-buttons .app-box h2 {
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-weight: 800;
-  color: #0B0F19;
+  color: var(--color-gray-900);
   font-size: 28px !important;
 }
 @media (min-width: 1400px) {
   #download-app .container .content .store-buttons .app-box h2 {
-    color: #0B0F19;
+    color: var(--color-gray-900);
     margin-top: 10px;
     margin-bottom: -5px;
   }
 }
 #download-app .container .content .store-buttons .app-box span {
-  color: #565973;
+  color: var(--color-gray-700);
 }
 #download-app .container .content .store-buttons .app-box .store {
   margin-top: 20px;
@@ -1480,7 +1509,7 @@ footer .container .social-media {
 }
 
 .work-tools {
-  background-color: #FFFFFF;
+  background-color: var(--color-gray-000);
   padding: 80px 0;
 }
 .work-tools .container {
@@ -1511,20 +1540,20 @@ footer .container .social-media {
 .work-tools .container .tools .box:hover {
   transition: all 0.15s ease-in-out;
   cursor: pointer;
-  background: #FFFFFF;
+  background: var(--color-gray-100);
   box-shadow: 0px 4px 9px -1px rgba(19, 16, 34, 0.03), 0px 4.4px 20px -1px rgba(19, 16, 34, 0.05);
   text-decoration: none;
 }
 .work-tools .container .tools .box img {
   padding: 10px;
-  background-color: #F3F6FF;
+  background-color: var(--color-gray-100);
   margin-bottom: 20px;
   border-radius: 8px;
 }
 .work-tools .container .tools .box p {
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-size: 16px !important;
 }
@@ -1535,7 +1564,7 @@ footer .container .social-media {
 }
 
 #newsletter {
-  background-color: #F3F6FF;
+  background-color: var(--color-gray-100);
   padding-top: 40px;
   padding-bottom: 40px;
 }
@@ -1583,20 +1612,20 @@ footer .container .social-media {
 #newsletter .container .title h1 {
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-weight: 800;
-  color: #0B0F19;
+  color: var(--color-gray-900);
   font-size: 28px !important;
 }
 @media (min-width: 768px) {
   #newsletter .container .title h1 {
     line-height: 160%;
     font-weight: 400;
-    color: #565973;
+    color: var(--color-gray-700);
     font-family: "Manrope", sans-serif;
     font-weight: 800;
-    color: #0B0F19;
+    color: var(--color-gray-900);
     font-size: 32px !important;
   }
 }
@@ -1604,10 +1633,10 @@ footer .container .social-media {
   #newsletter .container .title h1 {
     line-height: 160%;
     font-weight: 400;
-    color: #565973;
+    color: var(--color-gray-700);
     font-family: "Manrope", sans-serif;
     font-weight: 800;
-    color: #0B0F19;
+    color: var(--color-gray-900);
     font-size: 40px !important;
   }
 }
@@ -1639,10 +1668,10 @@ footer .container .social-media {
   margin-top: 10px;
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-weight: 800;
-  color: #0B0F19;
+  color: var(--color-gray-900);
   font-size: 16px !important;
 }
 @media (min-width: 1200px) {
@@ -1657,7 +1686,7 @@ footer .container .social-media {
   margin-left: 110px;
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-size: 14px !important;
 }
@@ -1737,8 +1766,12 @@ footer .container .social-media {
   }
 }
 
+.error-page {
+  background: var(--color-gray-000);
+  height: 100%;
+}
 .error-page .container {
-  margin-top: 50px;
+  padding-top: 50px;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -1747,17 +1780,17 @@ footer .container .social-media {
 }
 @media (min-width: 768px) {
   .error-page .container {
-    margin-top: 100px;
+    padding-top: 100px;
   }
 }
 @media (min-width: 992px) {
   .error-page .container {
-    margin-top: 150px;
+    padding-top: 150px;
   }
 }
 @media (min-width: 1200px) {
   .error-page .container {
-    margin-top: 200px;
+    padding-top: 200px;
   }
 }
 .error-page .container .image img {
@@ -1765,10 +1798,10 @@ footer .container .social-media {
   height: auto;
 }
 .error-page .container .text p {
-  margin-bottom: 50px;
+  padding-bottom: 50px;
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-size: 18px !important;
 }
@@ -1777,7 +1810,7 @@ footer .container .social-media {
 }
 
 #contact {
-  background-color: #F3F6FF;
+  background-color: var(--color-gray-000);
   display: grid;
   grid-template-columns: 1fr;
 }
@@ -1810,7 +1843,7 @@ footer .container .social-media {
 #contact .container .content .title {
   margin-top: 40px;
   text-align: center;
-  border-bottom: 1px solid #E2E5F1;
+  border-bottom: 1px solid var(--color-gray-300);
 }
 @media (min-width: 1200px) {
   #contact .container .content .title {
@@ -1857,26 +1890,26 @@ footer .container .social-media {
 #contact .container .content .info-box h1 {
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-weight: 800;
-  color: #0B0F19;
+  color: var(--color-gray-900);
   font-size: 32px !important;
 }
 @media (min-width: 1200px) {
   #contact .container .content .info-box h1 {
     line-height: 160%;
     font-weight: 400;
-    color: #565973;
+    color: var(--color-gray-700);
     font-family: "Manrope", sans-serif;
     font-weight: 800;
-    color: #0B0F19;
+    color: var(--color-gray-900);
     font-size: 28px !important;
   }
 }
 #contact .container .content hr {
   margin-top: 30px;
-  color: #9397AD;
+  color: var(--color-gray-600);
 }
 @media (min-width: 1200px) {
   #contact .container .content hr {
@@ -1885,7 +1918,7 @@ footer .container .social-media {
 }
 #contact .form-box {
   padding: 40px 30px 40px 30px;
-  background-color: #FFFFFF;
+  background-color: var(--color-gray-100);
 }
 @media (min-width: 1200px) {
   #contact .form-box {
@@ -1903,10 +1936,10 @@ footer .container .social-media {
   text-align: center;
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-weight: 800;
-  color: #0B0F19;
+  color: var(--color-gray-900);
   font-size: 24px !important;
   margin-bottom: 30px;
 }
@@ -1914,10 +1947,10 @@ footer .container .social-media {
   #contact .form-box .title h1 {
     line-height: 160%;
     font-weight: 400;
-    color: #565973;
+    color: var(--color-gray-700);
     font-family: "Manrope", sans-serif;
     font-weight: 800;
-    color: #0B0F19;
+    color: var(--color-gray-900);
     font-size: 28px !important;
     text-align: start;
   }
@@ -1925,6 +1958,9 @@ footer .container .social-media {
 #contact .form-box #form-full-name {
   display: grid;
   text-align: center;
+}
+#contact .form-box #form-full-name input {
+  background-color: var(--color-gray-000);
 }
 @media (min-width: 1200px) {
   #contact .form-box #form-full-name {
@@ -1945,6 +1981,9 @@ footer .container .social-media {
   text-align: center;
   margin-top: 20px;
 }
+#contact .form-box #form-email input {
+  background-color: var(--color-gray-000);
+}
 @media (min-width: 1200px) {
   #contact .form-box #form-email {
     text-align: start;
@@ -1964,6 +2003,10 @@ footer .container .social-media {
   text-align: center;
   margin-top: 20px;
 }
+#contact .form-box #form-service select {
+  background-color: var(--color-gray-000);
+  color: var(--color-gray-900);
+}
 @media (min-width: 1200px) {
   #contact .form-box #form-service {
     text-align: start;
@@ -1981,6 +2024,7 @@ footer .container .social-media {
   }
   #contact .form-box #form-message textarea {
     height: 250px;
+    background-color: var(--color-gray-000);
   }
 }
 #contact .form-box #form-message span.field-validation-error {
@@ -2055,10 +2099,10 @@ footer .container .social-media {
   text-align: center;
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-weight: 800;
-  color: #0B0F19;
+  color: var(--color-gray-900);
   font-size: 28px !important;
 }
 @media (min-width: 1200px) {
@@ -2066,10 +2110,10 @@ footer .container .social-media {
     text-align: start;
     line-height: 160%;
     font-weight: 400;
-    color: #565973;
+    color: var(--color-gray-700);
     font-family: "Manrope", sans-serif;
     font-weight: 800;
-    color: #0B0F19;
+    color: var(--color-gray-900);
     font-size: 40px !important;
   }
 }
@@ -2184,20 +2228,20 @@ footer .container .social-media {
 #courses .container .course-group .course-box .course-info h1 {
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-weight: 800;
-  color: #0B0F19;
+  color: var(--color-gray-900);
   font-size: 28px !important;
 }
 @media (min-width: 1200px) {
   #courses .container .course-group .course-box .course-info h1 {
     line-height: 160%;
     font-weight: 400;
-    color: #565973;
+    color: var(--color-gray-700);
     font-family: "Manrope", sans-serif;
     font-weight: 800;
-    color: #0B0F19;
+    color: var(--color-gray-900);
     font-size: 20px !important;
   }
 }
@@ -2394,10 +2438,10 @@ footer .container .social-media {
 #course-details #container-1 .header .title h1 {
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-weight: 800;
-  color: #0B0F19;
+  color: var(--color-gray-900);
   font-size: 20px !important;
   color: var(--color-white);
 }
@@ -2405,10 +2449,10 @@ footer .container .social-media {
   #course-details #container-1 .header .title h1 {
     line-height: 160%;
     font-weight: 400;
-    color: #565973;
+    color: var(--color-gray-700);
     font-family: "Manrope", sans-serif;
     font-weight: 800;
-    color: #0B0F19;
+    color: var(--color-gray-900);
     font-size: 32px !important;
     color: var(--color-white);
   }
@@ -2417,10 +2461,10 @@ footer .container .social-media {
   #course-details #container-1 .header .title h1 {
     line-height: 160%;
     font-weight: 400;
-    color: #565973;
+    color: var(--color-gray-700);
     font-family: "Manrope", sans-serif;
     font-weight: 800;
-    color: #0B0F19;
+    color: var(--color-gray-900);
     font-size: 40px !important;
     color: var(--color-white);
   }
@@ -2428,7 +2472,7 @@ footer .container .social-media {
 #course-details #container-1 .header .title p {
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-size: 16px !important;
   color: var(--color-gray-500);
@@ -2437,7 +2481,7 @@ footer .container .social-media {
   #course-details #container-1 .header .title p {
     line-height: 160%;
     font-weight: 400;
-    color: #565973;
+    color: var(--color-gray-700);
     font-family: "Manrope", sans-serif;
     font-size: 18px !important;
     color: var(--color-gray-500);
@@ -2531,7 +2575,7 @@ footer .container .social-media {
 #course-details #container-1 .header .author .author-info span {
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-size: 14px !important;
   font-weight: 800;
@@ -2541,7 +2585,7 @@ footer .container .social-media {
   #course-details #container-1 .header .author .author-info span {
     line-height: 160%;
     font-weight: 400;
-    color: #565973;
+    color: var(--color-gray-700);
     font-family: "Manrope", sans-serif;
     font-size: 16px !important;
     font-weight: 800;
@@ -2551,7 +2595,7 @@ footer .container .social-media {
 #course-details #container-1 .header .author .author-info p {
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-size: 14px !important;
   color: var(--color-gray-300);
@@ -2560,7 +2604,7 @@ footer .container .social-media {
   #course-details #container-1 .header .author .author-info p {
     line-height: 160%;
     font-weight: 400;
-    color: #565973;
+    color: var(--color-gray-700);
     font-family: "Manrope", sans-serif;
     font-size: 16px !important;
     color: var(--color-gray-300);
@@ -2608,10 +2652,10 @@ footer .container .social-media {
   #course-details #container-2 .description-and-card .description .course-description h2 {
     line-height: 160%;
     font-weight: 400;
-    color: #565973;
+    color: var(--color-gray-700);
     font-family: "Manrope", sans-serif;
     font-weight: 800;
-    color: #0B0F19;
+    color: var(--color-gray-900);
     font-size: 40px !important;
     text-align: start;
   }
@@ -2623,7 +2667,7 @@ footer .container .social-media {
   #course-details #container-2 .description-and-card .description .course-description p {
     line-height: 160%;
     font-weight: 400;
-    color: #565973;
+    color: var(--color-gray-700);
     font-family: "Manrope", sans-serif;
     font-size: 18px !important;
     color: var(--color-gray-900);
@@ -2646,7 +2690,7 @@ footer .container .social-media {
   margin-left: -10px;
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-size: 18px !important;
 }
@@ -2661,10 +2705,10 @@ footer .container .social-media {
   #course-details #container-2 .description-and-card .description .point-list h2 {
     line-height: 160%;
     font-weight: 400;
-    color: #565973;
+    color: var(--color-gray-700);
     font-family: "Manrope", sans-serif;
     font-weight: 800;
-    color: #0B0F19;
+    color: var(--color-gray-900);
     font-size: 32px !important;
     text-align: start;
   }
@@ -2708,7 +2752,7 @@ footer .container .social-media {
   #course-details #container-2 .description-and-card .info-card .price .original {
     line-height: 160%;
     font-weight: 400;
-    color: #565973;
+    color: var(--color-gray-700);
     font-family: "Manrope", sans-serif;
     font-size: 18px !important;
     color: var(--color-gray-500);
@@ -2721,7 +2765,7 @@ footer .container .social-media {
   #course-details #container-2 .description-and-card .info-card .price .discount {
     line-height: 160%;
     font-weight: 400;
-    color: #565973;
+    color: var(--color-gray-700);
     font-family: "Manrope", sans-serif;
     font-size: 20px !important;
     color: var(--color-danger);
@@ -2741,10 +2785,10 @@ footer .container .social-media {
   #course-details #container-2 .program-details h2 {
     line-height: 160%;
     font-weight: 400;
-    color: #565973;
+    color: var(--color-gray-700);
     font-family: "Manrope", sans-serif;
     font-weight: 800;
-    color: #0B0F19;
+    color: var(--color-gray-900);
     font-size: 40px !important;
     text-align: start;
     margin-top: 40px;
@@ -2763,7 +2807,7 @@ footer .container .social-media {
   gap: 20px;
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-size: 18px !important;
 }
@@ -2880,7 +2924,7 @@ footer .container .social-media {
 #course-details #container-2 .author-details .author-info-big span {
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-size: 18px !important;
   color: var(--color-gray-600);
@@ -2899,10 +2943,10 @@ footer .container .social-media {
 #course-details #container-2 .author-details .author-info-big h2 {
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-weight: 800;
-  color: #0B0F19;
+  color: var(--color-gray-900);
   font-size: 20px !important;
   color: var(--color-white);
   margin-top: 10px;
@@ -2911,10 +2955,10 @@ footer .container .social-media {
   #course-details #container-2 .author-details .author-info-big h2 {
     line-height: 160%;
     font-weight: 400;
-    color: #565973;
+    color: var(--color-gray-700);
     font-family: "Manrope", sans-serif;
     font-weight: 800;
-    color: #0B0F19;
+    color: var(--color-gray-900);
     font-size: 28px !important;
     color: var(--color-white);
     margin: 0px 80px 0px 80px;
@@ -2924,10 +2968,10 @@ footer .container .social-media {
   #course-details #container-2 .author-details .author-info-big h2 {
     line-height: 160%;
     font-weight: 400;
-    color: #565973;
+    color: var(--color-gray-700);
     font-family: "Manrope", sans-serif;
     font-weight: 800;
-    color: #0B0F19;
+    color: var(--color-gray-900);
     font-size: 32px !important;
     color: var(--color-white);
     margin: 0px 80px 20px 80px;
@@ -2936,7 +2980,7 @@ footer .container .social-media {
 #course-details #container-2 .author-details .author-info-big p {
   line-height: 160%;
   font-weight: 400;
-  color: #565973;
+  color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-size: 16px !important;
   color: var(--color-gray-600);
@@ -2953,7 +2997,7 @@ footer .container .social-media {
   #course-details #container-2 .author-details .author-info-big p {
     line-height: 160%;
     font-weight: 400;
-    color: #565973;
+    color: var(--color-gray-700);
     font-family: "Manrope", sans-serif;
     font-size: 18px !important;
     color: var(--color-gray-600);

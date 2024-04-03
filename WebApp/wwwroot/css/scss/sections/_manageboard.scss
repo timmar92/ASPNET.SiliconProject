@@ -1,12 +1,12 @@
 .manageboard {
-
+    background-color: var(--color-gray-000);
     .container {
         height: 100%;
         display: grid;
 
         @include lg {
             grid-template-columns: 1fr 45%;
-            margin-top: 40px;
+            padding-top: 40px;
         }
 
         .imagebox {
@@ -24,7 +24,7 @@
             display: flex;
             flex-direction: column;
             text-align: center;
-            color: $gray-700;
+            color: var(--color-gray-700);
             @include text-m;
 
             .checkbox-icon {
@@ -41,7 +41,7 @@
 
 
             h2 {
-                color: $gray-900;
+                color: var(--color-gray-900);
                 margin-bottom: 25px;
 
                 @include lg {

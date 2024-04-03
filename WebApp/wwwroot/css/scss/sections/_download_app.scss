@@ -1,5 +1,5 @@
 #download-app {
-    background-color: $gray-100;
+    background-color: var(--color-gray-000);
     margin-top: 50px;
 
     @include xl {
@@ -99,7 +99,7 @@
                     @include xl {
                         display: flex;
                         gap: 40px;
-                        border-top: 1px solid $gray-300;
+                        border-top: 1px solid var(--color-gray-300);
                     }
 
                     @include xxl {
@@ -109,7 +109,7 @@
                     }
 
                     p {
-                        color: $gray-600;
+                        color: var(--color-gray-600);
                         margin-bottom: 0;
                         margin-top: 15px;
 
@@ -122,14 +122,14 @@
                         @include h3;
 
                         @include xxl {
-                            color: $gray-900;
+                            color: var(--color-gray-900);
                             margin-top: 10px;
                             margin-bottom: -5px;
                         }
                     }
 
                     span {
-                        color: $gray-700;
+                        color: var(--color-gray-700);
                     }
 
 

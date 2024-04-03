@@ -1,11 +1,14 @@
 ﻿@{
     ViewData["Title"] = "404";
+    var themeMode = Context.Request.Cookies["ThemeMode"] ?? "light";
+    var isDark = (themeMode == "dark") ? true : false;
 }
+
 
 <section id="error-page" class="error-page">
     <div class="container">
         <div class="image">
-            <img src="/images/404.svg" alt="404 error" />
+            <img src="/images/@(isDark ? "404-dark.svg" : "404.svg" )" alt="404 error" />
         </div>
         <div class="text">
             <h1>Ooops!</h1>
