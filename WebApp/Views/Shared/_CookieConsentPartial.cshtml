@@ -1,4 +1,4 @@
-﻿@if (Context.Request.Cookies["CookieConsent"] != null)
+﻿@if (Context.Request.Cookies["CookieConsent"] == null)
 {
     <div id="cookie-consent" class="cookie-alert fixed-bottom">
         <div class="container">
@@ -11,12 +11,12 @@
         function acceptCookieConsent() {
             document.getElementById('cookie-consent').style.display = 'none'
 
-            fetch('@Url.Action("CookieConsent", "SiteSettings")' {
-                method: 'post',
-                headers {
-                    'X-Requested-With': 'XMLHttpRequest',
+            fetch('@Url.Action("CookieConsent", "SiteSettings")', {
+                method: 'POST',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
                 }
-            })
-        }
+            });
+        };
     </script>
 }

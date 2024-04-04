@@ -17,6 +17,13 @@ public class SiteSettingsController : Controller
     [HttpPost]
     public IActionResult CookieConsent()
     {
-
+        var option = new CookieOptions
+        {
+            Expires = DateTime.Now.AddYears(1),
+            HttpOnly = true,
+            Secure = true
+        };
+        Response.Cookies.Append("CookieConsent", "true", option);
+        return Ok();
     }
 }

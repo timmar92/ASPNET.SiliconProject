@@ -47,6 +47,7 @@ $theme-gradient-background: linear-gradient(-1deg, rgba(99, 101, 241, 0.10) 0%, 
   --theme-opacity: #6365f114;
   --theme-gradient: linear-gradient(90deg, #6366F1 0%, #8B5CF6 50%, #D946EF 100%);
   --theme-gradient-background: linear-gradient(-1deg, rgba(99, 101, 241, 0.10) 0%, rgba(216, 70, 239, 0.05) 45%, rgba(241, 244, 253, 0.07) 75%);
+  --color-course-box: #FFFFFF;
 }
 
 :root.dark {
@@ -73,6 +74,7 @@ $theme-gradient-background: linear-gradient(-1deg, rgba(99, 101, 241, 0.10) 0%, 
   --theme-opacity: #6365f114;
   --theme-gradient: linear-gradient(90deg, #6366F1 0%, #8B5CF6 50%, #D946EF 100%);
   --theme-gradient-background: linear-gradient(-1deg, rgba(99, 101, 241, 0.10) 0%, rgba(216, 70, 239, 0.05) 45%, rgba(241, 244, 253, 0.07) 75%);
+  --color-course-box: #33354D;
 }
 
 html, body {
@@ -257,6 +259,13 @@ h6, .h6 {
   grid-template-rows: auto 1fr auto;
 }
 
+.fixed-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
 a {
   line-height: 160%;
   font-weight: 400;
@@ -426,7 +435,7 @@ a:hover {
 .btn-external-signin:hover {
   text-decoration: none;
   background: var(--color-gray-700);
-  color: var(--color-white);
+  color: var(--color-gray-000);
 }
 
 .btn-account-nav {
@@ -708,6 +717,17 @@ form span.field-validation-error::after {
   content: "⮿";
 }
 
+.cookie-alert {
+  background-color: var(--color-gray-200);
+  color: var(--color-gray-800);
+  padding: 1.5rem;
+}
+.cookie-alert .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .contact-header {
   background-color: var(--color-gray-100);
 }
@@ -904,9 +924,8 @@ header .container .btn-mobilemenu {
 }
 
 .features {
-  background: var(--color-gray-000);
+  background: var(--color-gray-100);
   padding: 80px 0;
-  z-index: 1;
 }
 .features .container {
   display: grid;
@@ -954,7 +973,7 @@ header .container .btn-mobilemenu {
 .features .container .tool-features .box:hover {
   transition: all 0.15s ease-in-out;
   cursor: pointer;
-  background: var(--color-gray-100);
+  background: var(--color-gray-000);
   box-shadow: 0px 4px 9px -1px rgba(19, 16, 34, 0.03), 0px 4.4px 20px -1px rgba(19, 16, 34, 0.05);
 }
 .features .container .tool-features .box img {
@@ -1011,6 +1030,7 @@ footer .container .social-media {
 
 #signup {
   height: 100%;
+  background-color: var(--color-gray-000);
 }
 #signup .container {
   display: flex;
@@ -1067,6 +1087,7 @@ footer .container .social-media {
 
 #signin {
   height: 100%;
+  background-color: var(--color-gray-000);
 }
 #signin .container {
   display: flex;
@@ -1146,11 +1167,16 @@ footer .container .social-media {
   }
 }
 
+#account-section {
+  background: var(--color-gray-000);
+}
+
 #account-details {
   display: grid;
   grid-template-columns: 2fr 5fr;
   gap: 150px;
-  margin-bottom: 70px;
+  padding-bottom: 70px;
+  background: var(--color-gray-000);
 }
 #account-details .error-message {
   padding: 10px 40px;
@@ -1165,6 +1191,7 @@ footer .container .social-media {
 #account-details aside {
   border-right: 1px solid var(--color-gray-300);
   padding-right: 20px;
+  background: var(--color-gray-000);
 }
 #account-details aside .profile-info {
   margin: 20px;
@@ -1338,7 +1365,7 @@ footer .container .social-media {
 }
 
 #download-app {
-  background-color: var(--color-gray-000);
+  background-color: var(--color-gray-100);
   margin-top: 50px;
 }
 @media (min-width: 1200px) {
@@ -2068,6 +2095,9 @@ footer .container .social-media {
   }
 }
 
+#courses {
+  background-color: var(--color-gray-000);
+}
 #courses .container {
   display: grid;
 }
@@ -2135,6 +2165,7 @@ footer .container .social-media {
   background: url("/images/icons/dropdown-icon.svg") no-repeat 95% center;
   background-position: calc(100% - 20px);
   background-size: 1.5rem;
+  background-color: var(--color-white);
 }
 @media (min-width: 1200px) {
   #courses .container .header .searchbar select {
@@ -2169,9 +2200,11 @@ footer .container .social-media {
   color: var(--color-gray-900);
   box-shadow: 0px 4px 9px -1px rgba(19, 16, 34, 0.03), 0px 4.4px 20px -1px rgba(19, 16, 34, 0.05);
   border-radius: 7px;
+  background-color: var(--color-course-box);
 }
 #courses .container .course-group .course-box:hover {
   opacity: 0.8;
+  background-color: var(--color-gray-100);
 }
 #courses .container .course-group .course-box .image .course-image {
   width: 100%;
@@ -2293,8 +2326,8 @@ footer .container .social-media {
   margin-top: 40px;
   text-align: center;
   background-color: var(--color-gray-100);
-  padding-top: 30px;
-  padding-bottom: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 @media (min-width: 1200px) {
   #courses .container .banner {
@@ -2330,19 +2363,20 @@ footer .container .social-media {
 @media (min-width: 1200px) {
   #courses .container .banner a {
     position: absolute;
-    bottom: 150px;
+    bottom: 130px;
     left: 120px;
   }
 }
 
 #course-details {
   position: relative;
+  background-color: var(--color-gray-000);
 }
 #course-details .background-image {
   width: 100%;
   position: absolute;
   overflow: hidden;
-  z-index: -1;
+  z-index: 0;
 }
 @media (min-width: 992px) {
   #course-details .background-image {
@@ -2365,6 +2399,10 @@ footer .container .social-media {
   bottom: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.7);
+}
+#course-details #container-1 {
+  position: relative;
+  z-index: 1;
 }
 #course-details #container-1 .header .links {
   display: none;
@@ -2826,7 +2864,7 @@ footer .container .social-media {
 }
 #course-details #container-2 .program-details ul li .detail .detail-info .ring .count {
   position: absolute;
-  background: var(--color-white);
+  background: var(--color-gray-000);
   border-radius: 50%;
   height: 30px;
   width: 30px;
@@ -2898,6 +2936,8 @@ footer .container .social-media {
   background-color: var(--color-gray-900);
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+  background: var(--color-gray-000);
+  border: 1px solid var(--color-gray-100);
 }
 @media (min-width: 992px) {
   #course-details #container-2 .author-details .author-info-big {

@@ -1,5 +1,5 @@
 #courses {
-
+    background-color: var(--color-gray-000);
 
     .container {
         display: grid;
@@ -57,6 +57,7 @@
                     background: url('/images/icons/dropdown-icon.svg') no-repeat 95% center;
                     background-position: calc(100% - 20px);
                     background-size: 1.5rem;
+                    background-color: var(--color-white);
 
                     @include xl {
                         width: 300px;
@@ -93,9 +94,11 @@
                 color: var(--color-gray-900);
                 @include shadow-m;
                 border-radius: 7px;
+                background-color: var(--color-course-box);
 
                 &:hover {
                     opacity: 0.8;
+                    background-color: var(--color-gray-100);
                 }
 
                 .image {
@@ -226,8 +229,8 @@
             margin-top: 40px;
             text-align: center;
             background-color: var(--color-gray-100);
-            padding-top: 30px;
-            padding-bottom: 30px;
+            margin-top: 30px;
+            margin-bottom: 30px;
 
             @include xl {
                 background-color: var(--color-white);
@@ -263,7 +266,7 @@
             a {
                 @include xl {
                     position: absolute;
-                    bottom: 150px;
+                    bottom: 130px;
                     left: 120px;
                 }
             }
