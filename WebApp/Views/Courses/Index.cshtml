@@ -15,56 +15,67 @@
         </div>
         <div class="header">
             <div class="title">Courses</div>
-            <div class="searchbar">
-                <select>
-                    <option value="">All Categories</option>
+            <form class="searchbar">
+                <select id="select">
+                    <option value="all">All Categories</option>
+                    @if (Model.Categories != null)
+                    {
+                        foreach (var category in Model.Categories)
+                        {
+                            <option value="@category.CategoryName">@category.CategoryName</option>
+                        }
+                    }
                 </select>
-                <input type="text" placeholder="Search courses"/>
-            </div>
+                <input id="search-query" type="text" placeholder="Search courses"/>
+            </form>
         </div>
 
-        <div class="course-group">
-            @foreach (var course in Model.Courses)
-            {
-                <a asp-action="Details" asp-controller="Courses" asp-route-id="@course.Id" class="course-box">
-                    <div class="image">
-                        <img class="course-image" src="@course.ImageUrl" alt="@course.Title" />
-                        @if (course.IsBestSeller == true)
-                        {
-                            <div class="best-seller">
-                                <p>Best Seller</p>
-                            </div>
-                        }
-                        <button class="bookmark">
-                            <img class="bookmark-image" src="/images/icons/bookmark.svg" alt="bookmark icon" />
-                        </button>
-                    </div>
-                    <div class="course-info">
-                        <h1>@course.Title</h1>
-                        <p>By @course.Author!.Name</p>
-                        <div class="price">
-                            @if (course.DiscountPrice == null)
+        @if (Model.Courses != null)
+        {
+            <div class="course-group">
+                @foreach (var course in Model.Courses)
+                {
+                    <div onclick="location.href='@Url.Action("Details", "Courses", new {id = course.Id })'" class="course-box">
+                        <div class="image">
+                            <img class="course-image" src="@course.ImageUrl" alt="@course.Title" />
+                            @if (course.IsBestSeller == true)
                             {
-                                <p>$ @course.Price</p>
+                                <div class="best-seller">
+                                    <p>Best Seller</p>
+                                </div>
                             }
-                            else {
-                                <p class="discount">$ @course.DiscountPrice</p>
-                                <p class="original">$ @course.Price</p>
-                            }
+                            <a asp-controller="Courses" asp-action="Join" class="bookmark">
+                                <img class="bookmark-image" src="/images/icons/bookmark.svg" alt="bookmark icon" />
+                            </a>
+                        </div>
+                        <div class="course-info">
+                            <h1>@course.Title</h1>
+                            <p>By @(course.Author != null ? course.Author.Name : "Null Nullson")</p>
+                            <div class="price">
+                                @if (string.IsNullOrEmpty(course.DiscountPrice))
+                                {
+                                    <p>$ @course.Price</p>
+                                }
+                                else
+                                {
+                                    <p class="discount">$ @course.DiscountPrice</p>
+                                    <p class="original">$ @course.Price</p>
+                                }
+                            </div>
+                        </div>
+                        <hr class="middle-line" />
+                        <div class="time-and-likes">
+                            <div class="hours">
+                                <p><img src="/images/icons/watch-icon.svg" alt="clock icon" />@course.Hours hours</p>
+                            </div>
+                            <div class="likes">
+                                <p><img src="/images/icons/like-icon.svg" alt="thumbs up icon" />@course.LikesInPercent % (@course.LikesInNumbers K)</p>
+                            </div>
                         </div>
                     </div>
-                    <hr class="middle-line" />
-                    <div class="time-and-likes">
-                        <div class="hours">
-                            <p><img src="/images/icons/watch-icon.svg" alt="clock icon" />@course.Hours hours</p>
-                        </div>
-                        <div class="likes">
-                            <p><img src="/images/icons/like-icon.svg" alt="thumbs up icon" />@course.LikesInPercent % (@course.LikesInNumbers K)</p>
-                        </div>
-                    </div>
-                </a>
-            }
-        </div>
+                }
+            </div>
+        }
 
         <div class="pagination">
             <div></div>

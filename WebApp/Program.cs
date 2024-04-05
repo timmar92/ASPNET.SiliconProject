@@ -5,6 +5,7 @@ using Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.EntityFrameworkCore;
 using WebApp.Helpers.Middlewares;
+using WebApp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRouting(x => x.LowercaseUrls = true);
@@ -19,6 +20,8 @@ builder.Services.AddScoped<UserRepository>();
 builder.Services.AddScoped<AddressRepository>();
 
 builder.Services.AddScoped<AddressManager>();
+builder.Services.AddScoped<CategoryService>();
+builder.Services.AddScoped<CourseService>();
 
 builder.Services.AddDefaultIdentity<UserEntity>(x =>
 {

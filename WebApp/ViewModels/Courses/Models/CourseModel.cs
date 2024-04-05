@@ -22,5 +22,6 @@
         public DetailsListModel? DetailsList { get; set; }
         public AuthorModel? Author { get; set; }
         public ReviewsModel? Reviews { get; set; }
+        public CategoryModel? Category { get; set; }
     }
 }
