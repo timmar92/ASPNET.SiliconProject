@@ -215,6 +215,30 @@ public class AccountController : Controller
         return View(viewModel);
     }
 
+    [HttpPost]
+    public async Task<IActionResult> ChangePassword([Bind(Prefix = "ChangePasswordForm")] ChangePasswordViewModel viewModel)
+    {
+        var user = await _userManager.GetUserAsync(User);
+
+        if (TryValidateModel(viewModel))
+        {
+            if (user != null)
+            {
+                var result = await _userManager.ChangePasswordAsync(user, viewModel.CurrentPassword, viewModel.NewPassword);
+
+                if (result.Succeeded)
+                {
+                    TempData["SuccessMessage"] = "Password has been changed successfully";
+                    return View(new ChangePasswordViewModel());
+                }
+            }
+
+        }
+        TempData["ErrorMessage"] = "Something went wrong, unable to change password";
+        return View(viewModel);
+
+    }
+
     #endregion
 }
 

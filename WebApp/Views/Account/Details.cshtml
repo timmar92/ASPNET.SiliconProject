@@ -30,7 +30,7 @@
 
 
 
-                <section class="basic-info">
+                <div class="basic-info">
 
                     @if (!string.IsNullOrEmpty(ViewData["ErrorMessage"]?.ToString()))
                     {
@@ -108,7 +108,7 @@
                             </div>
                         </div>
                     </form>
-                </section>
+                </div>
                 <hr />
                 <section class="address-info">
                     <form method="post" asp-controller="Account" asp-action="DetailsAddress" novalidate>

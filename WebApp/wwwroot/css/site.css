@@ -3141,3 +3141,95 @@ footer .container .social-media {
     margin: 20px 80px 40px 80px;
   }
 }
+
+#account-details {
+  display: grid;
+  grid-template-columns: 2fr 5fr;
+  gap: 150px;
+  padding-bottom: 70px;
+  background: var(--color-gray-000);
+}
+#account-details .error-message {
+  padding: 10px 40px;
+  color: var(--color-gray-800);
+  background-color: var(--color-weak-danger);
+  border: 1px solid var(--color-danger) !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+#account-details aside {
+  border-right: 1px solid var(--color-gray-300);
+  padding-right: 20px;
+  background: var(--color-gray-000);
+}
+#account-details aside .profile-info {
+  margin: 20px;
+  text-align: center;
+}
+#account-details aside .profile-info img {
+  width: 120px;
+  height: 120px;
+}
+#account-details aside .profile-info h5 {
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+#account-details aside .profile-info p {
+  line-height: 160%;
+  font-weight: 400;
+  color: var(--color-gray-700);
+  font-family: "Manrope", sans-serif;
+  font-size: 16px !important;
+}
+#account-details aside nav {
+  margin-top: 50px;
+  text-align: left;
+}
+#account-details aside nav a {
+  margin: 10px 0;
+  text-align: left;
+  justify-content: flex-start;
+}
+#account-details aside nav .btn-theme-s {
+  text-align: left;
+  justify-content: flex-start;
+}
+#account-details #account-security {
+  background: var(--color-gray-000);
+}
+#account-details #account-security .basic-info-security form {
+  padding: 1rem;
+}
+#account-details #account-security .basic-info-security form h5 {
+  color: var(--color-theme);
+}
+#account-details #account-security .basic-info-security form .content {
+  display: grid;
+  gap: 1rem 2rem;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "current-password ." "new-password confirm-password" "buttons buttons";
+}
+#account-details #account-security .basic-info-security form .content #form-current-password {
+  grid-area: current-password;
+}
+#account-details #account-security .basic-info-security form .content #form-new-password {
+  grid-area: new-password;
+}
+#account-details #account-security .basic-info-security form .content #form-confirm-password {
+  grid-area: confirm-password;
+}
+#account-details #account-security .basic-info-security form .content #form-bio {
+  grid-area: bio;
+}
+#account-details #account-security .basic-info-security form .content #form-bio span {
+  color: var(--color-gray-500);
+  font-weight: 400;
+}
+#account-details #account-security .basic-info-security form .content .form-buttons {
+  grid-area: buttons;
+  margin: 20px 0;
+  display: flex;
+  gap: 20px;
+}

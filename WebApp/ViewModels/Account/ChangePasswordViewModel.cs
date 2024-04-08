@@ -4,7 +4,7 @@ namespace WebApp.ViewModels.Account;
 
 public class ChangePasswordViewModel
 {
-    [Display(Name = "Current password", Order = 0)]
+    [Display(Name = "Current password", Prompt = "Enter your current password", Order = 0)]
     [DataType(DataType.Password)]
     public string CurrentPassword { get; set; } = null!;
 
@@ -20,6 +20,6 @@ public class ChangePasswordViewModel
     [Display(Name = "Confirm new password", Prompt = "Confirm your new password", Order = 2)]
     [Required(ErrorMessage = "Password does not match")]
     [DataType(DataType.Password)]
-    [Compare(nameof(CurrentPassword), ErrorMessage = "Passwords do not match")]
+    [Compare(nameof(NewPassword), ErrorMessage = "Passwords do not match")]
     public string ConfirmNewPassword { get; set; } = null!;
 }
