@@ -14,13 +14,10 @@
                 }
             });
     });
-});
-
-
-
-document.addEventListener('DOMContentLoaded', function () {
     selectAndSearch();
 });
+
+
 
 function selectAndSearch() {
     try {
