@@ -2154,6 +2154,8 @@ footer .container .social-media {
 @media (min-width: 1200px) {
   #courses .container .header .searchbar {
     display: flex;
+    align-items: end;
+    justify-content: end;
     gap: 20px;
   }
 }
@@ -2201,10 +2203,12 @@ footer .container .social-media {
   box-shadow: 0px 4px 9px -1px rgba(19, 16, 34, 0.03), 0px 4.4px 20px -1px rgba(19, 16, 34, 0.05);
   border-radius: 7px;
   background-color: var(--color-course-box);
+  transition: background-color 0.3s ease, opacity 0.3s ease;
 }
 #courses .container .course-group .course-box:hover {
   opacity: 0.8;
   background-color: var(--color-gray-100);
+  cursor: pointer;
 }
 #courses .container .course-group .course-box .image .course-image {
   width: 100%;
@@ -2320,6 +2324,37 @@ footer .container .social-media {
     margin-left: 20px;
     margin-right: 20px;
   }
+}
+#courses .container .pagination {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+#courses .container .pagination .number {
+  padding: 10px 20px;
+  background-color: var(--color-gray-200);
+  line-height: 160%;
+  font-weight: 400;
+  color: var(--color-gray-700);
+  font-family: "Manrope", sans-serif;
+  font-size: 18px !important;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: ease-in-out 0.2s;
+}
+#courses .container .pagination .active {
+  background-color: var(--color-theme);
+  color: var(--color-white);
+}
+#courses .container .pagination .shrink {
+  transform: scale(0.9);
+}
+#courses .container .pagination .inactive:hover {
+  cursor: pointer;
+  text-decoration: none;
+  transform: scale(1.2);
 }
 #courses .container .banner {
   display: grid;

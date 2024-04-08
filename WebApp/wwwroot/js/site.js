@@ -15,6 +15,22 @@
             });
     });
     selectAndSearch();
+
+    let inactiveElements = document.querySelectorAll('.inactive');
+    inactiveElements.forEach(function (inactiveElement) {
+        inactiveElement.addEventListener('mouseover', function () {
+            let activeElement = document.querySelector('.active');
+            if (activeElement) {
+                activeElement.classList.add('shrink');
+            }
+        });
+        inactiveElement.addEventListener('mouseout', function () {
+            let activeElement = document.querySelector('.active');
+            if (activeElement) {
+                activeElement.classList.remove('shrink');
+            }
+        });
+    });
 });
 
 
@@ -59,6 +75,9 @@ function updateCoursesByFilter() {
             const parser = new DOMParser();
             const dom = parser.parseFromString(data, 'text/html');
             document.querySelector('.course-group').innerHTML = dom.querySelector('.course-group').innerHTML;
+
+            const pagination = dom.querySelector('.pagination') ? dom.querySelector('.pagination').innerHTML : '';
+            document.querySelector('.pagination').innerHTML = pagination;
         });
 
     console.log(category)

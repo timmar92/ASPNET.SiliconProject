@@ -6,4 +6,5 @@ public class CourseIndexViewModel
 {
     public IEnumerable<CourseModel> Courses { get; set; } = [];
     public IEnumerable<CategoryModel>? Categories { get; set; }
+    public PaginationModel? Pagination { get; set; }
 }

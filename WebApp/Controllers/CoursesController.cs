@@ -23,12 +23,21 @@ public class CoursesController : Controller
     }
 
     [HttpGet]
-    public async Task<IActionResult> Index(string category = "", string searchQuery = "")
+    public async Task<IActionResult> Index(string category = "", string searchQuery = "", int pageNumber = 1, int pageSize = 6)
     {
+        var courseResult = await _courseService.GetCoursesAsync(category, searchQuery, pageNumber, pageSize);
+
         var viewModel = new CourseIndexViewModel
         {
             Categories = await _categoryService.GetCategoriesAsync(),
-            Courses = await _courseService.GetCoursesAsync(category, searchQuery)
+            Courses = courseResult.Courses,
+            Pagination = new PaginationModel
+            {
+                PageSize = pageSize,
+                CurrentPage = pageNumber,
+                TotalPages = courseResult.TotalPages,
+                TotalItems = courseResult.TotalItems
+            }
         };
 
 

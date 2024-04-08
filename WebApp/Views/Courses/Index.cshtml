@@ -76,10 +76,22 @@
                 }
             </div>
         }
-
-        <div class="pagination">
-            <div></div>
-        </div>
+        @if(Model.Pagination != null && Model.Pagination.TotalPages > 1)
+        {
+            <div class="pagination">
+                @for (int i = 1; i <= Model.Pagination.TotalPages; i++)
+                {
+                    if (i  == Model.Pagination.CurrentPage)
+                    {
+                        <span class="number active">@i</span>
+                    }
+                    else
+                    {
+                        <a class="number inactive" href="@Url.Action("Index", new {pageNumber = i, pageSize = Model.Pagination.PageSize})">@i</a>
+                    }
+                }
+            </div>
+        }
 
         <div class="banner">
             <div class="banner-image">

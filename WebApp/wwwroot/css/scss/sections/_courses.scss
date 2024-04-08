@@ -46,6 +46,8 @@
 
                 @include xl {
                     display: flex;
+                    align-items: end;
+                    justify-content: end;
                     gap: 20px;
                 }
 
@@ -95,10 +97,12 @@
                 @include shadow-m;
                 border-radius: 7px;
                 background-color: var(--color-course-box);
+                transition: background-color 0.3s ease, opacity 0.3s ease;
 
                 &:hover {
                     opacity: 0.8;
                     background-color: var(--color-gray-100);
+                    cursor: pointer;
                 }
 
                 .image {
@@ -222,6 +226,37 @@
         }
 
         .pagination {
+            padding-top: 40px;
+            padding-bottom: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+
+            .number {
+                padding: 10px 20px;
+                background-color: var(--color-gray-200);
+                @include text-lg;
+                font-weight: 600;
+                border-radius: 6px;
+                transition: ease-in-out 0.2s;
+            }
+
+            .active {
+                background-color: var(--color-theme);
+                color: var(--color-white);
+            }
+
+            .shrink {
+                transform: scale(0.9);
+            }
+
+            .inactive {
+                &:hover {
+                    cursor: pointer;
+                    text-decoration: none;
+                    transform: scale(1.2);
+                }
+            }
         }
 
         .banner {
