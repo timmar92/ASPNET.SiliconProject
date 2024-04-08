@@ -2877,12 +2877,53 @@ footer .container .social-media {
 #course-details #container-2 .program-details ul li .detail .detail-info {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 30px;
   line-height: 160%;
   font-weight: 400;
   color: var(--color-gray-700);
   font-family: "Manrope", sans-serif;
   font-size: 18px !important;
+}
+#course-details #container-2 .program-details ul li .detail .detail-info .details-text {
+  display: flex;
+  flex-direction: column;
+}
+#course-details #container-2 .program-details ul li .detail .detail-info .details-text h3 {
+  line-height: 160%;
+  font-weight: 400;
+  color: var(--color-gray-700);
+  font-family: "Manrope", sans-serif;
+  font-weight: 800;
+  color: var(--color-gray-900);
+  font-size: 20px !important;
+  margin-top: 10px;
+}
+@media (min-width: 1200px) {
+  #course-details #container-2 .program-details ul li .detail .detail-info .details-text h3 {
+    line-height: 160%;
+    font-weight: 400;
+    color: var(--color-gray-700);
+    font-family: "Manrope", sans-serif;
+    font-weight: 800;
+    color: var(--color-gray-900);
+    font-size: 28px !important;
+  }
+}
+#course-details #container-2 .program-details ul li .detail .detail-info .details-text p {
+  line-height: 160%;
+  font-weight: 400;
+  color: var(--color-gray-700);
+  font-family: "Manrope", sans-serif;
+  font-size: 16px !important;
+}
+@media (min-width: 1200px) {
+  #course-details #container-2 .program-details ul li .detail .detail-info .details-text p {
+    line-height: 160%;
+    font-weight: 400;
+    color: var(--color-gray-700);
+    font-family: "Manrope", sans-serif;
+    font-size: 18px !important;
+  }
 }
 #course-details #container-2 .program-details ul li .detail .detail-info .ring {
   background: var(--color-gray-200);
@@ -2921,15 +2962,22 @@ footer .container .social-media {
 }
 #course-details #container-2 .program-details ul li .detail .vertical-line {
   width: 2px;
-  height: 50px;
+  height: 70px;
   background: var(--color-gray-200);
   margin-left: 25px;
-  top: -10px;
+  margin-top: -35px;
+  margin-bottom: -35px;
 }
 @media (min-width: 1200px) {
   #course-details #container-2 .program-details ul li .detail .vertical-line {
     margin-left: 35px;
+    margin-top: -14px;
+    margin-bottom: -14px;
+    height: 100px;
   }
+}
+#course-details #container-2 .program-details ul li:last-child .vertical-line {
+  display: none;
 }
 #course-details #container-2 .author-details {
   margin-top: 60px;

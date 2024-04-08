@@ -40,13 +40,13 @@
 
             <div class="reviews">
                 <div class="rating">
-                    <img src="@Model.Reviews!.FullStarUrl" />
-                    <img src="@Model.Reviews!.FullStarUrl" />
-                    <img src="@Model.Reviews!.FullStarUrl" />
-                    <img src="@Model.Reviews!.FullStarUrl" />
-                    <img src="@Model.Reviews!.EmptyStarUrl" />
+                    <img src="@Model.Reviews?.FullStarUrl" />
+                    <img src="@Model.Reviews?.FullStarUrl" />
+                    <img src="@Model.Reviews?.FullStarUrl" />
+                    <img src="@Model.Reviews?.FullStarUrl" />
+                    <img src="@Model.Reviews?.EmptyStarUrl" />
 
-                    <p>(@Model.Reviews!.ReviewNumbers K reviews)</p>
+                    <p>(@Model.Reviews?.ReviewNumbers K reviews)</p>
                 </div>
                 <div class="likes">
                     <p><img src="/images/icons/like-icon.svg" alt="like icon" /> @Model.LikesInNumbers K likes</p>
@@ -57,10 +57,10 @@
             </div>
 
             <div class="author">
-                <img src="@Model.Author!.ImageUrl" alt="@Model.Author!.Name" />
+                <img src="@Model.Author?.ImageUrl" alt="@Model.Author?.Name" />
                 <div class="author-info">
                     <span>Created by</span>
-                    <p>@Model.Author!.Name</p>
+                    <p>@Model.Author?.Name</p>
                 </div>
             </div>
 
@@ -77,12 +77,15 @@
                 <div class="point-list">
                     <h2>What you'll learn</h2>
                     <ul>
-                        @foreach (var property in Model.PointList!.GetType().GetProperties())
+                        @if(Model.PointList != null)
                         {
-                            var point = property.GetValue(Model.PointList, null);
-                            if (point != null)
+                            @foreach (var property in Model.PointList!.GetType().GetProperties())
                             {
-                                <li> <img class="checkbox-icon" src="/images/icons/bx-check-circle.svg" />@point</li>
+                                var point = property.GetValue(Model.PointList, null);
+                                if (point != null)
+                                {
+                                    <li> <img class="checkbox-icon" src="/images/icons/bx-check-circle.svg" />@point</li>
+                                }
                             }
                         }
                     </ul>
@@ -90,7 +93,7 @@
             </div>
             <div class="info-card">
                 <h3>This course includes</h3>
-                <p><img src="/images/icons/screen-icon.svg" /> @Model.Hours on-demand video</p>
+                <p><img src="/images/icons/screen-icon.svg" /> @Model.Hours on-demand video h</p>
                 <p><img src="/images/icons/article-icon.svg" /> @Model.ArticleNumber articles</p>
                 <p><img src="/images/icons/download-icon.svg" /> @Model.DownloadResource downloadable resources</p>
                 <p><img src="/images/icons/infinite-icon.svg" /> Full lifetime access</p>
@@ -112,42 +115,52 @@
         <div class="program-details">
             <h2>Program Details</h2>
             <ul>
-                @for (int i = 0; i < Model.DetailsList!.GetType().GetProperties().Length; i++)
+                @if(Model.DetailsList != null)
                 {
-                    var property = Model.DetailsList.GetType().GetProperties()[i];
-                    var detail = property.GetValue(Model.DetailsList, null);
-                    if (detail != null)
+                    int totalProperties = Model.DetailsList!.GetType().GetProperties().Length / 2;
+                    @for (int i = 1; i <= totalProperties; i++)
                     {
-                        <li>
-                            <div class="detail">
-                                <div class="detail-info">
-                                    <div class="ring">
-                                        <div class="count">@(i + 1)</div>
+                        var detailProperty = Model.DetailsList.GetType().GetProperty($"Detail_{i}");
+                        var titleProperty = Model.DetailsList.GetType().GetProperty($"Title_{i}");
+
+                        var detail = detailProperty?.GetValue(Model.DetailsList, null);
+                        var title = titleProperty?.GetValue(Model.DetailsList, null);
+                        if (detail != null)
+                        {
+                            <li>
+                                <div class="detail">
+                                    <div class="detail-info">
+                                        <div class="ring">
+                                            <div class="count">@(i)</div>
+                                        </div>
+                                        <div class="details-text">
+                                            <h3>@title</h3>
+                                            <p>@detail</p>
+                                        </div>
                                     </div>
-                                    @detail
+                                    @if (i != totalProperties)
+                                    {
+                                        <div class="vertical-line"></div>
+                                    }
                                 </div>
-                                @if (i != Model.DetailsList!.GetType().GetProperties().Length - 1) // Don't add a line after the last ring
-                                {
-                                    <div class="vertical-line"></div>
-                                }
-                            </div>
-                        </li>
+                            </li>
+                        }
                     }
                 }
             </ul>
         </div>
         <div class="author-details">
             <div class="author-image">
-                <img id="author-big-image" src="@Model.Author!.ImageUrl" alt="@Model.Author!.Name" />
+                <img id="author-big-image" src="@Model.Author?.ImageUrl" alt="@Model.Author?.Name" />
             </div>
             <div class="author-info-big">
                 <img id="pattern" src="/images/pattern.svg" />
                 <span>Learn from the best</span>
-                <h2>@Model.Author!.Name</h2>
-                <p>@Model.Author!.Description</p>
+                <h2>@Model.Author?.Name</h2>
+                <p>@Model.Author?.Description</p>
                 <div class="follow-buttons">
-                    <a class="btn-youtube" href="@Model.Author!.YoutubeUrl" target="_blank"><img src="/images/icons/youtube-icon.svg" alt="youtube icon" />Subscribe</a>
-                    <a class="btn-facebook" href="@Model.Author!.FacebookUrl" target="_blank"><img src="/images/icons/facebook-icon.svg" alt="facebook icon" />Follow this author</a>
+                    <a class="btn-youtube" href="@Model.Author?.YoutubeUrl" target="_blank"><img src="/images/icons/youtube-icon.svg" alt="youtube icon" />Subscribe</a>
+                    <a class="btn-facebook" href="@Model.Author?.FacebookUrl" target="_blank"><img src="/images/icons/facebook-icon.svg" alt="facebook icon" />Follow this author</a>
                 </div>
             </div>
         </div>
