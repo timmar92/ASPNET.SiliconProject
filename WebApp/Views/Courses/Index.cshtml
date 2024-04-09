@@ -44,9 +44,19 @@
                                     <p>Best Seller</p>
                                 </div>
                             }
-                            <a asp-controller="Courses" asp-action="Join" class="bookmark">
-                                <img class="bookmark-image" src="/images/icons/bookmark.svg" alt="bookmark icon" />
-                            </a>
+                            @if(Model.HasUserJoined[course.Id])
+                            {
+                                <a asp-controller="Courses" asp-route-courseId="@course.Id" asp-action="LeaveCourse" class="bookmark">
+                                    <img class="bookmark-image" src="/images/icons/bookmark-filled.svg" alt="bookmark icon" />
+                                </a>
+                            }
+                            else
+                            {
+                                <a asp-controller="Courses" asp-route-courseId="@course.Id" asp-action="JoinCourse" class="bookmark">
+                                    <img class="bookmark-image" src="/images/icons/bookmark.svg" alt="bookmark icon" />
+                                </a>
+                            }
+
                         </div>
                         <div class="course-info">
                             <h1>@course.Title</h1>

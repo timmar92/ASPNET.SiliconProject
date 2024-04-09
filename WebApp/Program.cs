@@ -18,10 +18,12 @@ builder.Services.AddHttpClient();
 builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("SiliconDB")));
 builder.Services.AddScoped<UserRepository>();
 builder.Services.AddScoped<AddressRepository>();
+builder.Services.AddScoped<UserCoursesRepository>();
 
 builder.Services.AddScoped<AddressManager>();
 builder.Services.AddScoped<CategoryService>();
 builder.Services.AddScoped<CourseService>();
+builder.Services.AddScoped<UserCoursesManager>();
 
 builder.Services.AddDefaultIdentity<UserEntity>(x =>
 {

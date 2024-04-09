@@ -75,4 +75,38 @@ public class Repo<TEntity>(DataContext context) where TEntity : class
         }
         return false;
     }
+
+    public async Task<bool> DeleteOneFindAsync(Expression<Func<TEntity, bool>> predicate)
+    {
+        try
+        {
+            var entity = await _context.Set<TEntity>().FirstOrDefaultAsync(predicate);
+            if (entity != null)
+            {
+                _context.Set<TEntity>().Remove(entity);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine("ERROR :: " + ex.Message);
+        }
+        return false;
+    }
+
+    public async Task<bool> DeleteOneAsync(TEntity entity)
+    {
+        try
+        {
+            _context.Set<TEntity>().Remove(entity);
+            await _context.SaveChangesAsync();
+            return true;
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine("ERROR :: " + ex.Message);
+        }
+        return false;
+    }
 }

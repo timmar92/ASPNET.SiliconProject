@@ -1,4 +1,4 @@
-﻿@model CourseModel
+﻿@model CourseDetailsViewModel
 
 @{
     ViewData["Title"] = "Course Details";
@@ -7,7 +7,7 @@
 <section class="course-details" id="course-details">
 
     <div class="background-image">
-        <img src="@Model.ImageUrl" alt="Alternate Text" />
+        <img src="@Model.Course.ImageUrl" alt="Alternate Text" />
     </div>
     
     <div class="container" id="container-1">
@@ -18,11 +18,11 @@
                 <img src="/images/icons/right-link-arrows.svg" />
                 <a asp-controller="Courses" asp-action="Index">Courses</a>
                 <img src="/images/icons/right-link-arrows.svg" />
-                <a asp-action="Details" asp-controller="Courses" asp-route-id="@Model.Id">@Model.Title</a>
+                <a asp-action="Details" asp-controller="Courses" asp-route-id="@Model.Course.Id">@Model.Course.Title</a>
             </div>
 
             <div class="digital">
-                @if (Model.IsBestSeller == true)
+                @if (Model.Course.IsBestSeller == true)
                 {
                     <div class="best-seller">
                         <p>Best Seller</p>
@@ -34,33 +34,33 @@
             </div>
 
             <div class="title">
-                <h1>@Model.Title</h1>
-                <p>@Model.Subtitle</p>
+                <h1>@Model.Course.Title</h1>
+                <p>@Model.Course.Subtitle</p>
             </div>
 
             <div class="reviews">
                 <div class="rating">
-                    <img src="@Model.Reviews?.FullStarUrl" />
-                    <img src="@Model.Reviews?.FullStarUrl" />
-                    <img src="@Model.Reviews?.FullStarUrl" />
-                    <img src="@Model.Reviews?.FullStarUrl" />
-                    <img src="@Model.Reviews?.EmptyStarUrl" />
+                    <img src="@Model.Course.Reviews?.FullStarUrl" />
+                    <img src="@Model.Course.Reviews?.FullStarUrl" />
+                    <img src="@Model.Course.Reviews?.FullStarUrl" />
+                    <img src="@Model.Course.Reviews?.FullStarUrl" />
+                    <img src="@Model.Course.Reviews?.EmptyStarUrl" />
 
-                    <p>(@Model.Reviews?.ReviewNumbers K reviews)</p>
+                    <p>(@Model.Course.Reviews?.ReviewNumbers K reviews)</p>
                 </div>
                 <div class="likes">
-                    <p><img src="/images/icons/like-icon.svg" alt="like icon" /> @Model.LikesInNumbers K likes</p>
+                    <p><img src="/images/icons/like-icon.svg" alt="like icon" /> @Model.Course.LikesInNumbers K likes</p>
                 </div>
                 <div class="hours">
-                    <p><img src="/images/icons/watch-icon.svg" alt="clock icon" /> @Model.Hours hours</p>
+                    <p><img src="/images/icons/watch-icon.svg" alt="clock icon" /> @Model.Course.Hours hours</p>
                 </div>
             </div>
 
             <div class="author">
-                <img src="@Model.Author?.ImageUrl" alt="@Model.Author?.Name" />
+                <img src="@Model.Course.Author?.ImageUrl" alt="@Model.Course.Author?.Name" />
                 <div class="author-info">
                     <span>Created by</span>
-                    <p>@Model.Author?.Name</p>
+                    <p>@Model.Course.Author?.Name</p>
                 </div>
             </div>
 
@@ -72,16 +72,16 @@
             <div class="description">
                 <div class="course-description">
                     <h2>Course Description</h2>
-                    <p>@Model.Description</p>
+                    <p>@Model.Course.Description</p>
                 </div>
                 <div class="point-list">
                     <h2>What you'll learn</h2>
                     <ul>
-                        @if(Model.PointList != null)
+                        @if (Model.Course.PointList != null)
                         {
-                            @foreach (var property in Model.PointList!.GetType().GetProperties())
+                            @foreach (var property in Model.Course.PointList!.GetType().GetProperties())
                             {
-                                var point = property.GetValue(Model.PointList, null);
+                                var point = property.GetValue(Model.Course.PointList, null);
                                 if (point != null)
                                 {
                                     <li> <img class="checkbox-icon" src="/images/icons/bx-check-circle.svg" />@point</li>
@@ -93,38 +93,45 @@
             </div>
             <div class="info-card">
                 <h3>This course includes</h3>
-                <p><img src="/images/icons/screen-icon.svg" /> @Model.Hours on-demand video h</p>
-                <p><img src="/images/icons/article-icon.svg" /> @Model.ArticleNumber articles</p>
-                <p><img src="/images/icons/download-icon.svg" /> @Model.DownloadResource downloadable resources</p>
+                <p><img src="/images/icons/screen-icon.svg" /> @Model.Course.Hours on-demand video h</p>
+                <p><img src="/images/icons/article-icon.svg" /> @Model.Course.ArticleNumber articles</p>
+                <p><img src="/images/icons/download-icon.svg" /> @Model.Course.DownloadResource downloadable resources</p>
                 <p><img src="/images/icons/infinite-icon.svg" /> Full lifetime access</p>
                 <p><img src="/images/icons/trophy-icon.svg" /> Certificate on completion</p>
                 <div class="price">
-                    @if (Model.DiscountPrice == null)
+                    @if (Model.Course.DiscountPrice == null)
                     {
-                        <p>$ @Model.Price</p>
+                        <p>$ @Model.Course.Price</p>
                     }
                     else
                     {
-                        <p class="discount">$ @Model.DiscountPrice</p>
-                        <p class="original">$ @Model.Price</p>
+                        <p class="discount">$ @Model.Course.DiscountPrice</p>
+                        <p class="original">$ @Model.Course.Price</p>
                     }
                 </div>
-                <a asp-controller="Courses" asp-action="Join" class="btn-theme-s">Join Course</a>
+                @if(Model.HasUserJoined == true) 
+                {
+                    <a asp-controller="Courses" asp-action="LeaveCourse" asp-route-courseId="@Model.Course.Id" class="btn-youtube">Leave Course</a>
+                }
+                else
+                {
+                    <a asp-controller="Courses" asp-action="JoinCourse" asp-route-courseId="@Model.Course.Id" class="btn-theme-s">Join Course</a>
+                }
             </div>
         </div>
         <div class="program-details">
             <h2>Program Details</h2>
             <ul>
-                @if(Model.DetailsList != null)
+                @if (Model.Course.DetailsList != null)
                 {
-                    int totalProperties = Model.DetailsList!.GetType().GetProperties().Length / 2;
+                    int totalProperties = Model.Course.DetailsList!.GetType().GetProperties().Length / 2;
                     @for (int i = 1; i <= totalProperties; i++)
                     {
-                        var detailProperty = Model.DetailsList.GetType().GetProperty($"Detail_{i}");
-                        var titleProperty = Model.DetailsList.GetType().GetProperty($"Title_{i}");
+                        var detailProperty = Model.Course.DetailsList.GetType().GetProperty($"Detail_{i}");
+                        var titleProperty = Model.Course.DetailsList.GetType().GetProperty($"Title_{i}");
 
-                        var detail = detailProperty?.GetValue(Model.DetailsList, null);
-                        var title = titleProperty?.GetValue(Model.DetailsList, null);
+                        var detail = detailProperty?.GetValue(Model.Course.DetailsList, null);
+                        var title = titleProperty?.GetValue(Model.Course.DetailsList, null);
                         if (detail != null)
                         {
                             <li>
@@ -151,16 +158,16 @@
         </div>
         <div class="author-details">
             <div class="author-image">
-                <img id="author-big-image" src="@Model.Author?.ImageUrl" alt="@Model.Author?.Name" />
+                <img id="author-big-image" src="@Model.Course.Author?.ImageUrl" alt="@Model.Course.Author?.Name" />
             </div>
             <div class="author-info-big">
                 <img id="pattern" src="/images/pattern.svg" />
                 <span>Learn from the best</span>
-                <h2>@Model.Author?.Name</h2>
-                <p>@Model.Author?.Description</p>
+                <h2>@Model.Course.Author?.Name</h2>
+                <p>@Model.Course.Author?.Description</p>
                 <div class="follow-buttons">
-                    <a class="btn-youtube" href="@Model.Author?.YoutubeUrl" target="_blank"><img src="/images/icons/youtube-icon.svg" alt="youtube icon" />Subscribe</a>
-                    <a class="btn-facebook" href="@Model.Author?.FacebookUrl" target="_blank"><img src="/images/icons/facebook-icon.svg" alt="facebook icon" />Follow this author</a>
+                    <a class="btn-youtube" href="@Model.Course.Author?.YoutubeUrl" target="_blank"><img src="/images/icons/youtube-icon.svg" alt="youtube icon" />Subscribe</a>
+                    <a class="btn-facebook" href="@Model.Course.Author?.FacebookUrl" target="_blank"><img src="/images/icons/facebook-icon.svg" alt="facebook icon" />Follow this author</a>
                 </div>
             </div>
         </div>
