@@ -44,6 +44,23 @@ public class Repo<TEntity>(DataContext context) where TEntity : class
         return null!;
     }
 
+    public async Task<IEnumerable<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> predicate)
+    {
+        try
+        {
+            var result = await _context.Set<TEntity>().Where(predicate).ToListAsync();
+            if (result != null)
+            {
+                return result;
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine("ERROR :: " + ex.Message);
+        }
+        return null!;
+    }
+
 
 
     public async Task<TEntity> UpdateOneAsync(TEntity entity)
@@ -102,6 +119,25 @@ public class Repo<TEntity>(DataContext context) where TEntity : class
             _context.Set<TEntity>().Remove(entity);
             await _context.SaveChangesAsync();
             return true;
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine("ERROR :: " + ex.Message);
+        }
+        return false;
+    }
+
+    public async Task<bool> DeleteAllAsync(Expression<Func<TEntity, bool>> predicate)
+    {
+        try
+        {
+            var entities = await _context.Set<TEntity>().Where(predicate).ToListAsync();
+            if (entities != null)
+            {
+                _context.Set<TEntity>().RemoveRange(entities);
+                await _context.SaveChangesAsync();
+                return true;
+            }
         }
         catch (Exception ex)
         {

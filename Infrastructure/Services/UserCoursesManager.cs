@@ -30,6 +30,23 @@ public class UserCoursesManager(UserCoursesRepository userCoursesRepository)
         return false!;
     }
 
+    public async Task<IEnumerable<UserCoursesEntity>> GetUserCourses(string userId)
+    {
+        try
+        {
+            var userCourses = await _userCoursesRepository.GetAllAsync(x => x.UserId == userId);
+            if (userCourses != null)
+            {
+                return userCourses;
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine("ERROR :: " + ex.Message);
+        }
+        return null!;
+    }
+
     public async Task<bool> IsUserJoined(string userId, int courseId)
     {
         try
@@ -70,5 +87,26 @@ public class UserCoursesManager(UserCoursesRepository userCoursesRepository)
         }
         return false;
 
+    }
+
+    public async Task<bool> RemoveAllUserCourses(string userId)
+    {
+        try
+        {
+            var userCourses = await _userCoursesRepository.GetAllAsync(x => x.UserId == userId);
+            if (userCourses != null)
+            {
+                var result = await _userCoursesRepository.DeleteAllAsync(x => x.UserId == userId);
+                if (result == true)
+                {
+                    return true;
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine("ERROR :: " + ex.Message);
+        }
+        return false;
     }
 }

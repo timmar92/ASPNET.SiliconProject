@@ -315,6 +315,30 @@ a:hover {
   color: var(--color-white);
 }
 
+.btn-red-transparent {
+  border-radius: 6px;
+  text-align: center;
+  font-size: 14px;
+  padding: 8px 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  line-height: 160%;
+  font-weight: 400;
+  color: var(--color-gray-700);
+  font-family: "Manrope", sans-serif;
+  font-size: 18px !important;
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+  border: 1px solid var(--color-danger);
+}
+.btn-red-transparent:hover {
+  text-decoration: none;
+  background: rgba(255, 0, 0, 0.1);
+}
+
 .btn-youtube {
   border-radius: 6px;
   text-align: center;
@@ -3232,4 +3256,175 @@ footer .container .social-media {
   margin: 20px 0;
   display: flex;
   gap: 20px;
+}
+
+#account-saved-courses {
+  background-color: var(--color-gray-000);
+}
+
+#saved-courses {
+  display: flex;
+  flex-direction: column;
+}
+#saved-courses .header {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 40px;
+}
+#saved-courses .course-group {
+  display: grid;
+  gap: 30px;
+  padding-top: 40px;
+}
+@media (min-width: 1200px) {
+  #saved-courses .course-group {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+#saved-courses .course-group .course-box {
+  position: relative;
+  text-decoration: none;
+  color: var(--color-gray-900);
+  box-shadow: 0px 4px 9px -1px rgba(19, 16, 34, 0.03), 0px 4.4px 20px -1px rgba(19, 16, 34, 0.05);
+  border-radius: 7px;
+  background-color: var(--color-course-box);
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+#saved-courses .course-group .course-box:hover {
+  opacity: 0.8;
+  background-color: var(--color-gray-100);
+  cursor: pointer;
+}
+#saved-courses .course-group .course-box .image .course-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  z-index: 0;
+}
+#saved-courses .course-group .course-box .image .best-seller {
+  display: flex;
+  color: floralwhite;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: absolute;
+  background-color: limegreen;
+  padding: 17px 0px 0px 0px;
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+  top: 15px;
+  left: 15px;
+}
+#saved-courses .course-group .course-box .image .bookmark {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: whitesmoke;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  text-align: center;
+  padding: 0.09rem 0.02rem 0.02rem 0.02rem;
+  border: none;
+  transition: transform 0.3s ease;
+  z-index: 1;
+}
+#saved-courses .course-group .course-box .image .bookmark:hover {
+  transform: scale(1.3);
+}
+#saved-courses .course-group .course-box .image .bookmark .tooltip-text {
+  visibility: hidden;
+  width: 120px;
+  background-color: var(--color-gray-900);
+  color: var(--color-gray-000);
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -60px;
+  transition: opacity 0.3s;
+}
+#saved-courses .course-group .course-box .image .bookmark:hover .tooltip-text {
+  visibility: visible;
+}
+#saved-courses .course-group .course-box .course-info {
+  display: grid;
+  text-align: center;
+}
+@media (min-width: 1200px) {
+  #saved-courses .course-group .course-box .course-info {
+    text-align: start;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+  }
+}
+#saved-courses .course-group .course-box .course-info h1 {
+  line-height: 160%;
+  font-weight: 400;
+  color: var(--color-gray-700);
+  font-family: "Manrope", sans-serif;
+  font-weight: 800;
+  color: var(--color-gray-900);
+  font-size: 28px !important;
+}
+@media (min-width: 1200px) {
+  #saved-courses .course-group .course-box .course-info h1 {
+    line-height: 160%;
+    font-weight: 400;
+    color: var(--color-gray-700);
+    font-family: "Manrope", sans-serif;
+    font-weight: 800;
+    color: var(--color-gray-900);
+    font-size: 20px !important;
+  }
+}
+#saved-courses .course-group .course-box .course-info .price {
+  color: var(--color-theme);
+  display: flex;
+  justify-content: center;
+  gap: 13px;
+  font-weight: 600;
+}
+@media (min-width: 1200px) {
+  #saved-courses .course-group .course-box .course-info .price {
+    justify-content: start;
+  }
+}
+#saved-courses .course-group .course-box .course-info .price .original {
+  text-decoration: line-through;
+  color: var(--color-gray-500);
+}
+#saved-courses .course-group .course-box .course-info .price .discount {
+  color: var(--color-danger);
+}
+#saved-courses .course-group .course-box .middle-line {
+  opacity: 0.1;
+  display: none;
+}
+@media (min-width: 1200px) {
+  #saved-courses .course-group .course-box .middle-line {
+    display: block;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 0;
+  }
+}
+#saved-courses .course-group .course-box .time-and-likes {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+@media (min-width: 1200px) {
+  #saved-courses .course-group .course-box .time-and-likes {
+    justify-content: start;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
 }

@@ -3,7 +3,10 @@ using Infrastructure.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using WebApp.Services;
 using WebApp.ViewModels.Account;
+using WebApp.ViewModels.Courses;
+using WebApp.ViewModels.Courses.Models;
 
 namespace WebApp.Controllers;
 
@@ -12,12 +15,21 @@ public class AccountController : Controller
 {
     private readonly UserManager<UserEntity> _userManager;
     private readonly AddressManager _addressManager;
+    private readonly UserCoursesManager _userCoursesManager;
+    private readonly CourseService _courseService;
+    private readonly CategoryService _categoryService;
 
-    public AccountController(UserManager<UserEntity> userManager, AddressManager addressManager)
+    public AccountController(UserManager<UserEntity> userManager, AddressManager addressManager, UserCoursesManager userCoursesManager, CourseService courseService, CategoryService categoryService)
     {
         _userManager = userManager;
         _addressManager = addressManager;
+        _userCoursesManager = userCoursesManager;
+        _courseService = courseService;
+        _categoryService = categoryService;
     }
+
+
+
 
 
     #region [HttpGet] Details
@@ -238,6 +250,65 @@ public class AccountController : Controller
         return View(viewModel);
 
     }
+
+    #endregion
+
+    #region saved courses
+
+    [HttpGet]
+    [Route("/account/saved-courses")]
+    public async Task<IActionResult> SavedCourses(string category = "", string searchQuery = "", int pageNumber = 1, int pageSize = 6)
+    {
+        var user = await _userManager.GetUserAsync(User);
+        var userCourses = await _userCoursesManager.GetUserCourses(user!.Id);
+
+        var allCourses = await _courseService.GetCoursesAsync(category, searchQuery, pageNumber, pageSize);
+        var joinedCourses = allCourses.Courses.Where(x => userCourses.Any(y => y.CourseId == x.Id)).ToList();
+
+        var viewmodel = new AccountSavedCoursesViewModel
+        {
+            ProfileInfo = await PopulateProfileInfoAsync(),
+            SavedCourses = new CourseIndexViewModel
+            {
+                Categories = await _categoryService.GetCategoriesAsync(),
+                Courses = joinedCourses,
+                Pagination = new PaginationModel
+                {
+                    PageSize = pageSize,
+                    CurrentPage = pageNumber,
+                    TotalPages = (int)Math.Ceiling((double)joinedCourses.Count / pageSize),
+                    TotalItems = joinedCourses.Count
+                },
+                HasUserJoined = joinedCourses.ToDictionary(x => x.Id, x => true)
+            }
+
+        };
+
+
+
+        return View(viewmodel);
+    }
+
+
+    public async Task<IActionResult> DeleteAllCourses()
+    {
+        var user = await _userManager.GetUserAsync(User);
+        if (user != null)
+        {
+            var result = await _userCoursesManager.RemoveAllUserCourses(user.Id);
+            if (result)
+            {
+                TempData["SuccessMessage"] = "All courses have been removed successfully";
+                return RedirectToAction("SavedCourses");
+            }
+            TempData["ErrorMessage"] = "Something went wrong, unable to remove courses";
+            return RedirectToAction("SavedCourses");
+        }
+
+        return RedirectToAction("SavedCourses");
+
+    }
+
 
     #endregion
 }

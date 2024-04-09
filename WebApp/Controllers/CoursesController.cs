@@ -121,10 +121,10 @@ public class CoursesController : Controller
             if (result == true)
             {
                 TempData["SuccessMessage"] = "You have successfully left the course";
-                return RedirectToAction("Index");
+                return Redirect(Request.Headers["Referer"].ToString());
             }
         }
         TempData["ErrorMessage"] = "An error occurred while trying to leave the course";
-        return RedirectToAction("Index");
+        return Redirect(Request.Headers["Referer"].ToString());
     }
 }
