@@ -751,6 +751,12 @@ form span.field-validation-error::after {
   justify-content: space-between;
   align-items: center;
 }
+.cookie-alert .success-message {
+  background-color: var(--color-success);
+}
+.cookie-alert .error-message {
+  background-color: var(--color-danger);
+}
 
 .contact-header {
   background-color: var(--color-gray-100);

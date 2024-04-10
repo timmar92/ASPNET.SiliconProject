@@ -6,5 +6,5 @@ public class AccountSecurityViewModel
 
     public ChangePasswordViewModel ChangePasswordForm { get; set; } = null!;
 
-    public DeleteAccountViewModel deleteAccount { get; set; } = null!;
+    public DeleteAccountViewModel deleteAccountform { get; set; } = null!;
 }

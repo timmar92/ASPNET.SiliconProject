@@ -8,4 +8,12 @@
         justify-content: space-between;
         align-items: center;
     }
+
+    .success-message {
+        background-color: var(--color-success);
+    }
+
+    .error-message {
+        background-color: var(--color-danger);
+    }
 }

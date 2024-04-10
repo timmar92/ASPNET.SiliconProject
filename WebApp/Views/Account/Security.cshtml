@@ -14,9 +14,9 @@
             </div>
 
             <nav>
-                <a class="btn-account-nav @(ViewContext.RouteData.Values["Action"].ToString() == "Details" ? "active" : "")" asp-controller="Account" asp-action="Details">Account Details</a>
-                <a class="btn-account-nav @(ViewContext.RouteData.Values["Action"].ToString() == "Security" ? "active" : "")" asp-controller="Account" asp-action="Security">Security</a>
-                <a class="btn-account-nav @(ViewContext.RouteData.Values["Action"].ToString() == "SignOut" ? "active" : "")" asp-controller="Account" asp-action="SavedCourses">Saved Courses</a>
+                <a class="btn-account-nav @(ViewContext.RouteData.Values["Action"]!.ToString() == "Details" ? "active" : "")" asp-controller="Account" asp-action="Details">Account Details</a>
+                <a class="btn-account-nav @(ViewContext.RouteData.Values["Action"]!.ToString() == "Security" ? "active" : "")" asp-controller="Account" asp-action="Security">Security</a>
+                <a class="btn-account-nav @(ViewContext.RouteData.Values["Action"]!.ToString() == "SignOut" ? "active" : "")" asp-controller="Account" asp-action="SavedCourses">Saved Courses</a>
                 <a class="btn-account-nav" asp-controller="Auth" asp-action="SignOut">Sign out</a>
 
             </nav>
@@ -77,6 +77,20 @@
                     }
                 </div>
                 <hr />
+
+                <div class="delete-account">
+                    <div class="delete-header">
+                        <h2>Delete Account</h2>
+                        <p>When you delete your account, your public profile will be deactivated immediately. If you change your mind before the 14 days are up, sign in with your email and password, and we’ll send you a link to reactivate your account.</p>
+                    </div>
+                    <form method="post" asp-action="DeleteAccount" asp-controller="Account">
+                        <div class="checkbox">
+                            <input asp-for="@Model.deleteAccountform.DeleteAccount" />
+                            <label asp-for="@Model.deleteAccountform.DeleteAccount">Yes, I want to delete my account.</label>
+                        </div>
+                        <button class="btn-youtube" type="submit">Delete Account</button>
+                    </form>
+                </div>
             </div>
 
         </section>

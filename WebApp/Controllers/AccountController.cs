@@ -18,15 +18,18 @@ public class AccountController : Controller
     private readonly UserCoursesManager _userCoursesManager;
     private readonly CourseService _courseService;
     private readonly CategoryService _categoryService;
+    private readonly SignInManager<UserEntity> _signInManager;
 
-    public AccountController(UserManager<UserEntity> userManager, AddressManager addressManager, UserCoursesManager userCoursesManager, CourseService courseService, CategoryService categoryService)
+    public AccountController(UserManager<UserEntity> userManager, AddressManager addressManager, UserCoursesManager userCoursesManager, CourseService courseService, CategoryService categoryService, SignInManager<UserEntity> signInManager)
     {
         _userManager = userManager;
         _addressManager = addressManager;
         _userCoursesManager = userCoursesManager;
         _courseService = courseService;
         _categoryService = categoryService;
+        _signInManager = signInManager;
     }
+
 
 
 
@@ -179,7 +182,7 @@ public class AccountController : Controller
         return new BasicInfoViewModel
         {
             //UserId = user!.Id,
-            FirstName = user.FirstName,
+            FirstName = user!.FirstName,
             LastName = user.LastName,
             Email = user.Email!,
             PhoneNumber = user.PhoneNumber,
@@ -247,6 +250,33 @@ public class AccountController : Controller
 
         }
         TempData["ErrorMessage"] = "Something went wrong, unable to change password";
+        return View(viewModel);
+
+    }
+
+
+    [HttpPost]
+    public async Task<IActionResult> DeleteAccount([Bind(Prefix = "DeleteAccountForm")] DeleteAccountViewModel viewModel)
+    {
+        var user = await _userManager.GetUserAsync(User);
+
+        if (TryValidateModel(viewModel))
+        {
+            if (user != null)
+            {
+                _ = await _userCoursesManager.RemoveAllUserCourses(user.Id);
+                var result = await _userManager.DeleteAsync(user);
+
+                if (result.Succeeded)
+                {
+                    await _signInManager.SignOutAsync();
+                    TempData["SuccessMessage"] = "Account has been deleted successfully";
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+
+        }
+        TempData["ErrorMessage"] = "Something went wrong, unable to delete account";
         return View(viewModel);
 
     }
