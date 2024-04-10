@@ -5,96 +5,79 @@
 }
 
 <div class="container">
-    <div id="account-details">
-        <aside>
-            <div class="profile-info">
-                <img src="/images/@Model.ProfileInfo.ProfileImageUrl" alt="@($"{Model.ProfileInfo.FirstName} {Model.ProfileInfo.LastName}'s profile image")" />
-                <h5>@($"{Model.ProfileInfo.FirstName} {Model.ProfileInfo.LastName}")</h5>
-                <p>@Model.ProfileInfo.Email</p>
-            </div>
-
-            <nav>
-                <a class="btn-account-nav @(ViewContext.RouteData.Values["Action"]!.ToString() == "Details" ? "active" : "")" asp-controller="Account" asp-action="Details">Account Details</a>
-                <a class="btn-account-nav @(ViewContext.RouteData.Values["Action"]!.ToString() == "Security" ? "active" : "")" asp-controller="Account" asp-action="Security">Security</a>
-                <a class="btn-account-nav @(ViewContext.RouteData.Values["Action"]!.ToString() == "SignOut" ? "active" : "")" asp-controller="Account" asp-action="SavedCourses">Saved Courses</a>
-                <a class="btn-account-nav" asp-controller="Auth" asp-action="SignOut">Sign out</a>
-
-            </nav>
-        </aside>
-
-        <section id="account-security">
-            <div class="container">
-                <div class="basic-info-security">
-                    @if(Model.ProfileInfo.IsExternalAccount == true)
-                    {
+    <section id="account-security">
+        <div class="container">
+            <div class="basic-info-security">
+                @if(Model.ProfileInfo.IsExternalAccount == true)
+                {
+                    <h2>Account Details</h2>
+                    <h5>External account, password cannot be changed</h5>
+                }
+                else
+                {
+                    <form method="post" asp-controller="Account" asp-action="ChangePassword" novalidate>
                         <h2>Account Details</h2>
-                        <h5>External account, password cannot be changed</h5>
-                    }
-                    else
-                    {
-                        <form method="post" asp-controller="Account" asp-action="ChangePassword" novalidate>
-                            <h2>Account Details</h2>
-                            <h5>Password</h5>
+                        <h5>Password</h5>
 
-                            <div class="content">
-                                <div id="form-current-password" class="input-group">
-                                    <label asp-for="ChangePasswordForm.CurrentPassword"></label>
-                                    <span asp-validation-for="ChangePasswordForm.CurrentPassword"></span>
-                                    <input asp-for="ChangePasswordForm.CurrentPassword" />
-                                </div>
-
-                                <div id="form-new-password" class="input-group">
-                                    <label asp-for="ChangePasswordForm.NewPassword"></label>
-                                    <span asp-validation-for="ChangePasswordForm.NewPassword"></span>
-                                    <input asp-for="ChangePasswordForm.NewPassword" />
-                                </div>
-
-                                <div id="form-confirm-password" class="input-group">
-                                    <label asp-for="ChangePasswordForm.ConfirmNewPassword"></label>
-                                    <span asp-validation-for="ChangePasswordForm.ConfirmNewPassword"></span>
-                                    <input asp-for="ChangePasswordForm.ConfirmNewPassword" data-val-equalto-other="ChangePasswordForm.NewPassword" />
-                                </div>
-
-                                <div class="form-buttons">
-                                    <button class="btn-gray" type="reset">Cancel</button>
-                                    <button class="btn-theme" type="submit">Change password</button>
-                                </div>
+                        <div class="content">
+                            <div id="form-current-password" class="input-group">
+                                <label asp-for="ChangePasswordForm.CurrentPassword"></label>
+                                <span asp-validation-for="ChangePasswordForm.CurrentPassword"></span>
+                                <input asp-for="ChangePasswordForm.CurrentPassword" />
                             </div>
-                        </form>
 
-                        @if(TempData["SuccessMessage"] != null)
-                        {
-                            <div class="success-message">
-                                @TempData["SuccessMessage"]
+                            <div id="form-new-password" class="input-group">
+                                <label asp-for="ChangePasswordForm.NewPassword"></label>
+                                <span asp-validation-for="ChangePasswordForm.NewPassword"></span>
+                                <input asp-for="ChangePasswordForm.NewPassword" />
                             </div>
-                        }
-                        @if(TempData["ErrorMessage"] != null)
-                        {
-                            <div class="error-message">
-                                @TempData["ErrorMessage"]
-                            </div>
-                        }
-                    }
-                </div>
-                <hr />
 
-                <div class="delete-account">
-                    <div class="delete-header">
-                        <h2>Delete Account</h2>
-                        <p>When you delete your account, your public profile will be deactivated immediately. If you change your mind before the 14 days are up, sign in with your email and password, and we’ll send you a link to reactivate your account.</p>
-                    </div>
-                    <form method="post" asp-action="DeleteAccount" asp-controller="Account">
-                        <div class="checkbox">
-                            <input asp-for="@Model.deleteAccountform.DeleteAccount" />
-                            <label asp-for="@Model.deleteAccountform.DeleteAccount">Yes, I want to delete my account.</label>
+                            <div id="form-confirm-password" class="input-group">
+                                <label asp-for="ChangePasswordForm.ConfirmNewPassword"></label>
+                                <span asp-validation-for="ChangePasswordForm.ConfirmNewPassword"></span>
+                                <input asp-for="ChangePasswordForm.ConfirmNewPassword" data-val-equalto-other="ChangePasswordForm.NewPassword" />
+                            </div>
+
+                            <div class="form-buttons">
+                                <button class="btn-gray" type="reset">Cancel</button>
+                                <button class="btn-theme" type="submit">Change password</button>
+                            </div>
                         </div>
-                        <button class="btn-youtube" type="submit">Delete Account</button>
                     </form>
-                </div>
-            </div>
 
-        </section>
-    </div>
+                    @if(TempData["SuccessMessage"] != null)
+                    {
+                        <div class="success-message">
+                            @TempData["SuccessMessage"]
+                        </div>
+                    }
+                    @if(TempData["ErrorMessage"] != null)
+                    {
+                        <div class="error-message">
+                            @TempData["ErrorMessage"]
+                        </div>
+                    }
+                }
+            </div>
+            <hr />
+
+            <div class="delete-account">
+                <div class="delete-header">
+                    <h2>Delete Account</h2>
+                    <p>When you delete your account, your public profile will be deactivated immediately. If you change your mind before the 14 days are up, sign in with your email and password, and we’ll send you a link to reactivate your account.</p>
+                </div>
+                <form method="post" asp-action="DeleteAccount" asp-controller="Account">
+                    <div class="checkbox">
+                        <input asp-for="@Model.deleteAccountform.DeleteAccount" />
+                        <label asp-for="@Model.deleteAccountform.DeleteAccount">Yes, I want to delete my account.</label>
+                    </div>
+                    <button class="btn-youtube" type="submit">Delete Account</button>
+                </form>
+            </div>
+        </div>
+
+    </section>
+    
 </div>
 
 @await Html.PartialAsync("_ValidationScriptPartial")

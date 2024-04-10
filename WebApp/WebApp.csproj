@@ -35,7 +35,7 @@
     <None Include="wwwroot\images\icons\tabicon.svg" />
     <None Include="wwwroot\images\icons\test.svg" />
     <None Include="wwwroot\images\profile-image.svg" />
-    <None Include="wwwroot\images\profile-placeholder.svg" />
+    <None Include="wwwroot\uploads\profile-placeholder.svg" />
     <None Include="wwwroot\images\showcase-first-logo.svg" />
     <None Include="wwwroot\images\showcase-fourth-logo.svg" />
     <None Include="wwwroot\images\showcase-image.svg" />

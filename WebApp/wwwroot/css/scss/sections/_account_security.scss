@@ -1,114 +1,55 @@
 
 
 
-#account-details {
-    display: grid;
-    grid-template-columns: 2fr 5fr;
-    gap: 150px;
-    padding-bottom: 70px;
+
+#account-security {
     background: var(--color-gray-000);
 
-    .error-message {
-        padding: 10px 40px;
-        color: var(--color-gray-800);
-        background-color: var(--color-weak-danger);
-        border: 1px solid var(--color-danger) !important;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 8px;
-    }
+    .basic-info-security {
 
-    aside {
-        border-right: 1px solid var(--color-gray-300);
-        padding-right: 20px;
-        background: var(--color-gray-000);
-
-        .profile-info {
-            margin: 20px;
-            text-align: center;
-
-            img {
-                width: 120px;
-                height: 120px;
-            }
+        form {
+            padding: 1rem;
 
             h5 {
-                margin-top: 15px;
-                margin-bottom: 0;
+                color: var(--color-theme);
             }
 
-            p {
-                @include text-m;
-            }
-        }
-
-        nav {
-            margin-top: 50px;
-            text-align: left;
-
-            a {
-                margin: 10px 0;
-                text-align: left;
-                justify-content: flex-start;
-            }
-
-            .btn-theme-s {
-                text-align: left;
-                justify-content: flex-start;
-            }
-        }
-    }
+            .content {
+                display: grid;
+                gap: 1rem 2rem;
+                grid-template-columns: 1fr 1fr;
+                grid-template-areas: "current-password ." "new-password confirm-password" "buttons buttons";
 
 
-    #account-security {
-        background: var(--color-gray-000);
-
-        .basic-info-security {
-
-            form {
-                padding: 1rem;
-
-                h5 {
-                    color: var(--color-theme);
+                #form-current-password {
+                    grid-area: current-password;
                 }
 
-                .content {
-                    display: grid;
-                    gap: 1rem 2rem;
-                    grid-template-columns: 1fr 1fr;
-                    grid-template-areas: "current-password ." "new-password confirm-password" "buttons buttons";
+                #form-new-password {
+                    grid-area: new-password;
+                }
 
+                #form-confirm-password {
+                    grid-area: confirm-password;
+                }
 
-                    #form-current-password {
-                        grid-area: current-password;
+                #form-bio {
+                    grid-area: bio;
+
+                    span {
+                        color: var(--color-gray-500);
+                        font-weight: 400;
                     }
+                }
 
-                    #form-new-password {
-                        grid-area: new-password;
-                    }
-
-                    #form-confirm-password {
-                        grid-area: confirm-password;
-                    }
-
-                    #form-bio {
-                        grid-area: bio;
-
-                        span {
-                            color: var(--color-gray-500);
-                            font-weight: 400;
-                        }
-                    }
-
-                    .form-buttons {
-                        grid-area: buttons;
-                        margin: 20px 0;
-                        display: flex;
-                        gap: 20px;
-                    }
+                .form-buttons {
+                    grid-area: buttons;
+                    margin: 20px 0;
+                    display: flex;
+                    gap: 20px;
                 }
             }
         }
     }
 }
+

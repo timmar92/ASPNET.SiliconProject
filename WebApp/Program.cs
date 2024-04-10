@@ -24,6 +24,7 @@ builder.Services.AddScoped<AddressManager>();
 builder.Services.AddScoped<CategoryService>();
 builder.Services.AddScoped<CourseService>();
 builder.Services.AddScoped<UserCoursesManager>();
+builder.Services.AddScoped<FileManager>();
 
 builder.Services.AddDefaultIdentity<UserEntity>(x =>
 {

@@ -1,0 +1,35 @@
+#account-profileinfo {
+
+    .profile {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .image {
+            border-radius: 50%;
+
+            img {
+                height: 140px;
+                width: 140px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+        }
+
+        form {
+            position: absolute;
+            z-index: 1;
+            left: 190px;
+            bottom: 0;
+        }
+    }
+
+    .info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}

@@ -1,6 +1,8 @@
 ﻿@{
     var themeMode = Context.Request.Cookies["ThemeMode"] ?? "light";
     var isDark = (themeMode == "dark") ? true : false;
+
+    var user = await UserManager.GetUserAsync(User);
 }
 
 @inject SignInManager<UserEntity> _signInManager
@@ -37,7 +39,7 @@
         <div class="account-buttons">
             @if (_signInManager.IsSignedIn(User))
             {
-                <a class="account-shortcut" asp-controller="Account" asp-action="Details"><img src="/images/profile-placeholder.svg" alt="profile image" /></a>
+                <a class="account-shortcut" asp-controller="Account" asp-action="Details"><img src="/uploads/@user!.ProfileImage" alt="profile image" /></a>
 
             }
             else

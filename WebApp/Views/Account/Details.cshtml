@@ -2,33 +2,15 @@
 
 @{
     ViewData["Title"] = $"{Model.ProfileInfo.FirstName} {Model.ProfileInfo.LastName}";
+    Layout = "_AccountLayout";
 }
 
 
-<section id="account-section">
+<section id="account-details">
 
     <div class="container">
 
-        <div id="account-details">
-
-            <aside>
-                <div class="profile-info">
-                    <img src="/images/@Model.ProfileInfo.ProfileImageUrl" alt="@($"{Model.ProfileInfo.FirstName} {Model.ProfileInfo.LastName}'s profile image")" />
-                    <h5>@($"{Model.ProfileInfo.FirstName} {Model.ProfileInfo.LastName}")</h5>
-                    <p>@Model.ProfileInfo.Email</p>
-                </div>
-
-                <nav>
-                    <a class="btn-account-nav @(ViewContext.RouteData.Values["Action"]!.ToString() == "Details" ? "active" : "")" asp-controller="Account" asp-action="Details">Account Details</a>
-                    <a class="btn-account-nav @(ViewContext.RouteData.Values["Action"]!.ToString() == "Security" ? "active" : "")" asp-controller="Account" asp-action="Security">Security</a>
-                    <a class="btn-account-nav @(ViewContext.RouteData.Values["Action"]!.ToString() == "SignOut" ? "active" : "")" asp-controller="Account" asp-action="SavedCourses">Saved Courses</a>
-                    <a class="btn-account-nav" asp-controller="Auth" asp-action="SignOut">Sign out</a>
-                </nav>
-            </aside>
-
             <div class="details">
-
-
 
                 <div class="basic-info">
 

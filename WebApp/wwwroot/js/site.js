@@ -14,7 +14,10 @@
                 }
             });
     });
+
     selectAndSearch();
+
+    handleUpload();
 
     let inactiveElements = document.querySelectorAll('.inactive');
     inactiveElements.forEach(function (inactiveElement) {
@@ -32,6 +35,23 @@
         });
     });
 });
+
+function handleUpload() {
+    try {
+        let fileUploader = document.querySelector('#upload-file');
+
+        if (fileUploader != undefined) {
+            fileUploader.addEventListener('change', function () {
+                if (this.files.length > 0) {
+                    this.form.submit();
+                }
+            });
+        }
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
 
 
 

@@ -19,8 +19,9 @@ public class AccountController : Controller
     private readonly CourseService _courseService;
     private readonly CategoryService _categoryService;
     private readonly SignInManager<UserEntity> _signInManager;
+    private readonly FileManager _fileManager;
 
-    public AccountController(UserManager<UserEntity> userManager, AddressManager addressManager, UserCoursesManager userCoursesManager, CourseService courseService, CategoryService categoryService, SignInManager<UserEntity> signInManager)
+    public AccountController(UserManager<UserEntity> userManager, AddressManager addressManager, UserCoursesManager userCoursesManager, CourseService courseService, CategoryService categoryService, SignInManager<UserEntity> signInManager, FileManager fileManager)
     {
         _userManager = userManager;
         _addressManager = addressManager;
@@ -28,7 +29,9 @@ public class AccountController : Controller
         _courseService = courseService;
         _categoryService = categoryService;
         _signInManager = signInManager;
+        _fileManager = fileManager;
     }
+
 
 
 
@@ -157,6 +160,19 @@ public class AccountController : Controller
 
         return RedirectToAction("Details");
     }
+    #endregion
+
+
+    #region Upload Profile Picture
+
+    [HttpPost]
+    public async Task<IActionResult> UploadImage(IFormFile file)
+    {
+        var result = await _fileManager.UploadProfileImage(User, file);
+
+        return RedirectToAction("Details", "Account");
+    }
+
     #endregion
 
 

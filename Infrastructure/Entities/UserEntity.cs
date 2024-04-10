@@ -15,6 +15,8 @@ public class UserEntity : IdentityUser
     [ProtectedPersonalData]
     public string? Biography { get; set; }
 
+    public string? ProfileImage { get; set; } = "profile-placeholder.svg";
+
 
     public bool IsExternalAccount { get; set; } = false;
 
