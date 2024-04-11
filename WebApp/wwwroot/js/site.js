@@ -1,23 +1,54 @@
-﻿document.addEventListener('DOMContentLoaded', function () {
-    let switchButton = document.querySelector('#switch-mode')
+﻿
 
-    switchButton.addEventListener('change', function () {
-        let theme = this.checked ? 'dark' : 'light'
+document.addEventListener('DOMContentLoaded', function () {
+    let switchButton = document.querySelector('#switch-mode');
+
+    let switchFunction = function (event) {
+
+        let theme = this.checked ? 'dark' : 'light';
 
         fetch(`/sitesettings/changetheme?mode=${theme}`)
             .then(response => {
                 if (response.ok) {
-                    window.location.reload()
+                    window.location.reload();
                 }
                 else {
-                    console.log('Error')
+                    console.log('Error');
                 }
             });
+    };
+
+    if (switchButton) {
+        switchButton.addEventListener('change', switchFunction);
+    }
+
+    let mobileMenuButton = document.querySelector('#btn-mobilemenu');
+    let mobileMenu = document.querySelector('#mobile-menu');
+
+    mobileMenuButton.addEventListener('click', function () {
+        if (mobileMenu.classList.contains('open')) {
+            mobileMenu.classList.remove('open');
+        } else {
+            mobileMenu.classList.add('open');
+
+            setTimeout(function () {
+                let mobileSwitchButton = document.querySelector('#mobile-switch-mode');
+                if (mobileSwitchButton) {
+                    mobileSwitchButton.removeEventListener('change', switchFunction);
+                    mobileSwitchButton.addEventListener('change', switchFunction);
+                }
+            }, 100);
+        }
     });
+
+
+
 
     selectAndSearch();
 
     handleUpload();
+
+    hideTempDataMessage();
 
     let inactiveElements = document.querySelectorAll('.inactive');
     inactiveElements.forEach(function (inactiveElement) {
@@ -34,6 +65,8 @@
             }
         });
     });
+
+
 });
 
 function handleUpload() {
@@ -102,3 +135,16 @@ function updateCoursesByFilter() {
 
     console.log(category)
 };
+
+
+function hideTempDataMessage() {
+    let tempDataMessage = document.querySelector('.tempdata-message');
+    if (tempDataMessage) {
+        let parentDiv = tempDataMessage.parentElement;
+        if (parentDiv && parentDiv.classList.contains('error')) {
+            setTimeout(function () {
+                parentDiv.style.opacity = '0';
+            }, 3000);
+        }
+    }
+}

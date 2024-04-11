@@ -16,4 +16,12 @@
     .error-message {
         background-color: var(--color-danger);
     }
+
+    .tempdata-message {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: var(--color-white);
+    }
 }

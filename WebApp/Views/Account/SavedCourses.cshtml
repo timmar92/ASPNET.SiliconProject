@@ -2,90 +2,85 @@
 
 @{
     ViewData["Title"] = $"{Model.ProfileInfo.FirstName} {Model.ProfileInfo.LastName}";
+    Layout = "_AccountLayout";
 }
 
 
 <section id="account-saved-courses">
 
-    <div class="container">
+    <div id="saved-courses">
 
-
-        <div id="saved-courses">
-
-            <div class="header">
-                <h2>Saved Courses</h2>
-                <a asp-controller="Account" asp-action="DeleteAllCourses" class="btn-red-transparent"><img src="/images/icons/trashcan.svg" />Delete all</a>
-            </div>
-
-            @if (Model.SavedCourses.Courses != null)
-            {
-                <div class="course-group">
-                    @foreach (var course in Model.SavedCourses.Courses)
-                    {
-                        <div onclick="location.href='@Url.Action("Details", "Courses", new {id = course.Id })'" class="course-box">
-                            <div class="image">
-                                <img class="course-image" src="@course.ImageUrl" alt="@course.Title" />
-                                @if (course.IsBestSeller == true)
-                                {
-                                    <div class="best-seller">
-                                        <p>Best Seller</p>
-                                    </div>
-                                }
-
-                                <a asp-controller="Courses" asp-route-courseId="@course.Id" asp-action="LeaveCourse" class="bookmark">
-                                    <img class="bookmark-image" src="/images/icons/bookmark-filled.svg" alt="bookmark icon" />
-                                    <span class="tooltip-text">Remove</span>
-                                </a>
-                                    
-
-                            </div>
-                            <div class="course-info">
-                                <h1>@course.Title</h1>
-                                <p>By @(course.Author != null ? course.Author.Name : "Null Nullson")</p>
-                                <div class="price">
-                                    @if (string.IsNullOrEmpty(course.DiscountPrice))
-                                    {
-                                        <p>$ @course.Price</p>
-                                    }
-                                    else
-                                    {
-                                        <p class="discount">$ @course.DiscountPrice</p>
-                                        <p class="original">$ @course.Price</p>
-                                    }
-                                </div>
-                            </div>
-                            <hr class="middle-line" />
-                            <div class="time-and-likes">
-                                <div class="hours">
-                                    <p><img src="/images/icons/watch-icon.svg" alt="clock icon" />@course.Hours hours</p>
-                                </div>
-                                <div class="likes">
-                                    <p><img src="/images/icons/like-icon.svg" alt="thumbs up icon" />@course.LikesInPercent % (@course.LikesInNumbers K)</p>
-                                </div>
-                            </div>
-                        </div>
-                    }
-                </div>
-            }
-            @if (Model.SavedCourses.Pagination != null && Model.SavedCourses.Pagination.TotalPages > 1)
-            {
-                <div class="pagination">
-                    @for (int i = 1; i <= Model.SavedCourses.Pagination.TotalPages; i++)
-                    {
-                        if (i == Model.SavedCourses.Pagination.CurrentPage)
-                        {
-                            <span class="number active">@i</span>
-                        }
-                        else
-                        {
-                            <a class="number inactive" href="@Url.Action("Index", new {pageNumber = i, pageSize = Model.SavedCourses.Pagination.PageSize})">@i</a>
-                        }
-                    }
-                </div>
-            }
-              
+        <div class="header">
+            <h2>Saved Courses</h2>
+            <a asp-controller="Account" asp-action="DeleteAllCourses" class="btn-red-transparent"><img src="/images/icons/trashcan.svg" />Delete all</a>
         </div>
 
+        @if (Model.SavedCourses.Courses != null)
+        {
+            <div class="course-group">
+                @foreach (var course in Model.SavedCourses.Courses)
+                {
+                    <div onclick="location.href='@Url.Action("Details", "Courses", new {id = course.Id })'" class="course-box">
+                        <div class="image">
+                            <img class="course-image" src="@course.ImageUrl" alt="@course.Title" />
+                            @if (course.IsBestSeller == true)
+                            {
+                                <div class="best-seller">
+                                    <p>Best Seller</p>
+                                </div>
+                            }
+
+                            <a asp-controller="Courses" asp-route-courseId="@course.Id" asp-action="LeaveCourse" class="bookmark">
+                                <img class="bookmark-image" src="/images/icons/bookmark-filled.svg" alt="bookmark icon" />
+                                <span class="tooltip-text">Remove</span>
+                            </a>
+
+
+                        </div>
+                        <div class="course-info">
+                            <h1>@course.Title</h1>
+                            <p>By @(course.Author != null ? course.Author.Name : "Null Nullson")</p>
+                            <div class="price">
+                                @if (string.IsNullOrEmpty(course.DiscountPrice))
+                                {
+                                    <p>$ @course.Price</p>
+                                }
+                                else
+                                {
+                                    <p class="discount">$ @course.DiscountPrice</p>
+                                    <p class="original">$ @course.Price</p>
+                                }
+                            </div>
+                        </div>
+                        <hr class="middle-line" />
+                        <div class="time-and-likes">
+                            <div class="hours">
+                                <p><img src="/images/icons/watch-icon.svg" alt="clock icon" />@course.Hours hours</p>
+                            </div>
+                            <div class="likes">
+                                <p><img src="/images/icons/like-icon.svg" alt="thumbs up icon" />@course.LikesInPercent % (@course.LikesInNumbers K)</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        @if (Model.SavedCourses.Pagination != null && Model.SavedCourses.Pagination.TotalPages > 1)
+        {
+            <div class="pagination">
+                @for (int i = 1; i <= Model.SavedCourses.Pagination.TotalPages; i++)
+                {
+                    if (i == Model.SavedCourses.Pagination.CurrentPage)
+                    {
+                        <span class="number active">@i</span>
+                    }
+                    else
+                    {
+                        <a class="number inactive" href="@Url.Action("Index", new {pageNumber = i, pageSize = Model.SavedCourses.Pagination.PageSize})">@i</a>
+                    }
+                }
+            </div>
+        }
 
     </div>
     

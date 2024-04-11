@@ -24,10 +24,16 @@
                 <aside>
                     <partial name="~/Views/Account/_ProfileInfo.cshtml" />
                     <nav class="account-nav">
-                        <a class="btn-account-nav @(ViewContext.RouteData.Values["Action"]!.ToString() == "Details" ? "active" : "")" asp-controller="Account" asp-action="Details">Account Details</a>
-                        <a class="btn-account-nav @(ViewContext.RouteData.Values["Action"]!.ToString() == "Security" ? "active" : "")" asp-controller="Account" asp-action="Security">Security</a>
-                        <a class="btn-account-nav @(ViewContext.RouteData.Values["Action"]!.ToString() == "SignOut" ? "active" : "")" asp-controller="Account" asp-action="SavedCourses">Saved Courses</a>
-                        <a class="btn-account-nav" asp-controller="Auth" asp-action="SignOut">Sign out</a>
+                        <a class="btn-account-nav @(ViewContext.RouteData.Values["Action"]!.ToString() == "Details" ? "active" : "")" asp-controller="Account" asp-action="Details"><i class="fa-regular fa-gear"></i> Account Details</a>
+                        <a class="btn-account-nav @(ViewContext.RouteData.Values["Action"]!.ToString() == "Security" ? "active" : "")" asp-controller="Account" asp-action="Security"><i class="fa-regular fa-lock"></i> Security</a>
+                        <a class="btn-account-nav @(ViewContext.RouteData.Values["Action"]!.ToString() == "SavedCourses" ? "active" : "")" asp-controller="Account" asp-action="SavedCourses"><i class="fa-regular fa-bookmark"></i> Saved Courses</a>
+                        <a class="btn-account-nav" asp-controller="Auth" asp-action="SignOut"><i class="fa-regular fa-arrow-left-from-bracket"></i> Sign out</a>
+                    </nav>
+                    <nav class="account-mobile-nav">
+                        <a class="btn-account-mobile-nav @(ViewContext.RouteData.Values["Action"]!.ToString() == "Details" ? "active" : "")" asp-controller="Account" asp-action="Details"><i class="fa-regular fa-gear"></i></a>
+                        <a class="btn-account-mobile-nav @(ViewContext.RouteData.Values["Action"]!.ToString() == "Security" ? "active" : "")" asp-controller="Account" asp-action="Security"><i class="fa-regular fa-lock"></i></a>
+                        <a class="btn-account-mobile-nav @(ViewContext.RouteData.Values["Action"]!.ToString() == "SavedCourses" ? "active" : "")" asp-controller="Account" asp-action="SavedCourses"><i class="fa-regular fa-bookmark"></i></a>
+                        <a class="btn-account-mobile-nav" asp-controller="Auth" asp-action="SignOut"><i class="fa-regular fa-arrow-left-from-bracket"></i></a>
                     </nav>
                 </aside>
 

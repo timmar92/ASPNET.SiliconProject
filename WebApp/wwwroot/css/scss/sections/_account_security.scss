@@ -4,8 +4,14 @@
 
 #account-security {
     background: var(--color-gray-000);
+    text-align: center;
 
-    .basic-info-security {
+    @include xl {
+        text-align: start;
+    }
+
+    .change-password {
+
 
         form {
             padding: 1rem;
@@ -15,10 +21,18 @@
             }
 
             .content {
-                display: grid;
-                gap: 1rem 2rem;
-                grid-template-columns: 1fr 1fr;
-                grid-template-areas: "current-password ." "new-password confirm-password" "buttons buttons";
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+
+                @include xl {
+                    display: grid;
+                    gap: 1rem 2rem;
+                    grid-template-columns: 1fr 1fr;
+                    grid-template-areas: "current-password ." "new-password confirm-password" "buttons buttons";
+                }
+
 
 
                 #form-current-password {
@@ -51,5 +65,26 @@
             }
         }
     }
-}
 
+    .delete-account {
+
+        .delete-header {
+            h2 {
+                @include h3;
+                color: var(--color-theme);
+            }
+        }
+
+        form {
+            
+            .btn-youtube {
+                margin-top: 20px;
+
+                @include xl {
+                    display: inline-block;
+                    width: 160px;
+                }
+            }
+        }
+    }
+}

@@ -13,7 +13,7 @@
 
         <div id="menu">
             <nav>
-                <a class="menu-link" href="#overview">Overview</a>
+                <a class="menu-link" asp-controller="Home" asp-action="Index" asp-fragment="overview">Overview</a>
 
                 @if (_signInManager.IsSignedIn(User))
                 {
@@ -21,7 +21,7 @@
                 }
                 else
                 {
-                    <a class="menu-link" href="#features">Features</a>
+                    <a class="menu-link" asp-controller="Home" asp-action="Index" asp-fragment="Features">Features</a>
                 }
                 <a class="menu-link" asp-controller="Contact" asp-action="Contact">Contact</a>
             </nav>
@@ -49,8 +49,46 @@
             }
         </div>
 
-        <button class="btn-mobilemenu">
+        <button class="btn-mobilemenu" id="btn-mobilemenu">
             <i class="fa-regular fa-bars"></i>
         </button>
+
+
+    </div>
+
+    <div id="mobile-menu">
+        <nav>
+            <a class="menu-link" asp-controller="Home" asp-action="Index" asp-fragment="overview">Overview</a>
+
+            @if (_signInManager.IsSignedIn(User))
+            {
+                <a class="menu-link" asp-controller="Courses" asp-action="Index">Courses</a>
+            }
+            else
+            {
+                <a class="menu-link" asp-controller="Home" asp-action="Index" asp-fragment="Features">Features</a>
+            }
+            <a class="menu-link" asp-controller="Contact" asp-action="Contact">Contact</a>
+
+            @if (_signInManager.IsSignedIn(User))
+            {
+                <a class="account-shortcut" asp-controller="Account" asp-action="Details"><img src="/uploads/@user!.ProfileImage" alt="profile image" /></a>
+                <a class="menu-link" asp-controller="Auth" asp-action="SignOut">Sign Out</a>
+            }
+            else
+            {
+                <a class="menu-link" asp-controller="Auth" asp-action="SignIn">Sign In</a>
+                <a class="menu-link" asp-controller="Auth" asp-action="SignUp">Sign Up</a>
+            }
+
+            <div class="btn-switch">
+                <label>Light</label>
+                <label class="switch" for="mobile-switch-mode">
+                    <input type="checkbox" id="mobile-switch-mode" checked="@isDark" />
+                    <span class="slider round"></span>
+                </label>
+                <label>Dark</label>
+            </div>
+        </nav>
     </div>
 </header>

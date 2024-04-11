@@ -1,4 +1,13 @@
 ﻿<section id="showcase" class="showcase">
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="error">
+            <p class="tempdata-message">@TempData["ErrorMessage"]!.ToString()</p>
+        </div>
+    }
+
+
+
     <img class="background-image" src="/images/showcase-image.svg" alt="background image of a dashboard">
     <div class="container">
         <div class="content">

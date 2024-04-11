@@ -32,6 +32,12 @@ public class CoursesController : Controller
     public async Task<IActionResult> Index(string category = "", string searchQuery = "", int pageNumber = 1, int pageSize = 6)
     {
         var courseResult = await _courseService.GetCoursesAsync(category, searchQuery, pageNumber, pageSize);
+        if (courseResult == null)
+        {
+            TempData["ErrorMessage"] = "API is not responding";
+            return RedirectToAction("Index", "Home");
+        }
+
 
         var viewModel = new CourseIndexViewModel
         {

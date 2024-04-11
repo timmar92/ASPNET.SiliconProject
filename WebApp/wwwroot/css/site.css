@@ -498,6 +498,33 @@ a:hover {
   border: none;
 }
 
+.btn-account-mobile-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: var(--color-gray-800);
+  transition: ease-in-out 0.3s;
+}
+.btn-account-mobile-nav:hover {
+  transform: scale(1.3);
+  text-decoration: none;
+  background: var(--color-gray-700);
+  color: var(--color-white);
+}
+.btn-account-mobile-nav.active {
+  background: var(--color-theme);
+  color: var(--color-white);
+  padding-top: 10px;
+  padding-bottom: 13px;
+  border: none;
+}
+
 .btn-switch {
   display: flex;
   align-items: center;
@@ -777,6 +804,13 @@ form span.field-validation-error::after {
 .cookie-alert .error-message {
   background-color: var(--color-danger);
 }
+.cookie-alert .tempdata-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--color-white);
+}
 
 .contact-header {
   background-color: var(--color-gray-100);
@@ -785,6 +819,7 @@ form span.field-validation-error::after {
 header {
   padding: 15px 0;
   background-color: var(--color-gray-000);
+  position: relative;
 }
 header .container {
   display: grid;
@@ -851,17 +886,64 @@ header .container .account-buttons .account-shortcut:hover {
 header .container .btn-mobilemenu {
   grid-area: mobile;
   display: block;
+  transition: ease 0.3s;
 }
 @media (min-width: 992px) {
   header .container .btn-mobilemenu {
     display: none;
   }
 }
+header #mobile-menu {
+  opacity: 0;
+  visibility: hidden;
+  flex-direction: column;
+  background-color: var(--color-gray-100);
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.2s ease-in-out, opacity 0.3s ease-in-out, visibility 0s 0.3s;
+  box-shadow: 0px 4px 13px -2px rgba(19, 16, 34, 0.06), 0px 4.8px 24.4px -6px rgba(19, 16, 34, 0.1);
+}
+header #mobile-menu.open {
+  opacity: 1;
+  visibility: visible;
+  transform: scaleY(1);
+  transition: transform 0.2s ease-in-out, opacity 0.3s ease-in-out;
+}
+header #mobile-menu nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 15px;
+  width: 100%;
+}
+header #mobile-menu .account-shortcut img {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
 
 .showcase {
   position: relative;
   padding-bottom: 80px;
   background: var(--color-gray-000);
+}
+.showcase .error {
+  position: absolute;
+  right: 50%;
+  top: 30px;
+  background: var(--color-danger);
+  padding: 15px 15px 5px 15px;
+  border-radius: 5px;
+  transition: opacity 0.5s;
+  color: var(--color-white);
 }
 @media (min-width: 992px) {
   .showcase {
@@ -1030,6 +1112,7 @@ header .container .btn-mobilemenu {
   cursor: pointer;
   background: var(--color-gray-000);
   box-shadow: 0px 4px 9px -1px rgba(19, 16, 34, 0.03), 0px 4.4px 20px -1px rgba(19, 16, 34, 0.05);
+  text-decoration: none;
 }
 .features .container .tool-features .box img {
   padding: 10px;
@@ -3063,39 +3146,73 @@ footer .container .social-media {
 #account-layout {
   background: var(--color-gray-000);
 }
-#account-layout .container {
-  display: grid;
-  grid-template-columns: 2fr 5fr;
-  gap: 100px;
-  padding-bottom: 70px;
-  background: var(--color-gray-000);
+@media (min-width: 1200px) {
+  #account-layout .container {
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+    gap: 100px;
+    padding-bottom: 70px;
+    background: var(--color-gray-000);
+  }
 }
 #account-layout .container aside {
-  padding-top: 40px;
-  border-right: 1px solid var(--color-gray-300);
-  padding-right: 20px;
-  background: var(--color-gray-000);
+  border-bottom: 1px solid var(--color-gray-300);
 }
-#account-layout .container aside nav {
+@media (min-width: 1200px) {
+  #account-layout .container aside {
+    padding-top: 40px;
+    border-right: 1px solid var(--color-gray-300);
+    padding-right: 20px;
+    background: var(--color-gray-000);
+    border-bottom: none;
+  }
+}
+#account-layout .container aside .account-nav {
   margin-top: 50px;
   text-align: left;
 }
-#account-layout .container aside nav a {
-  margin: 10px 0;
-  text-align: left;
-  justify-content: flex-start;
+#account-layout .container aside .account-nav .btn-account-nav {
+  display: none;
 }
-#account-layout .container aside nav .btn-theme-s {
-  text-align: left;
-  justify-content: flex-start;
+#account-layout .container aside .account-nav .btn-account-nav i {
+  margin-right: 10px;
 }
-
+@media (min-width: 1200px) {
+  #account-layout .container aside .account-nav .btn-account-nav {
+    display: block;
+    margin: 10px 0;
+    text-align: left;
+    justify-content: flex-start;
+  }
+}
+@media (min-width: 1200px) {
+  #account-layout .container aside .account-nav .btn-theme-s {
+    text-align: left;
+    justify-content: flex-start;
+  }
+}
+#account-layout .container aside .account-mobile-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding-bottom: 30px;
+}
+@media (min-width: 1200px) {
+  #account-layout .container aside .account-mobile-nav {
+    display: none;
+  }
+}
+#account-profileinfo {
+  padding-top: 30px;
+}
 #account-profileinfo .profile {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 #account-profileinfo .profile .image {
   border-radius: 50%;
@@ -3109,10 +3226,21 @@ footer .container .social-media {
 #account-profileinfo .profile form {
   position: absolute;
   z-index: 1;
-  left: 190px;
+  left: 60%;
   bottom: 0;
 }
+@media (min-width: 992px) {
+  #account-profileinfo .profile form {
+    left: 54%;
+  }
+}
+@media (min-width: 1200px) {
+  #account-profileinfo .profile form {
+    left: 60%;
+  }
+}
 #account-profileinfo .info {
+  padding-top: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -3122,7 +3250,7 @@ footer .container .social-media {
 #account-details {
   background: var(--color-gray-000);
 }
-#account-details .container .error-message {
+#account-details .error-message {
   padding: 10px 40px;
   color: var(--color-gray-800);
   background-color: var(--color-weak-danger);
@@ -3132,79 +3260,124 @@ footer .container .social-media {
   align-items: center;
   border-radius: 8px;
 }
-#account-details .container .details {
+#account-details .details {
   margin-top: 50px;
   width: 100%;
 }
-#account-details .container .details .basic-info form {
+#account-details .details .basic-info form {
   padding: 1rem;
 }
-#account-details .container .details .basic-info form h5 {
+#account-details .details .basic-info form input[disabled] {
+  background-color: var(--color-white);
+  border-color: var(--color-gray-400);
+}
+#account-details .details .basic-info form h2 {
+  text-align: center;
+}
+@media (min-width: 1200px) {
+  #account-details .details .basic-info form h2 {
+    text-align: start;
+  }
+}
+#account-details .details .basic-info form h5 {
   color: var(--color-theme);
+  text-align: center;
 }
-#account-details .container .details .basic-info form .content {
-  display: grid;
-  gap: 1rem 2rem;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas: "firstname lastname" "email phone" "bio bio" "buttons buttons";
+@media (min-width: 1200px) {
+  #account-details .details .basic-info form h5 {
+    text-align: start;
+  }
 }
-#account-details .container .details .basic-info form .content #form-firstname {
+#account-details .details .basic-info form .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 15px;
+}
+@media (min-width: 1200px) {
+  #account-details .details .basic-info form .content {
+    display: grid;
+    gap: 1rem 2rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "firstname lastname" "email phone" "bio bio" "buttons buttons";
+    text-align: start;
+  }
+}
+#account-details .details .basic-info form .content #form-firstname {
   grid-area: firstname;
 }
-#account-details .container .details .basic-info form .content #form-lastname {
+#account-details .details .basic-info form .content #form-lastname {
   grid-area: lastname;
 }
-#account-details .container .details .basic-info form .content #form-email {
+#account-details .details .basic-info form .content #form-email {
   grid-area: email;
 }
-#account-details .container .details .basic-info form .content #form-phone {
+#account-details .details .basic-info form .content #form-phone {
   grid-area: phone;
 }
-#account-details .container .details .basic-info form .content #form-bio {
+#account-details .details .basic-info form .content #form-bio {
   grid-area: bio;
 }
-#account-details .container .details .basic-info form .content #form-bio span {
+#account-details .details .basic-info form .content #form-bio span {
   color: var(--color-gray-500);
   font-weight: 400;
 }
-#account-details .container .details .basic-info form .content .form-buttons {
+#account-details .details .basic-info form .content .form-buttons {
   grid-area: buttons;
   margin: 20px 0;
   display: flex;
   gap: 20px;
 }
-#account-details .container .details .address-info {
+#account-details .details .address-info {
   margin-top: 30px;
 }
-#account-details .container .details .address-info form {
+#account-details .details .address-info form {
   padding: 1rem;
 }
-#account-details .container .details .address-info form h5 {
+#account-details .details .address-info form h5 {
   color: var(--color-theme);
+  text-align: center;
 }
-#account-details .container .details .address-info form .content {
-  display: grid;
-  gap: 1rem 2rem;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas: "addressline_1 addressline_1" "addressline_2 addressline_2" "postalcode city" "buttons buttons";
+@media (min-width: 1200px) {
+  #account-details .details .address-info form h5 {
+    text-align: start;
+  }
 }
-#account-details .container .details .address-info form .content #form-addressline-1 {
+#account-details .details .address-info form .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+@media (min-width: 1200px) {
+  #account-details .details .address-info form .content {
+    display: grid;
+    gap: 1rem 2rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "addressline_1 addressline_1" "addressline_2 addressline_2" "postalcode city" "buttons buttons";
+    text-align: start;
+  }
+}
+#account-details .details .address-info form .content #form-addressline-1 {
   grid-area: addressline_1;
 }
-#account-details .container .details .address-info form .content #form-addressline-2 {
+#account-details .details .address-info form .content #form-addressline-2 {
   grid-area: addressline_2;
 }
-#account-details .container .details .address-info form .content #form-addressline-2 span {
+#account-details .details .address-info form .content #form-addressline-2 span {
   color: var(--color-gray-500);
   font-weight: 400;
 }
-#account-details .container .details .address-info form .content #form-postalcode {
+#account-details .details .address-info form .content #form-postalcode {
   grid-area: postalcode;
 }
-#account-details .container .details .address-info form .content #form-city {
+#account-details .details .address-info form .content #form-city {
   grid-area: city;
 }
-#account-details .container .details .address-info form .content .form-buttons {
+#account-details .details .address-info form .content .form-buttons {
   grid-area: buttons;
   margin: 20px 0;
   display: flex;
@@ -3213,40 +3386,73 @@ footer .container .social-media {
 
 #account-security {
   background: var(--color-gray-000);
+  text-align: center;
 }
-#account-security .basic-info-security form {
+@media (min-width: 1200px) {
+  #account-security {
+    text-align: start;
+  }
+}
+#account-security .change-password form {
   padding: 1rem;
 }
-#account-security .basic-info-security form h5 {
+#account-security .change-password form h5 {
   color: var(--color-theme);
 }
-#account-security .basic-info-security form .content {
-  display: grid;
-  gap: 1rem 2rem;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas: "current-password ." "new-password confirm-password" "buttons buttons";
+#account-security .change-password form .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
 }
-#account-security .basic-info-security form .content #form-current-password {
+@media (min-width: 1200px) {
+  #account-security .change-password form .content {
+    display: grid;
+    gap: 1rem 2rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "current-password ." "new-password confirm-password" "buttons buttons";
+  }
+}
+#account-security .change-password form .content #form-current-password {
   grid-area: current-password;
 }
-#account-security .basic-info-security form .content #form-new-password {
+#account-security .change-password form .content #form-new-password {
   grid-area: new-password;
 }
-#account-security .basic-info-security form .content #form-confirm-password {
+#account-security .change-password form .content #form-confirm-password {
   grid-area: confirm-password;
 }
-#account-security .basic-info-security form .content #form-bio {
+#account-security .change-password form .content #form-bio {
   grid-area: bio;
 }
-#account-security .basic-info-security form .content #form-bio span {
+#account-security .change-password form .content #form-bio span {
   color: var(--color-gray-500);
   font-weight: 400;
 }
-#account-security .basic-info-security form .content .form-buttons {
+#account-security .change-password form .content .form-buttons {
   grid-area: buttons;
   margin: 20px 0;
   display: flex;
   gap: 20px;
+}
+#account-security .delete-account .delete-header h2 {
+  line-height: 160%;
+  font-weight: 400;
+  color: var(--color-gray-700);
+  font-family: "Manrope", sans-serif;
+  font-weight: 800;
+  color: var(--color-gray-900);
+  font-size: 28px !important;
+  color: var(--color-theme);
+}
+#account-security .delete-account form .btn-youtube {
+  margin-top: 20px;
+}
+@media (min-width: 1200px) {
+  #account-security .delete-account form .btn-youtube {
+    display: inline-block;
+    width: 160px;
+  }
 }
 
 #account-saved-courses {

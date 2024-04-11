@@ -2,33 +2,70 @@
     background: var(--color-gray-000);
 
     .container {
-        display: grid;
-        grid-template-columns: 2fr 5fr;
-        gap: 100px;
-        padding-bottom: 70px;
-        background: var(--color-gray-000);
+
+
+        @include xl {
+            display: grid;
+            grid-template-columns: 2fr 5fr;
+            gap: 100px;
+            padding-bottom: 70px;
+            background: var(--color-gray-000);
+        }
 
         aside {
-            padding-top: 40px;
-            border-right: 1px solid var(--color-gray-300);
-            padding-right: 20px;
-            background: var(--color-gray-000);
+            border-bottom: 1px solid var(--color-gray-300);
 
-            nav {
+            @include xl {
+                padding-top: 40px;
+                border-right: 1px solid var(--color-gray-300);
+                padding-right: 20px;
+                background: var(--color-gray-000);
+                border-bottom: none;
+            }
+
+
+            .account-nav {
                 margin-top: 50px;
                 text-align: left;
 
-                a {
-                    margin: 10px 0;
-                    text-align: left;
-                    justify-content: flex-start;
+                .btn-account-nav {
+                    display: none;
+
+                    i{
+                        margin-right: 10px;
+                    }
+
+                    @include xl {
+                        display: block;
+                        margin: 10px 0;
+                        text-align: left;
+                        justify-content: flex-start;
+                    }
                 }
 
                 .btn-theme-s {
-                    text-align: left;
-                    justify-content: flex-start;
+
+                    @include xl {
+                        text-align: left;
+                        justify-content: flex-start;
+                    }
                 }
             }
+
+            .account-mobile-nav {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 15px;
+                padding-bottom: 30px;
+
+                @include xl {
+                    display: none;
+                }
+            }
+        }
+
+        main {
         }
     }
 }
