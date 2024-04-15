@@ -43,7 +43,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-
     selectAndSearch();
 
     handleUpload();
@@ -138,13 +137,15 @@ function updateCoursesByFilter() {
 
 
 function hideTempDataMessage() {
-    let tempDataMessage = document.querySelector('.tempdata-message');
-    if (tempDataMessage) {
+    let tempDataMessages = document.querySelectorAll('.tempdata-message');
+    tempDataMessages.forEach(tempDataMessage => {
         let parentDiv = tempDataMessage.parentElement;
-        if (parentDiv && parentDiv.classList.contains('error')) {
+        if (parentDiv && (parentDiv.classList.contains('error') || parentDiv.classList.contains('success'))) {
             setTimeout(function () {
                 parentDiv.style.opacity = '0';
             }, 3000);
         }
-    }
+    });
 }
+
+

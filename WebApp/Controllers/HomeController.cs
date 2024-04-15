@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 using WebApp.ViewModels.Newsletter;
 
 namespace WebApp.Controllers;
@@ -31,13 +32,13 @@ public class HomeController : Controller
 
         if (!viewModel.AtLeastOneCheckbox)
         {
-            TempData["Error"] = "You must select at least one checkbox.";
+            TempData["ErrorMessage"] = "You must select at least one checkbox.";
             return new RedirectResult(Url.Action("Index", "Home") + "#newsletter");
         }
 
         if (!ModelState.IsValid)
         {
-            TempData["Error"] = "you must fill out the form correctly";
+            TempData["ErrorMessage"] = "you must fill out the form correctly";
             return new RedirectResult(Url.Action("Index", "Home") + "#newsletter");
         }
 
@@ -45,7 +46,12 @@ public class HomeController : Controller
 
         if (response.IsSuccessStatusCode)
         {
-            TempData["Success"] = "You have successfully subscribed!";
+            TempData["SuccessMessage"] = "You have successfully subscribed!";
+            return new RedirectResult(Url.Action("Index", "Home") + "#newsletter");
+        }
+        if (response.StatusCode == HttpStatusCode.Conflict)
+        {
+            TempData["ErrorMessage"] = "You are already subscribed";
             return new RedirectResult(Url.Action("Index", "Home") + "#newsletter");
         }
 

@@ -59,13 +59,17 @@
                 <button id="form-button" class="btn-theme" type="submit">Subscribe<span>*</span></button>
 
             </div>
-            @if (TempData["Error"] != null)
+            @if (TempData["ErrorMessage"] != null)
             {
-                <p class="alert">@TempData["Error"]</p>
+                <div class="error">
+                    <p class="tempdata-message">@TempData["ErrorMessage"]!.ToString()</p>
+                </div>
             }
-            else if (TempData["Success"] != null)
+            else if (TempData["SuccessMessage"] != null)
             {
-                <p class="success">@TempData["Success"]</p>
+                <div class="success">
+                    <p class="tempdata-message">@TempData["SuccessMessage"]!.ToString()</p>
+                </div>
             }
             else
             {

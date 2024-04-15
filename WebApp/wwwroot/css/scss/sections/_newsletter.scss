@@ -177,6 +177,30 @@
                     }
                 }
             }
+
+            .error {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                background-color: var(--color-danger);
+                padding: 15px 15px 5px 15px;
+                border-radius: 5px;
+                transition: opacity 0.5s;
+                color: var(--color-white);
+            }
+
+            .success {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                background-color: var(--color-success);
+                padding: 15px 15px 5px 15px;
+                border-radius: 5px;
+                transition: opacity 0.5s;
+                color: var(--color-white);
+            }
         }
     }
 }
