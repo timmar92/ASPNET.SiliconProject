@@ -138,9 +138,6 @@
             display: grid;
             text-align: center;
 
-            input {
-                background-color: var(--color-gray-000);
-            }
 
             @include xl {
                 text-align: start;
@@ -164,9 +161,6 @@
             text-align: center;
             margin-top: 20px;
 
-            input {
-                background-color: var(--color-gray-000);
-            }
 
             @include xl {
                 text-align: start;
@@ -191,8 +185,8 @@
             margin-top: 20px;
 
             select {
-                background-color: var(--color-gray-000);
-                color: var(--color-gray-900);
+                background-color: var(--color-white);
+                color: rgba(128, 128, 128, 0.5);
             }
 
             @include xl {
@@ -213,7 +207,6 @@
 
                 textarea {
                     height: 250px;
-                    background-color: var(--color-gray-000);
                 }
             }
 
@@ -241,6 +234,13 @@
         }
 
         .error {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 10px;
+            background-color: var(--color-weak-danger);
+            border: 1px solid var(--color-danger);
+            border-radius: 8px;
             color: var(--color-danger);
             margin-top: 20px;
             text-align: center;
@@ -248,7 +248,14 @@
         }
 
         .success {
-            color: var(--color-success);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 10px;
+            background-color: var(--color-weak-success);
+            border: 1px solid var(--color-success);
+            border-radius: 8px;
+            color: var(--color-black);
             margin-top: 20px;
             text-align: center;
             font-size: 1rem
